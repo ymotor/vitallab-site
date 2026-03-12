@@ -123,55 +123,57 @@
       </section>
 
       <section class="section">
-        <form action="https://formspree.io/f/myknwqkr" method="POST">
-          <div data-lang="ja" class="show">
-            <label>
-              お名前
-              <input type="text" name="name" required>
-            </label>
+  <form action="https://formspree.io/f/myknwqkr" method="POST">
+    <input type="hidden" name="_subject" value="SwimLog+ Contact">
+    <input type="hidden" name="_next" value="https://vitalintlab.com/swimlog/contact.html?submitted=1">
 
-            <label>
-              メールアドレス
-              <input type="email" name="email" required>
-            </label>
+    <div data-lang="ja" class="show">
+      <label>
+        お名前
+        <input type="text" name="name" required>
+      </label>
 
-            <label>
-              内容
-              <textarea name="message" required></textarea>
-            </label>
+      <label>
+        メールアドレス
+        <input type="email" name="email" required>
+      </label>
 
-            <button class="submitBtn" type="submit">送信</button>
+      <label>
+        内容
+        <textarea name="message" required></textarea>
+      </label>
 
-            <p class="note">
-              
-            </p>
-          </div>
+      <button class="submitBtn" type="submit">送信</button>
 
-          <div data-lang="en">
-            <label>
-              Name
-              <input type="text" name="name" required>
-            </label>
+      <p class="note">
+        送信後、初回は Formspree 側の確認メールが必要な場合があります。
+      </p>
+    </div>
 
-            <label>
-              Email
-              <input type="email" name="email" required>
-            </label>
+    <div data-lang="en">
+      <label>
+        Name
+        <input type="text" name="name" required>
+      </label>
 
-            <label>
-              Message
-              <textarea name="message" required></textarea>
-            </label>
+      <label>
+        Email
+        <input type="email" name="email" required>
+      </label>
 
-            <button class="submitBtn" type="submit">Send</button>
+      <label>
+        Message
+        <textarea name="message" required></textarea>
+      </label>
 
-            <p class="note">
-              Submission becomes active after Formspree is connected.<br>
-              Replace the action URL with your Formspree endpoint.
-            </p>
-          </div>
-        </form>
-      </section>
+      <button class="submitBtn" type="submit">Send</button>
+
+      <p class="note">
+        On first use, Formspree may require email confirmation to activate the form.
+      </p>
+    </div>
+  </form>
+</section>
 
       <footer>
         <div>© <span id="year"></span> Vital Intelligence Lab</div>
