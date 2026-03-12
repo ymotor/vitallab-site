@@ -1,0 +1,803 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SwimLog+ | Vital Intelligence Lab</title>
+  <meta name="description" content="SwimLog+ — 水泳トレーニングの記録・分析・フォーム確認アプリ。" />
+  <meta name="theme-color" content="#0b1220" />
+
+  <link rel="icon" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <meta property="og:title" content="SwimLog+ | Vital Intelligence Lab" />
+  <meta property="og:description" content="Log your swims. Review your training. Improve your technique." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vitalintlab.com/swimlog/" />
+  <meta property="og:image" content="https://vitalintlab.com/assets/swimlog/1.png" />
+
+  <style>
+    :root{
+      --bg0:#070b13;
+      --bg1:#0b1220;
+      --card:rgba(255,255,255,.06);
+      --card2:rgba(255,255,255,.09);
+      --text:#eaf0ff;
+      --muted:rgba(234,240,255,.72);
+      --line:rgba(255,255,255,.10);
+      --accent:#4dd0ff;
+      --accent2:#7cffc6;
+      --shadow:0 20px 60px rgba(0,0,0,.35);
+      --radius:18px;
+      --radius2:26px;
+      --max:1120px;
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 15% 8%, rgba(77,208,255,.18), transparent 60%),
+        radial-gradient(1000px 620px at 85% 18%, rgba(124,255,198,.12), transparent 58%),
+        radial-gradient(900px 540px at 52% 96%, rgba(77,208,255,.08), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      letter-spacing:.2px;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:28px 18px 64px;
+    }
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:10px 4px 22px;
+      flex-wrap:wrap;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+
+    .mark{
+      width:46px;
+      height:46px;
+      border-radius:14px;
+      background:linear-gradient(135deg, rgba(77,208,255,.95), rgba(124,255,198,.85));
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+      flex:0 0 auto;
+    }
+
+    .mark:before{
+      content:"";
+      position:absolute;
+      inset:-40%;
+      background:radial-gradient(circle at 30% 30%, rgba(255,255,255,.72), transparent 55%);
+      transform:rotate(20deg);
+    }
+
+    .brand h1{
+      margin:0;
+      font-size:16px;
+      line-height:1.12;
+      letter-spacing:.7px;
+    }
+
+    .brand span{
+      display:block;
+      margin-top:4px;
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    .navRow{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .pill{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:12px;
+      color:var(--muted);
+      transition:.18s ease;
+    }
+
+    .pill:hover{
+      background:rgba(255,255,255,.08);
+      color:var(--text);
+      transform:translateY(-1px);
+    }
+
+    .langToggle{
+      display:flex;
+      gap:8px;
+    }
+
+    .langBtn{
+      cursor:pointer;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      color:var(--text);
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:12px;
+      transition:.18s ease;
+    }
+
+    .langBtn.active{
+      background:rgba(255,255,255,.12);
+    }
+
+    .hero{
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+      border-radius:var(--radius2);
+      padding:30px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .hero:after{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(620px 250px at 18% 0%, rgba(77,208,255,.14), transparent 60%),
+        radial-gradient(500px 240px at 98% 14%, rgba(124,255,198,.10), transparent 55%);
+      pointer-events:none;
+    }
+
+    .heroGrid{
+      position:relative;
+      display:grid;
+      grid-template-columns:1.15fr .95fr;
+      gap:20px;
+    }
+
+    @media (max-width: 900px){
+      .heroGrid{ grid-template-columns:1fr; }
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size:11px;
+      color:var(--muted);
+      border:1px solid rgba(255,255,255,.12);
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(255,255,255,.04);
+    }
+
+    .title{
+      margin:14px 0 0;
+      font-size:48px;
+      line-height:1.04;
+      letter-spacing:.4px;
+    }
+
+    @media (max-width: 560px){
+      .title{ font-size:38px; }
+    }
+
+    .subtitle{
+      margin:14px 0 0;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.78;
+      max-width:64ch;
+    }
+
+    .ctaRow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:11px 15px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.05);
+      font-size:13px;
+      transition:.18s ease;
+    }
+
+    .btn:hover{
+      transform:translateY(-1px);
+      background:rgba(255,255,255,.08);
+    }
+
+    .btnPrimary{
+      border:none;
+      background:linear-gradient(135deg, rgba(77,208,255,.95), rgba(124,255,198,.85));
+      color:#07101b;
+      font-weight:700;
+    }
+
+    .heroNote{
+      margin-top:16px;
+      border:1px dashed rgba(255,255,255,.18);
+      background:rgba(255,255,255,.04);
+      border-radius:16px;
+      padding:14px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.7;
+    }
+
+    .heroShot{
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.18);
+      border-radius:24px;
+      padding:14px;
+      align-self:start;
+    }
+
+    .heroShot img{
+      width:100%;
+      border-radius:18px;
+      display:block;
+    }
+
+    section{ margin-top:18px; }
+
+    .sectionCard{
+      border:1px solid var(--line);
+      background:var(--card);
+      border-radius:var(--radius2);
+      padding:20px;
+      box-shadow:0 18px 40px rgba(0,0,0,.22);
+    }
+
+    .sectionHead{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:14px;
+    }
+
+    .sectionHead h2{
+      margin:0;
+      font-size:20px;
+      letter-spacing:.3px;
+    }
+
+    .sectionHead p{
+      margin:6px 0 0;
+      font-size:13px;
+      color:var(--muted);
+      line-height:1.65;
+    }
+
+    .grid3{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:12px;
+    }
+
+    @media (max-width: 980px){
+      .grid3{ grid-template-columns:1fr; }
+    }
+
+    .card{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      border-radius:var(--radius);
+      padding:16px;
+    }
+
+    .card h3{
+      margin:0;
+      font-size:15px;
+      letter-spacing:.25px;
+    }
+
+    .card p{
+      margin:10px 0 0;
+      font-size:13px;
+      line-height:1.72;
+      color:var(--muted);
+    }
+
+    .tagRow{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+
+    .tag{
+      font-size:11px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      color:rgba(234,240,255,.78);
+    }
+
+    .featureList{
+      margin:12px 0 0;
+      padding-left:18px;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.82;
+    }
+
+    .featureList li+li{ margin-top:3px; }
+
+    .screens{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:12px;
+    }
+
+    @media (max-width: 980px){
+      .screens{ grid-template-columns:1fr; }
+    }
+
+    .screenCard{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      border-radius:18px;
+      padding:12px;
+    }
+
+    .screenCard img{
+      width:100%;
+      border-radius:14px;
+      display:block;
+    }
+
+    .screenTitle{
+      margin-top:10px;
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .proBox{
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.04));
+      border-radius:22px;
+      padding:18px;
+    }
+
+    .note{
+      margin-top:14px;
+      border:1px dashed rgba(255,255,255,.18);
+      background:rgba(255,255,255,.04);
+      border-radius:16px;
+      padding:14px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.7;
+    }
+
+    footer{
+      margin-top:22px;
+      padding:18px 6px 0;
+      color:rgba(234,240,255,.55);
+      font-size:12px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .links{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .links a{
+      color:rgba(234,240,255,.65);
+      border-bottom:1px solid rgba(234,240,255,.12);
+    }
+
+    .links a:hover{
+      color:var(--text);
+      border-bottom-color:rgba(234,240,255,.35);
+    }
+
+    .mono{
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+    }
+
+    [data-lang]{ display:none; }
+    [data-lang].show{ display:block; }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="mark" aria-hidden="true"></div>
+        <div>
+          <h1>SwimLog+</h1>
+          <span>Vital Intelligence Lab</span>
+        </div>
+      </div>
+
+      <div class="navRow">
+        <nav>
+          <a class="pill" href="#features">Features</a>
+          <a class="pill" href="#screens">Screens</a>
+          <a class="pill" href="#pro">Pro</a>
+          <a class="pill" href="/swimlog/support.html">Support</a>
+          <a class="pill" href="/swimlog/privacy.html">Privacy</a>
+        </nav>
+
+        <div class="langToggle" aria-label="Language switch">
+          <button class="langBtn active" onclick="setLang('ja')">日本語</button>
+          <button class="langBtn" onclick="setLang('en')">EN</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-label="Hero">
+        <div class="heroGrid">
+          <div>
+            <div class="eyebrow">Swim / Training / Insights</div>
+
+            <div data-lang="ja" class="show">
+              <h2 class="title">楽しく、無理せず、<br>美しく、健康に泳ごう。</h2>
+              <p class="subtitle">
+                SwimLog+ は、水泳トレーニングの記録・振り返り・分析・フォーム確認を
+                1つにまとめたアプリです。<br>
+                距離、種目、レッスン、主観強度、気になるポイントまで記録し、
+                自分の泳ぎをわかりやすく可視化できます。
+              </p>
+
+              <div class="ctaRow">
+                <a class="btn btnPrimary" href="#" aria-label="App Store link dummy">App Store（ダミー）</a>
+                <a class="btn" href="#screens">スクリーンを見る</a>
+                <a class="btn" href="/swimlog/contact.html">お問い合わせ</a>
+              </div>
+
+              <div class="heroNote">
+                <b>現在の位置づけ：</b> SwimLog+ は Vital Intelligence Lab における
+                健康・運動指向系プロダクトの第一弾です。<br>
+                今後、Beauty Log+ や他の分析系アプリへも拡張予定です。
+              </div>
+            </div>
+
+            <div data-lang="en">
+              <h2 class="title">Swim with joy,<br>without overdoing it.</h2>
+              <p class="subtitle">
+                SwimLog+ is a lightweight app for logging, reviewing, analyzing,
+                and improving your swim training.<br>
+                Track distance, stroke sets, lessons, perceived effort, and focus points,
+                then review your progress in a clear and practical way.
+              </p>
+
+              <div class="ctaRow">
+                <a class="btn btnPrimary" href="#" aria-label="App Store link dummy">App Store (dummy)</a>
+                <a class="btn" href="#screens">See screenshots</a>
+                <a class="btn" href="/swimlog/contact.html">Contact</a>
+              </div>
+
+              <div class="heroNote">
+                <b>Positioning:</b> SwimLog+ is the first health & movement product under Vital Intelligence Lab,
+                with future expansion planned for Beauty Log+ and other analytics-driven tools.
+              </div>
+            </div>
+          </div>
+
+          <div class="heroShot">
+            <img src="/assets/swimlog/1.png" alt="SwimLog+ Home screenshot" />
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="sectionCard">
+        <div class="sectionHead">
+          <div>
+            <h2 data-lang="ja" class="show">主な機能</h2>
+            <h2 data-lang="en">Core Features</h2>
+
+            <p data-lang="ja" class="show">
+              距離記録だけで終わらず、継続・振り返り・フォーム確認までつなげる構成です。
+            </p>
+            <p data-lang="en">
+              More than just distance logging — built to support consistency, review, and technique awareness.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid3">
+          <div class="card">
+            <h3 data-lang="ja" class="show">トレーニング記録</h3>
+            <h3 data-lang="en">Training Log</h3>
+
+            <p data-lang="ja" class="show">
+              総距離でも、種目別セットでも記録可能。レッスン日、主観強度（RPE）、気になるポイントも残せます。
+            </p>
+            <p data-lang="en">
+              Log either total distance or stroke-based sets. Also record lesson days, perceived effort (RPE), and focus points.
+            </p>
+
+            <div class="tagRow">
+              <span class="tag">Distance</span>
+              <span class="tag">Sets</span>
+              <span class="tag">RPE</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 data-lang="ja" class="show">Calendar / 振り返り</h3>
+            <h3 data-lang="en">Calendar & Review</h3>
+
+            <p data-lang="ja" class="show">
+              練習日・日別記録・週間サマリーを確認。CSV出力にも対応し、継続の見える化をサポートします。
+            </p>
+            <p data-lang="en">
+              Review swim days, daily records, and weekly summaries. Export training data via CSV when needed.
+            </p>
+
+            <div class="tagRow">
+              <span class="tag">Calendar</span>
+              <span class="tag">Weekly Summary</span>
+              <span class="tag">CSV</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 data-lang="ja" class="show">Insights / フォーム動画</h3>
+            <h3 data-lang="en">Insights & Form Video</h3>
+
+            <p data-lang="ja" class="show">
+              総泳距離、継続日数、最長距離、楽に泳げる距離、RPE傾向などを確認。フォーム動画の再生・比較にも対応。
+            </p>
+            <p data-lang="en">
+              Track total distance, streaks, longest swim, comfort distance, and effort trends. Store and compare form videos.
+            </p>
+
+            <div class="tagRow">
+              <span class="tag">Insights</span>
+              <span class="tag">Video</span>
+              <span class="tag">Progress</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="screens" class="sectionCard">
+        <div class="sectionHead">
+          <div>
+            <h2 data-lang="ja" class="show">スクリーンショット</h2>
+            <h2 data-lang="en">Screenshots</h2>
+
+            <p data-lang="ja" class="show">
+              SwimLog+ の主要画面です。記録、カレンダー、フォーム確認、Insights、Pro分析まで確認できます。
+            </p>
+            <p data-lang="en">
+              Main screens of SwimLog+, covering logging, calendar review, form analysis, insights, and Pro analytics.
+            </p>
+          </div>
+        </div>
+
+        <div class="screens">
+          <div class="screenCard">
+            <img src="/assets/swimlog/1.png" alt="SwimLog Home" />
+            <div class="screenTitle" data-lang="ja" class="show">Home — 距離・レッスン・主観メモを記録</div>
+            <div class="screenTitle" data-lang="en">Home — Log distance, lessons, and effort</div>
+          </div>
+
+          <div class="screenCard">
+            <img src="/assets/swimlog/2.png" alt="SwimLog Calendar" />
+            <div class="screenTitle" data-lang="ja" class="show">Calendar — 練習日と記録を可視化</div>
+            <div class="screenTitle" data-lang="en">Calendar — Visualize swim days and records</div>
+          </div>
+
+          <div class="screenCard">
+            <img src="/assets/swimlog/3.jpeg" alt="SwimLog Form Compare" />
+            <div class="screenTitle" data-lang="ja" class="show">Form — 比較・スロー再生でフォーム確認</div>
+            <div class="screenTitle" data-lang="en">Form — Compare and review technique in slow motion</div>
+          </div>
+
+          <div class="screenCard">
+            <img src="/assets/swimlog/4.png" alt="SwimLog Insights" />
+            <div class="screenTitle" data-lang="ja" class="show">Insights — 今の状態と目指すものを分析</div>
+            <div class="screenTitle" data-lang="en">Insights — Understand your current state and goals</div>
+          </div>
+
+          <div class="screenCard">
+            <img src="/assets/swimlog/5.png" alt="SwimLog Pro" />
+            <div class="screenTitle" data-lang="ja" class="show">Pro — 種目別・日別の分析を強化</div>
+            <div class="screenTitle" data-lang="en">Pro — Advanced monthly and stroke-based analytics</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="pro" class="sectionCard">
+        <div class="sectionHead">
+          <div>
+            <h2 data-lang="ja" class="show">Pro 機能</h2>
+            <h2 data-lang="en">Pro Features</h2>
+
+            <p data-lang="ja" class="show">
+              より深く分析したい人向けに、月間分析・詳細CSV・フォーム比較機能を用意しています。
+            </p>
+            <p data-lang="en">
+              For swimmers who want deeper analysis, Pro unlocks monthly insights, detailed CSV export, and enhanced form comparison.
+            </p>
+          </div>
+        </div>
+
+        <div class="proBox">
+          <div class="grid3">
+            <div class="card">
+              <h3 data-lang="ja" class="show">月間分析</h3>
+              <h3 data-lang="en">Monthly Analysis</h3>
+              <p data-lang="ja" class="show">
+                月合計、泳いだ日数、種目別距離、日別グラフをまとめて確認できます。
+              </p>
+              <p data-lang="en">
+                Review monthly totals, swim days, stroke breakdown, and daily charts in one place.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3 data-lang="ja" class="show">詳細CSV</h3>
+              <h3 data-lang="en">Detailed CSV Export</h3>
+              <p data-lang="ja" class="show">
+                種目別内訳やコーチメモを含めた詳細データを書き出せます。
+              </p>
+              <p data-lang="en">
+                Export detailed CSV including stroke breakdown and coach notes.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3 data-lang="ja" class="show">フォーム比較</h3>
+              <h3 data-lang="en">Video Comparison</h3>
+              <p data-lang="ja" class="show">
+                スロー再生、上下2画面比較でフォームを見返せます。
+              </p>
+              <p data-lang="en">
+                Compare technique using slow motion and stacked two-screen playback.
+              </p>
+            </div>
+          </div>
+
+          <div class="note">
+            <span data-lang="ja" class="show">
+              <b>今後の予定：</b> Elite では AIフォーム解析、コーチ提案、傾向分析などの追加を予定しています。
+            </span>
+            <span data-lang="en">
+              <b>Coming next:</b> Elite will introduce AI form analysis, coaching suggestions, and deeper trend analysis.
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section class="sectionCard">
+        <div class="sectionHead">
+          <div>
+            <h2 data-lang="ja" class="show">サポートと公開情報</h2>
+            <h2 data-lang="en">Support & Policy</h2>
+
+            <p data-lang="ja" class="show">
+              アプリ内からは、以下の個別ページに直接遷移する想定です。
+            </p>
+            <p data-lang="en">
+              In-app links can point directly to the following dedicated pages.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid3">
+          <div class="card">
+            <h3>Support</h3>
+            <p data-lang="ja" class="show">使い方、FAQ、更新情報など。</p>
+            <p data-lang="en">Usage help, FAQ, and update information.</p>
+            <div class="ctaRow" style="margin-top:12px">
+              <a class="btn" href="/swimlog/support.html">/swimlog/support.html</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Privacy</h3>
+            <p data-lang="ja" class="show">プライバシーポリシー。</p>
+            <p data-lang="en">Privacy policy.</p>
+            <div class="ctaRow" style="margin-top:12px">
+              <a class="btn" href="/swimlog/privacy.html">/swimlog/privacy.html</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Contact</h3>
+            <p data-lang="ja" class="show">Formspree を利用した問い合わせフォーム。</p>
+            <p data-lang="en">Inquiry form powered by Formspree.</p>
+            <div class="ctaRow" style="margin-top:12px">
+              <a class="btn" href="/swimlog/contact.html">/swimlog/contact.html</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div>
+          <div class="mono">© <span id="year"></span> Vital Intelligence Lab</div>
+          <div style="margin-top:6px;">Hosted on GitHub Pages + Cloudflare</div>
+        </div>
+
+        <div class="links">
+          <a href="/">VIL Home</a>
+          <a href="/swimlog/privacy.html">Privacy</a>
+          <a href="/swimlog/terms.html">Terms</a>
+          <a href="/swimlog/support.html">Support</a>
+          <a href="/swimlog/contact.html">Contact</a>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    function setLang(lang){
+      document.querySelectorAll('[data-lang]').forEach(el => el.classList.remove('show'));
+      document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => el.classList.add('show'));
+
+      document.querySelectorAll('.langBtn').forEach(btn => btn.classList.remove('active'));
+      if(lang === 'ja'){
+        document.querySelectorAll('.langBtn')[0].classList.add('active');
+        document.documentElement.lang = 'ja';
+      } else {
+        document.querySelectorAll('.langBtn')[1].classList.add('active');
+        document.documentElement.lang = 'en';
+      }
+
+      localStorage.setItem('swimlog_lang', lang);
+    }
+
+    (function initLang(){
+      const saved = localStorage.getItem('swimlog_lang');
+      const browserLang = (navigator.language || '').toLowerCase();
+      const lang = saved || (browserLang.startsWith('ja') ? 'ja' : 'en');
+      setLang(lang);
+    })();
+
+    document.getElementById('year').textContent = String(new Date().getFullYear());
+  </script>
+</body>
+</html>
