@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SwimLog+ Privacy Policy | Vital Intelligence Lab</title>
+  <meta name="description" content="SwimLog+ のプライバシーポリシー" />
+  <meta name="theme-color" content="#0b1220" />
+  <link rel="icon" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <style>
+    :root{
+      --bg0:#070b13; --bg1:#0b1220; --card:rgba(255,255,255,.06);
+      --text:#eaf0ff; --muted:rgba(234,240,255,.72); --line:rgba(255,255,255,.10);
+      --shadow:0 20px 60px rgba(0,0,0,.35); --radius:18px; --radius2:26px; --max:980px;
+    }
+    *{ box-sizing:border-box; }
+    body{
+      margin:0; color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+      background:
+        radial-gradient(1200px 600px at 15% 8%, rgba(77,208,255,.18), transparent 60%),
+        radial-gradient(1000px 620px at 85% 18%, rgba(124,255,198,.12), transparent 58%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+    }
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ max-width:var(--max); margin:0 auto; padding:28px 18px 64px; }
+    header{
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+      padding:10px 4px 22px; flex-wrap:wrap;
+    }
+    .brand{ display:flex; align-items:center; gap:12px; }
+    .mark{
+      width:46px; height:46px; border-radius:14px;
+      background:linear-gradient(135deg, rgba(77,208,255,.95), rgba(124,255,198,.85));
+      box-shadow:var(--shadow);
+    }
+    .brand h1{ margin:0; font-size:16px; }
+    .brand span{ display:block; margin-top:4px; font-size:12px; color:var(--muted); }
+    .navRow,.linksRow,.langToggle{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+    .pill,.langBtn{
+      border:1px solid var(--line); background:rgba(255,255,255,.04);
+      padding:8px 12px; border-radius:999px; font-size:12px; color:var(--muted); cursor:pointer;
+    }
+    .langBtn.active{ background:rgba(255,255,255,.12); color:var(--text); }
+    .hero,.section{
+      border:1px solid var(--line); background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+      border-radius:var(--radius2); padding:28px; box-shadow:var(--shadow);
+    }
+    .section{ margin-top:18px; background:var(--card); padding:20px; }
+    .eyebrow{
+      display:inline-flex; font-size:11px; color:var(--muted);
+      border:1px solid rgba(255,255,255,.12); padding:6px 10px; border-radius:999px;
+      background:rgba(255,255,255,.04);
+    }
+    .title{ margin:14px 0 0; font-size:40px; line-height:1.08; }
+    .subtitle{ margin:14px 0 0; color:var(--muted); line-height:1.75; font-size:15px; }
+    h2{ margin:0 0 12px; font-size:20px; }
+    h3{ margin:16px 0 8px; font-size:15px; }
+    p, li{ color:var(--muted); line-height:1.8; font-size:14px; }
+    ul{ margin:8px 0 0 18px; padding:0; }
+    footer{
+      margin-top:22px; padding:18px 6px 0; color:rgba(234,240,255,.55);
+      font-size:12px; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    }
+    .links a{ color:rgba(234,240,255,.65); border-bottom:1px solid rgba(234,240,255,.12); }
+    [data-lang]{ display:none; }
+    [data-lang].show{ display:block; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="mark" aria-hidden="true"></div>
+        <div>
+          <h1>SwimLog+</h1>
+          <span>Vital Intelligence Lab</span>
+        </div>
+      </div>
+
+      <div class="navRow">
+        <a class="pill" href="/">VIL Home</a>
+        <a class="pill" href="/swimlog/">SwimLog+ Top</a>
+        <a class="pill" href="/swimlog/support.html">Support</a>
+        <a class="pill" href="/swimlog/contact.html">Contact</a>
+
+        <div class="langToggle">
+          <button class="langBtn active" onclick="setLang('ja')">日本語</button>
+          <button class="langBtn" onclick="setLang('en')">EN</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div data-lang="ja" class="show">
+          <div class="eyebrow">Privacy Policy</div>
+          <h2 class="title">SwimLog+ プライバシーポリシー</h2>
+          <p class="subtitle">
+            SwimLog+ は、ユーザーのトレーニング記録をわかりやすく管理するためのアプリです。
+            本ページでは、アプリで扱う情報とその取り扱い方針を説明します。
+          </p>
+        </div>
+
+        <div data-lang="en">
+          <div class="eyebrow">Privacy Policy</div>
+          <h2 class="title">SwimLog+ Privacy Policy</h2>
+          <p class="subtitle">
+            SwimLog+ is an app designed to help users manage their swim training records.
+            This page explains what information is handled and how it is treated.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div data-lang="ja" class="show">
+          <h2>1. 取得・保存する情報</h2>
+          <p>
+            SwimLog+ では、ユーザーが入力したトレーニング情報を扱います。これには、距離、セット内容、
+            レッスンメモ、主観強度（RPE）、気になるポイント、動画ファイルなどが含まれる場合があります。
+          </p>
+
+          <h2>2. 保存場所</h2>
+          <p>
+            現在の SwimLog+ は、主にユーザー端末内でデータを取り扱います。現時点では、これらの情報を
+            自動的に外部サーバーへ送信して恒常保存することを前提としていません。
+          </p>
+
+          <h2>3. 第三者提供</h2>
+          <p>
+            Vital Intelligence Lab は、ユーザーの個人情報やトレーニング情報を第三者へ販売・提供しません。
+            法令に基づく場合を除き、本人の同意なく第三者提供を行いません。
+          </p>
+
+          <h2>4. 問い合わせ情報</h2>
+          <p>
+            お問い合わせフォームから送信された情報は、サポート対応のために利用します。
+            迷惑メール対策および対応管理のため、フォームサービスを利用する場合があります。
+          </p>
+
+          <h2>5. 改定</h2>
+          <p>
+            本ポリシーは必要に応じて更新されることがあります。重要な変更がある場合は、Webページまたは
+            アプリ内で案内します。
+          </p>
+
+          <h2>6. 連絡先</h2>
+          <p>
+            お問い合わせは <a href="/swimlog/contact.html">Contactページ</a> からお願いします。
+          </p>
+        </div>
+
+        <div data-lang="en">
+          <h2>1. Information handled</h2>
+          <p>
+            SwimLog+ may handle training information entered by the user, including distance, sets,
+            lesson notes, perceived effort (RPE), focus points, and video files.
+          </p>
+
+          <h2>2. Storage</h2>
+          <p>
+            SwimLog+ currently handles data primarily on the user’s device. At this stage, the app is
+            not designed around automatic permanent storage of training records on external servers.
+          </p>
+
+          <h2>3. Third-party sharing</h2>
+          <p>
+            Vital Intelligence Lab does not sell or provide personal or training data to third parties,
+            except where required by law.
+          </p>
+
+          <h2>4. Contact information</h2>
+          <p>
+            Information submitted through the contact form is used only for support and inquiry handling.
+            External form services may be used for spam prevention and request management.
+          </p>
+
+          <h2>5. Updates</h2>
+          <p>
+            This policy may be updated when necessary. Important changes will be communicated on the website
+            or within the app.
+          </p>
+
+          <h2>6. Contact</h2>
+          <p>
+            Please use the <a href="/swimlog/contact.html">Contact page</a> for inquiries.
+          </p>
+        </div>
+      </section>
+
+      <footer>
+        <div>© <span id="year"></span> Vital Intelligence Lab</div>
+        <div class="linksRow links">
+          <a href="/">VIL Home</a>
+          <a href="/swimlog/">SwimLog+ Top</a>
+          <a href="/swimlog/terms.html">Terms</a>
+          <a href="/swimlog/contact.html">Contact</a>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    function setLang(lang){
+      document.querySelectorAll('[data-lang]').forEach(el => el.classList.remove('show'));
+      document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => el.classList.add('show'));
+
+      document.querySelectorAll('.langBtn').forEach(btn => btn.classList.remove('active'));
+      if(lang === 'ja'){
+        document.querySelectorAll('.langBtn')[0].classList.add('active');
+        document.documentElement.lang = 'ja';
+      } else {
+        document.querySelectorAll('.langBtn')[1].classList.add('active');
+        document.documentElement.lang = 'en';
+      }
+      localStorage.setItem('swimlog_privacy_lang', lang);
+    }
+
+    (function initLang(){
+      const saved = localStorage.getItem('swimlog_privacy_lang');
+      const browserLang = (navigator.language || '').toLowerCase();
+      setLang(saved || (browserLang.startsWith('ja') ? 'ja' : 'en'));
+    })();
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
