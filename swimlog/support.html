@@ -1,534 +1,427 @@
 <!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>SwimLog+ Support | Vital Intelligence Lab</title>
-  <meta name="description" content="SwimLog+ のサポートページ。FAQ、使い方、問い合わせ導線を案内します。" />
-  <meta name="theme-color" content="#0b1220" />
 
-  <link rel="icon" href="/favicon.png" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <style>
-    :root{
-      --bg0:#070b13;
-      --bg1:#0b1220;
-      --card:rgba(255,255,255,.06);
-      --text:#eaf0ff;
-      --muted:rgba(234,240,255,.72);
-      --line:rgba(255,255,255,.10);
-      --accent:#4dd0ff;
-      --accent2:#7cffc6;
-      --shadow:0 20px 60px rgba(0,0,0,.35);
-      --radius:18px;
-      --radius2:26px;
-      --max:980px;
-    }
+<title>SwimLog+ Contact | Vital Intelligence Lab</title>
 
-    *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
+<meta name="description" content="SwimLog+ のお問い合わせページ。質問、不具合報告、要望を受け付けています。">
+<meta name="theme-color" content="#0b1220">
 
-    body{
-      margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(1200px 600px at 15% 8%, rgba(77,208,255,.18), transparent 60%),
-        radial-gradient(1000px 620px at 85% 18%, rgba(124,255,198,.12), transparent 58%),
-        linear-gradient(180deg, var(--bg0), var(--bg1));
-      letter-spacing:.2px;
-    }
+<link rel="icon" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-    a{ color:inherit; text-decoration:none; }
+<style>
 
-    .wrap{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:28px 18px 64px;
-    }
+:root{
+--bg0:#070b13;
+--bg1:#0b1220;
+--card:rgba(255,255,255,.06);
+--text:#eaf0ff;
+--muted:rgba(234,240,255,.72);
+--line:rgba(255,255,255,.10);
+--shadow:0 20px 60px rgba(0,0,0,.35);
+--radius:18px;
+--radius2:26px;
+--max:880px;
+}
 
-    header{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      padding:10px 4px 22px;
-      flex-wrap:wrap;
-    }
+*{box-sizing:border-box;}
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-    }
+body{
+margin:0;
+color:var(--text);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
 
-    .mark{
-      width:46px;
-      height:46px;
-      border-radius:14px;
-      background:linear-gradient(135deg, rgba(77,208,255,.95), rgba(124,255,198,.85));
-      box-shadow:var(--shadow);
-      position:relative;
-      overflow:hidden;
-      flex:0 0 auto;
-    }
+background:
+radial-gradient(1200px 600px at 15% 8%, rgba(77,208,255,.18), transparent 60%),
+radial-gradient(1000px 620px at 85% 18%, rgba(124,255,198,.12), transparent 58%),
+linear-gradient(180deg,var(--bg0),var(--bg1));
+}
 
-    .mark:before{
-      content:"";
-      position:absolute;
-      inset:-40%;
-      background:radial-gradient(circle at 30% 30%, rgba(255,255,255,.72), transparent 55%);
-      transform:rotate(20deg);
-    }
+a{color:inherit;text-decoration:none;}
 
-    .brand h1{
-      margin:0;
-      font-size:16px;
-      line-height:1.12;
-      letter-spacing:.7px;
-    }
+.wrap{
+max-width:var(--max);
+margin:0 auto;
+padding:28px 18px 64px;
+}
 
-    .brand span{
-      display:block;
-      margin-top:4px;
-      font-size:12px;
-      color:var(--muted);
-    }
+header{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:14px;
+padding:10px 4px 22px;
+flex-wrap:wrap;
+}
 
-    .navRow{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
-    }
+.brand{
+display:flex;
+align-items:center;
+gap:12px;
+}
 
-    .pill{
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.04);
-      padding:8px 12px;
-      border-radius:999px;
-      font-size:12px;
-      color:var(--muted);
-      transition:.18s ease;
-    }
+.appIcon{
+width:46px;
+height:46px;
+border-radius:14px;
+object-fit:cover;
+box-shadow:var(--shadow);
+}
 
-    .pill:hover{
-      background:rgba(255,255,255,.08);
-      color:var(--text);
-    }
+.brand h1{
+margin:0;
+font-size:16px;
+}
 
-    .langToggle{
-      display:flex;
-      gap:8px;
-    }
+.brand span{
+display:block;
+margin-top:4px;
+font-size:12px;
+color:var(--muted);
+}
 
-    .langBtn{
-      cursor:pointer;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.04);
-      color:var(--text);
-      padding:8px 12px;
-      border-radius:999px;
-      font-size:12px;
-    }
+.navRow,.langToggle,.linksRow{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+align-items:center;
+}
 
-    .langBtn.active{
-      background:rgba(255,255,255,.12);
-    }
+.pill,.langBtn{
+border:1px solid var(--line);
+background:rgba(255,255,255,.04);
+padding:8px 12px;
+border-radius:999px;
+font-size:12px;
+color:var(--muted);
+cursor:pointer;
+}
 
-    .hero{
-      border:1px solid var(--line);
-      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
-      border-radius:var(--radius2);
-      padding:28px;
-      box-shadow:var(--shadow);
-    }
+.langBtn.active{
+background:rgba(255,255,255,.12);
+color:var(--text);
+}
 
-    .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      font-size:11px;
-      color:var(--muted);
-      border:1px solid rgba(255,255,255,.12);
-      padding:6px 10px;
-      border-radius:999px;
-      background:rgba(255,255,255,.04);
-    }
+.hero,.section{
+border:1px solid var(--line);
+background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.04));
+border-radius:var(--radius2);
+padding:28px;
+box-shadow:var(--shadow);
+}
 
-    .title{
-      margin:14px 0 0;
-      font-size:42px;
-      line-height:1.06;
-    }
+.section{
+margin-top:18px;
+background:var(--card);
+padding:20px;
+}
 
-    .subtitle{
-      margin:14px 0 0;
-      color:var(--muted);
-      font-size:15px;
-      line-height:1.75;
-      max-width:64ch;
-    }
+.eyebrow{
+display:inline-flex;
+font-size:11px;
+color:var(--muted);
+border:1px solid rgba(255,255,255,.12);
+padding:6px 10px;
+border-radius:999px;
+background:rgba(255,255,255,.04);
+}
 
-    .section{
-      margin-top:18px;
-      border:1px solid var(--line);
-      background:var(--card);
-      border-radius:var(--radius2);
-      padding:20px;
-      box-shadow:0 18px 40px rgba(0,0,0,.22);
-    }
+.title{
+margin:14px 0 0;
+font-size:40px;
+line-height:1.08;
+}
 
-    .section h2{
-      margin:0 0 12px;
-      font-size:20px;
-    }
+.subtitle{
+margin:14px 0 0;
+color:var(--muted);
+line-height:1.75;
+font-size:15px;
+max-width:64ch;
+}
 
-    .faq{
-      display:grid;
-      gap:12px;
-    }
+h2{
+margin:0 0 12px;
+font-size:20px;
+}
 
-    .faqItem{
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.04);
-      border-radius:16px;
-      padding:16px;
-    }
+p{
+color:var(--muted);
+line-height:1.8;
+font-size:14px;
+}
 
-    .faqQ{
-      font-size:14px;
-      font-weight:700;
-      margin:0;
-    }
+form{
+display:flex;
+flex-direction:column;
+gap:16px;
+margin-top:10px;
+}
 
-    .faqA{
-      margin:8px 0 0;
-      font-size:13px;
-      line-height:1.72;
-      color:var(--muted);
-    }
+label{
+font-size:13px;
+color:var(--text);
+display:block;
+}
 
-    .grid2{
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:12px;
-    }
+.fieldNote{
+margin-top:4px;
+font-size:12px;
+color:var(--muted);
+}
 
-    @media (max-width: 760px){
-      .grid2{ grid-template-columns:1fr; }
-    }
+input,textarea{
+width:100%;
+margin-top:8px;
+padding:14px;
+border-radius:14px;
+border:1px solid var(--line);
+background:rgba(255,255,255,.04);
+color:var(--text);
+font-size:14px;
+outline:none;
+}
 
-    .card{
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.04);
-      border-radius:16px;
-      padding:16px;
-    }
+textarea{
+min-height:160px;
+resize:vertical;
+}
 
-    .card h3{
-      margin:0;
-      font-size:15px;
-    }
+input:focus,textarea:focus{
+border-color:rgba(77,208,255,.6);
+background:rgba(255,255,255,.06);
+}
 
-    .card p{
-      margin:8px 0 0;
-      color:var(--muted);
-      line-height:1.7;
-      font-size:13px;
-    }
+.btnRow{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-top:4px;
+}
 
-    .contactInline{
-      margin-top:10px;
-      font-size:13px;
-      color:var(--muted);
-      line-height:1.7;
-    }
+.btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:12px 16px;
+border-radius:14px;
+border:1px solid var(--line);
+background:rgba(255,255,255,.05);
+color:var(--text);
+font-size:14px;
+cursor:pointer;
+}
 
-    .contactInline a{
-      border-bottom:1px solid rgba(234,240,255,.16);
-    }
+.btnPrimary{
+border:none;
+background:linear-gradient(135deg,rgba(77,208,255,.95),rgba(124,255,198,.85));
+color:#07101b;
+font-weight:700;
+}
 
-    .ctaRow{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:14px;
-    }
+.subInfo{
+margin-top:14px;
+font-size:12px;
+color:rgba(234,240,255,.62);
+line-height:1.8;
+}
 
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:11px 15px;
-      border-radius:14px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.05);
-      font-size:13px;
-      transition:.18s ease;
-    }
+footer{
+margin-top:22px;
+padding:18px 6px 0;
+color:rgba(234,240,255,.55);
+font-size:12px;
+display:flex;
+justify-content:space-between;
+gap:12px;
+flex-wrap:wrap;
+}
 
-    .btn:hover{
-      background:rgba(255,255,255,.08);
-      transform:translateY(-1px);
-    }
+.links a{
+color:rgba(234,240,255,.65);
+border-bottom:1px solid rgba(234,240,255,.12);
+}
 
-    .btnPrimary{
-      border:none;
-      background:linear-gradient(135deg, rgba(77,208,255,.95), rgba(124,255,198,.85));
-      color:#07101b;
-      font-weight:700;
-    }
+[data-lang]{display:none;}
+[data-lang].show{display:block;}
 
-    footer{
-      margin-top:22px;
-      padding:18px 6px 0;
-      color:rgba(234,240,255,.55);
-      font-size:12px;
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-
-    .links{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-
-    .links a{
-      color:rgba(234,240,255,.65);
-      border-bottom:1px solid rgba(234,240,255,.12);
-    }
-
-    .links a:hover{
-      color:var(--text);
-      border-bottom-color:rgba(234,240,255,.35);
-    }
-
-    [data-lang]{ display:none; }
-    [data-lang].show{ display:block; }
-  </style>
+</style>
 </head>
+
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <div class="mark" aria-hidden="true"></div>
-        <div>
-          <h1>SwimLog+</h1>
-          <span>Vital Intelligence Lab</span>
-        </div>
-      </div>
 
-      <div class="navRow">
-        <a class="pill" href="/swimlog/">SwimLog+ Top</a>
-        <a class="pill" href="/swimlog/privacy.html">Privacy</a>
-        <a class="pill" href="/swimlog/terms.html">Terms</a>
-        <a class="pill" href="/swimlog/contact.html">Contact</a>
+<div class="wrap">
 
-        <div class="langToggle" aria-label="Language switch">
-          <button type="button" class="langBtn active" onclick="setLang('ja')">日本語</button>
-          <button type="button" class="langBtn" onclick="setLang('en')">EN</button>
-        </div>
-      </div>
-    </header>
+<header>
 
-    <main>
-      <section class="hero">
-        <div data-lang="ja" class="show">
-          <div class="eyebrow">Support / FAQ</div>
-          <h2 class="title">SwimLog+ サポート</h2>
-          <p class="subtitle">
-            SwimLog+ の基本的な使い方、FAQ、問い合わせ先をまとめています。
-            アプリ利用中に困ったことがあれば、まずこちらをご確認ください。
-          </p>
-        </div>
+<div class="brand">
+<img class="appIcon" src="/assets/swimlog/icon.png" alt="SwimLog+ icon">
+<div>
+<h1>SwimLog+</h1>
+<span>Vital Intelligence Lab</span>
+</div>
+</div>
 
-        <div data-lang="en">
-          <div class="eyebrow">Support / FAQ</div>
-          <h2 class="title">SwimLog+ Support</h2>
-          <p class="subtitle">
-            This page covers the basics of SwimLog+, frequently asked questions,
-            and support guidance. Please check here first if you run into any issues.
-          </p>
-        </div>
-      </section>
+<div class="navRow">
 
-      <section class="section">
-        <h2 data-lang="ja" class="show">よくある質問</h2>
-        <h2 data-lang="en">Frequently Asked Questions</h2>
+<a class="pill" href="/">VIL Home</a>
+<a class="pill" href="/swimlog/">SwimLog+ Top</a>
+<a class="pill" href="/swimlog/support.html">Support</a>
+<a class="pill" href="/swimlog/privacy.html">Privacy</a>
+<a class="pill" href="/swimlog/terms.html">Terms</a>
 
-        <div class="faq">
-          <div class="faqItem">
-            <p class="faqQ show" data-lang="ja">データはクラウド保存されますか？</p>
-            <p class="faqQ" data-lang="en">Is my data stored in the cloud?</p>
+<div class="langToggle">
+<button class="langBtn active" onclick="setLang('ja')">日本語</button>
+<button class="langBtn" onclick="setLang('en')">EN</button>
+</div>
 
-            <p class="faqA show" data-lang="ja">
-              いいえ。現在の SwimLog+ では、トレーニング記録や動画データは基本的に端末内で扱われます。
-            </p>
-            <p class="faqA" data-lang="en">
-              No. In the current version of SwimLog+, workout records and videos are primarily handled locally on your device.
-            </p>
-          </div>
+</div>
 
-          <div class="faqItem">
-            <p class="faqQ show" data-lang="ja">CSV は何に使えますか？</p>
-            <p class="faqQ" data-lang="en">What is CSV export for?</p>
+</header>
 
-            <p class="faqA show" data-lang="ja">
-              トレーニングログを外部で整理したり、振り返り分析を行うために使えます。Pro ではより詳細な内容を書き出せます。
-            </p>
-            <p class="faqA" data-lang="en">
-              CSV export can be used to organize or analyze your training records outside the app. Pro unlocks more detailed export content.
-            </p>
-          </div>
+<main>
 
-          <div class="faqItem">
-            <p class="faqQ show" data-lang="ja">フォーム動画は何ができますか？</p>
-            <p class="faqQ" data-lang="en">What can I do with form videos?</p>
+<section class="hero">
 
-            <p class="faqA show" data-lang="ja">
-              動画の保存、再生、比較ができます。Pro ではスロー再生や2画面比較に対応しています。
-            </p>
-            <p class="faqA" data-lang="en">
-              You can store, replay, and compare form videos. Pro supports slow motion and two-screen comparison.
-            </p>
-          </div>
+<div data-lang="ja" class="show">
+<div class="eyebrow">Contact</div>
+<h2 class="title">SwimLog+ お問い合わせ</h2>
 
-          <div class="faqItem">
-            <p class="faqQ show" data-lang="ja">Pro では何が使えますか？</p>
-            <p class="faqQ" data-lang="en">What does Pro unlock?</p>
+<p class="subtitle">
+SwimLog+ に関するご質問、不具合報告、ご要望がありましたら、
+以下のフォームからご連絡ください。内容を確認のうえ、必要に応じて返信いたします。
+</p>
+</div>
 
-            <p class="faqA show" data-lang="ja">
-              Pro では、より詳細な分析、詳細CSV出力、動画のスロー再生、上下2画面比較などの機能が利用できます。
-            </p>
-            <p class="faqA" data-lang="en">
-              Pro unlocks more detailed analytics, advanced CSV export, slow-motion video playback, and two-screen comparison.
-            </p>
-          </div>
+<div data-lang="en">
+<div class="eyebrow">Contact</div>
+<h2 class="title">Contact SwimLog+</h2>
 
-          <div class="faqItem">
-            <p class="faqQ show" data-lang="ja">不具合や要望はどこから送れますか？</p>
-            <p class="faqQ" data-lang="en">How can I send bug reports or feature requests?</p>
+<p class="subtitle">
+If you have questions, bug reports, or feature requests about SwimLog+, please send a message using the form below.
+</p>
+</div>
 
-            <p class="faqA show" data-lang="ja">
-              お問い合わせは Contact ページから送信できます。必要に応じて
-              <a href="/swimlog/contact.html">Contact</a> からご連絡ください。
-            </p>
-            <p class="faqA" data-lang="en">
-              You can send bug reports or feature requests through the <a href="/swimlog/contact.html">Contact</a> page.
-              Messages are received through an appropriate support flow that also helps with spam prevention.
-            </p>
-          </div>
+</section>
 
-          <div class="faqItem">
-            <p class="faqQ show" data-lang="ja">サブスクリプションの管理や解約はどこでできますか？</p>
-            <p class="faqQ" data-lang="en">How can I manage or cancel my subscription?</p>
+<section class="section">
 
-            <p class="faqA show" data-lang="ja">
-              サブスクリプションの管理や解約は、iPhone の設定または App Store の Apple ID 購読管理画面から行えます。
-            </p>
-            <p class="faqA" data-lang="en">
-              You can manage or cancel your subscription from your Apple ID subscription settings in the App Store or iPhone settings.
-            </p>
-          </div>
-        </div>
-      </section>
+<h2 data-lang="ja" class="show">問い合わせフォーム</h2>
+<h2 data-lang="en">Contact Form</h2>
 
-      <section class="section">
-        <div class="grid2">
-          <div class="card">
-            <h3 data-lang="ja" class="show">基本導線</h3>
-            <h3 data-lang="en">Basic Navigation</h3>
+<form action="https://formspree.io/f/myknwqkr" method="POST">
 
-            <p data-lang="ja" class="show">
-              Home で記録、Calendar で振り返り、Insights で分析、Form でフォーム確認、という流れで使うのがおすすめです。
-            </p>
-            <p data-lang="en">
-              A good workflow is: log in Home, review in Calendar, analyze in Insights, and check technique in Form.
-            </p>
-          </div>
+<label>
+<span data-lang="ja" class="show">お名前</span>
+<span data-lang="en">Name</span>
+<input type="text" name="name" required>
+</label>
 
-          <div class="card">
-            <h3 data-lang="ja" class="show">サポート導線</h3>
-            <h3 data-lang="en">Support Links</h3>
+<label>
+<span data-lang="ja" class="show">メールアドレス</span>
+<span data-lang="en">Email</span>
+<input type="email" name="email" required>
 
-            <p data-lang="ja" class="show">
-              プライバシー情報、利用規約、お問い合わせ先は下記リンクから確認できます。
-            </p>
-            <p data-lang="en">
-              Privacy information, terms of use, and contact options are available through the links below.
-            </p>
+<div class="fieldNote">
+<span data-lang="ja" class="show">返信が必要な場合に利用します。</span>
+<span data-lang="en">Used only if a reply is needed.</span>
+</div>
+</label>
 
-            <div class="contactInline">
-              <span data-lang="ja" class="show">
-                連絡先メール: <a href="mailto:contact@vitalintlab.com">contact@vitalintlab.com</a>
-              </span>
-              <span data-lang="en">
-                Support email: <a href="mailto:contact@vitalintlab.com">contact@vitalintlab.com</a>
-              </span>
-            </div>
+<label>
+<span data-lang="ja" class="show">内容</span>
+<span data-lang="en">Message</span>
+<textarea name="message" required></textarea>
+</label>
 
-            <div class="ctaRow">
-              <a class="btn" href="/swimlog/privacy.html">Privacy</a>
-              <a class="btn" href="/swimlog/terms.html">Terms</a>
-              <a class="btn btnPrimary" href="/swimlog/contact.html">Contact</a>
-            </div>
-          </div>
-        </div>
-      </section>
+<input type="hidden" name="_subject" value="SwimLog+ Contact">
 
-      <footer>
-        <div>© <span id="year"></span> Vital Intelligence Lab</div>
-        <div class="links">
-          <a href="/swimlog/">SwimLog+ Top</a>
-          <a href="/swimlog/privacy.html">Privacy</a>
-          <a href="/swimlog/terms.html">Terms</a>
-          <a href="/swimlog/contact.html">Contact</a>
-        </div>
-      </footer>
-    </main>
-  </div>
+<div class="btnRow">
 
-  <script>
-    function setLang(lang){
-      document.querySelectorAll('[data-lang]').forEach(function(el){
-        el.classList.remove('show');
-      });
+<button type="submit" class="btn btnPrimary">
+<span data-lang="ja" class="show">送信する</span>
+<span data-lang="en">Send Message</span>
+</button>
 
-      document.querySelectorAll('[data-lang="' + lang + '"]').forEach(function(el){
-        el.classList.add('show');
-      });
+<a class="btn" href="/swimlog/support.html">
+<span data-lang="ja" class="show">Support に戻る</span>
+<span data-lang="en">Back to Support</span>
+</a>
 
-      document.querySelectorAll('.langBtn').forEach(function(btn){
-        btn.classList.remove('active');
-      });
+</div>
 
-      if(lang === 'ja'){
-        document.querySelectorAll('.langBtn')[0].classList.add('active');
-        document.documentElement.lang = 'ja';
-      } else {
-        document.querySelectorAll('.langBtn')[1].classList.add('active');
-        document.documentElement.lang = 'en';
-      }
+</form>
 
-      localStorage.setItem('swimlog_support_lang', lang);
-    }
+<div class="subInfo">
 
-    (function initLang(){
-      const saved = localStorage.getItem('swimlog_support_lang');
-      const browserLang = (navigator.language || '').toLowerCase();
-      const lang = saved || (browserLang.startsWith('ja') ? 'ja' : 'en');
-      setLang(lang);
-    })();
+<span data-lang="ja" class="show">
+お問い合わせ内容はサポート対応のために利用されます。
+迷惑送信対策を含む適切な受付経路を通じて処理されます。
+</span>
 
-    document.getElementById('year').textContent = String(new Date().getFullYear());
-  </script>
+<span data-lang="en">
+Messages are used only for support and inquiry handling.
+They are processed through a secure flow that also helps prevent spam.
+</span>
 
-  <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
-          data-cf-beacon='{"token":"d3bbf828070c48a49ec54314ca9e0e93"}'></script>
+</div>
+
+</section>
+
+<footer>
+
+<div>© <span id="year"></span> Vital Intelligence Lab</div>
+
+<div class="linksRow links">
+<a href="/">VIL Home</a>
+<a href="/swimlog/">SwimLog+ Top</a>
+<a href="/swimlog/support.html">Support</a>
+<a href="/swimlog/privacy.html">Privacy</a>
+<a href="/swimlog/terms.html">Terms</a>
+</div>
+
+</footer>
+
+</main>
+</div>
+
+<script>
+
+function setLang(lang){
+
+document.querySelectorAll('[data-lang]').forEach(el=>el.classList.remove('show'));
+document.querySelectorAll('[data-lang="'+lang+'"]').forEach(el=>el.classList.add('show'));
+
+document.querySelectorAll('.langBtn').forEach(btn=>btn.classList.remove('active'));
+
+if(lang==='ja'){
+document.querySelectorAll('.langBtn')[0].classList.add('active');
+document.documentElement.lang='ja';
+}else{
+document.querySelectorAll('.langBtn')[1].classList.add('active');
+document.documentElement.lang='en';
+}
+
+localStorage.setItem('swimlog_contact_lang',lang);
+}
+
+(function initLang(){
+const saved=localStorage.getItem('swimlog_contact_lang');
+const browserLang=(navigator.language||'').toLowerCase();
+const lang=saved||(browserLang.startsWith('ja')?'ja':'en');
+setLang(lang);
+})();
+
+document.getElementById('year').textContent=new Date().getFullYear();
+
+</script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+data-cf-beacon='{"token":"d3bbf828070c48a49ec54314ca9e0e93"}'></script>
+
 </body>
 </html>
