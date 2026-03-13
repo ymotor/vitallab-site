@@ -239,6 +239,17 @@
       font-size:13px;
     }
 
+    .contactInline{
+      margin-top:10px;
+      font-size:13px;
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .contactInline a{
+      border-bottom:1px solid rgba(234,240,255,.16);
+    }
+
     .ctaRow{
       display:flex;
       gap:10px;
@@ -315,11 +326,12 @@
       <div class="navRow">
         <a class="pill" href="/swimlog/">SwimLog+ Top</a>
         <a class="pill" href="/swimlog/privacy.html">Privacy</a>
+        <a class="pill" href="/swimlog/terms.html">Terms</a>
         <a class="pill" href="/swimlog/contact.html">Contact</a>
 
         <div class="langToggle" aria-label="Language switch">
-          <button class="langBtn active" onclick="setLang('ja')">日本語</button>
-          <button class="langBtn" onclick="setLang('en')">EN</button>
+          <button type="button" class="langBtn active" onclick="setLang('ja')">日本語</button>
+          <button type="button" class="langBtn" onclick="setLang('en')">EN</button>
         </div>
       </div>
     </header>
@@ -351,10 +363,10 @@
 
         <div class="faq">
           <div class="faqItem">
-            <p class="faqQ" data-lang="ja" class="show">データはクラウド保存されますか？</p>
+            <p class="faqQ show" data-lang="ja">データはクラウド保存されますか？</p>
             <p class="faqQ" data-lang="en">Is my data stored in the cloud?</p>
 
-            <p class="faqA" data-lang="ja" class="show">
+            <p class="faqA show" data-lang="ja">
               いいえ。現在の SwimLog+ では、トレーニング記録や動画データは基本的に端末内で扱われます。
             </p>
             <p class="faqA" data-lang="en">
@@ -363,10 +375,10 @@
           </div>
 
           <div class="faqItem">
-            <p class="faqQ" data-lang="ja" class="show">CSV は何に使えますか？</p>
+            <p class="faqQ show" data-lang="ja">CSV は何に使えますか？</p>
             <p class="faqQ" data-lang="en">What is CSV export for?</p>
 
-            <p class="faqA" data-lang="ja" class="show">
+            <p class="faqA show" data-lang="ja">
               トレーニングログを外部で整理したり、振り返り分析を行うために使えます。Pro ではより詳細な内容を書き出せます。
             </p>
             <p class="faqA" data-lang="en">
@@ -375,10 +387,10 @@
           </div>
 
           <div class="faqItem">
-            <p class="faqQ" data-lang="ja" class="show">フォーム動画は何ができますか？</p>
+            <p class="faqQ show" data-lang="ja">フォーム動画は何ができますか？</p>
             <p class="faqQ" data-lang="en">What can I do with form videos?</p>
 
-            <p class="faqA" data-lang="ja" class="show">
+            <p class="faqA show" data-lang="ja">
               動画の保存、再生、比較ができます。Pro ではスロー再生や2画面比較に対応しています。
             </p>
             <p class="faqA" data-lang="en">
@@ -387,14 +399,40 @@
           </div>
 
           <div class="faqItem">
-            <p class="faqQ" data-lang="ja" class="show">不具合や要望はどこから送れますか？</p>
-            <p class="faqQ" data-lang="en">How can I send bug reports or feature requests?</p>
+            <p class="faqQ show" data-lang="ja">Pro では何が使えますか？</p>
+            <p class="faqQ" data-lang="en">What does Pro unlock?</p>
 
-            <p class="faqA" data-lang="ja" class="show">
-              お問い合わせページから送信できます。フォーム送信機能は後から追加予定です。
+            <p class="faqA show" data-lang="ja">
+              Pro では、より詳細な分析、詳細CSV出力、動画のスロー再生、上下2画面比較などの機能が利用できます。
             </p>
             <p class="faqA" data-lang="en">
-              You can use the contact page. The form-based inquiry flow will be added later.
+              Pro unlocks more detailed analytics, advanced CSV export, slow-motion video playback, and two-screen comparison.
+            </p>
+          </div>
+
+          <div class="faqItem">
+            <p class="faqQ show" data-lang="ja">不具合や要望はどこから送れますか？</p>
+            <p class="faqQ" data-lang="en">How can I send bug reports or feature requests?</p>
+
+            <p class="faqA show" data-lang="ja">
+              お問い合わせは Contact ページから送信できます。必要に応じて
+              <a href="/swimlog/contact.html">Contact</a> からご連絡ください。
+            </p>
+            <p class="faqA" data-lang="en">
+              You can send bug reports or feature requests through the <a href="/swimlog/contact.html">Contact</a> page.
+              Messages are received through an appropriate support flow that also helps with spam prevention.
+            </p>
+          </div>
+
+          <div class="faqItem">
+            <p class="faqQ show" data-lang="ja">サブスクリプションの管理や解約はどこでできますか？</p>
+            <p class="faqQ" data-lang="en">How can I manage or cancel my subscription?</p>
+
+            <p class="faqA show" data-lang="ja">
+              サブスクリプションの管理や解約は、iPhone の設定または App Store の Apple ID 購読管理画面から行えます。
+            </p>
+            <p class="faqA" data-lang="en">
+              You can manage or cancel your subscription from your Apple ID subscription settings in the App Store or iPhone settings.
             </p>
           </div>
         </div>
@@ -419,15 +457,25 @@
             <h3 data-lang="en">Support Links</h3>
 
             <p data-lang="ja" class="show">
-              プライバシー情報や問い合わせ先は下記リンクから確認できます。
+              プライバシー情報、利用規約、お問い合わせ先は下記リンクから確認できます。
             </p>
             <p data-lang="en">
-              Privacy information and contact options are available through the links below.
+              Privacy information, terms of use, and contact options are available through the links below.
             </p>
+
+            <div class="contactInline">
+              <span data-lang="ja" class="show">
+                連絡先メール: <a href="mailto:contact@vitalintlab.com">contact@vitalintlab.com</a>
+              </span>
+              <span data-lang="en">
+                Support email: <a href="mailto:contact@vitalintlab.com">contact@vitalintlab.com</a>
+              </span>
+            </div>
 
             <div class="ctaRow">
               <a class="btn" href="/swimlog/privacy.html">Privacy</a>
-              <a class="btn" href="/swimlog/contact.html">Contact</a>
+              <a class="btn" href="/swimlog/terms.html">Terms</a>
+              <a class="btn btnPrimary" href="/swimlog/contact.html">Contact</a>
             </div>
           </div>
         </div>
@@ -438,6 +486,7 @@
         <div class="links">
           <a href="/swimlog/">SwimLog+ Top</a>
           <a href="/swimlog/privacy.html">Privacy</a>
+          <a href="/swimlog/terms.html">Terms</a>
           <a href="/swimlog/contact.html">Contact</a>
         </div>
       </footer>
@@ -446,10 +495,18 @@
 
   <script>
     function setLang(lang){
-      document.querySelectorAll('[data-lang]').forEach(el => el.classList.remove('show'));
-      document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => el.classList.add('show'));
+      document.querySelectorAll('[data-lang]').forEach(function(el){
+        el.classList.remove('show');
+      });
 
-      document.querySelectorAll('.langBtn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('[data-lang="' + lang + '"]').forEach(function(el){
+        el.classList.add('show');
+      });
+
+      document.querySelectorAll('.langBtn').forEach(function(btn){
+        btn.classList.remove('active');
+      });
+
       if(lang === 'ja'){
         document.querySelectorAll('.langBtn')[0].classList.add('active');
         document.documentElement.lang = 'ja';
@@ -471,8 +528,7 @@
     document.getElementById('year').textContent = String(new Date().getFullYear());
   </script>
 
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js"
-        data-cf-beacon='{"token":"d3bbf828070c48a49ec54314ca9e0e93"}'></script>
-  
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon='{"token":"d3bbf828070c48a49ec54314ca9e0e93"}'></script>
 </body>
 </html>
