@@ -35,7 +35,7 @@
 
     *{ box-sizing:border-box; }
     html{ scroll-behavior:smooth; }
-    
+
     body{
       margin:0;
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
@@ -74,30 +74,11 @@
     }
 
     .logo{
-    width:46px;
-    height:46px;
-    border-radius:14px;
-    object-fit:cover;
-    box-shadow:0 10px 30px rgba(0,0,0,.3);
-    }
-
-    .mark{
       width:46px;
       height:46px;
       border-radius:14px;
-      background:linear-gradient(135deg, rgba(77,208,255,.95), rgba(124,255,198,.85));
-      box-shadow:var(--shadow);
-      position:relative;
-      overflow:hidden;
-      flex:0 0 auto;
-    }
-
-    .mark:before{
-      content:"";
-      position:absolute;
-      inset:-40%;
-      background:radial-gradient(circle at 30% 30%, rgba(255,255,255,.72), transparent 55%);
-      transform:rotate(20deg);
+      object-fit:cover;
+      box-shadow:0 10px 30px rgba(0,0,0,.3);
     }
 
     .brand h1{
@@ -360,23 +341,17 @@
       color:rgba(234,240,255,.78);
     }
 
-    .featureList{
-      margin:12px 0 0;
-      padding-left:18px;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.82;
-    }
-
-    .featureList li+li{ margin-top:3px; }
-
     .screens{
       display:grid;
-      grid-template-columns:repeat(2, 1fr);
+      grid-template-columns:repeat(3, 1fr);
       gap:12px;
     }
 
     @media (max-width: 980px){
+      .screens{ grid-template-columns:repeat(2, 1fr); }
+    }
+
+    @media (max-width: 640px){
       .screens{ grid-template-columns:1fr; }
     }
 
@@ -397,6 +372,7 @@
       margin-top:10px;
       font-size:13px;
       color:var(--muted);
+      line-height:1.55;
     }
 
     .proBox{
@@ -404,17 +380,6 @@
       background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.04));
       border-radius:22px;
       padding:18px;
-    }
-
-    .note{
-      margin-top:14px;
-      border:1px dashed rgba(255,255,255,.18);
-      background:rgba(255,255,255,.04);
-      border-radius:16px;
-      padding:14px;
-      color:var(--muted);
-      font-size:12px;
-      line-height:1.7;
     }
 
     footer{
@@ -456,13 +421,12 @@
 
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
         data-cf-beacon='{"token":"d3bbf828070c48a49ec54314ca9e0e93"}'></script>
-  
+
 <body>
   <div class="wrap">
     <header>
       <div class="brand">
-        <img src="/assets/swimlog/icon.png" class="logo">
-        
+        <img src="/assets/swimlog/icon.png" class="logo" alt="SwimLog+ icon">
         <div>
           <h1>SwimLog+</h1>
           <span>Vital Intelligence Lab</span>
@@ -495,9 +459,9 @@
               <h2 class="title">楽しく、無理せず、<br>美しく、健康に泳ごう</h2>
               <p class="subtitle">
                 SwimLog+ は、水泳トレーニングの記録・振り返り・分析・フォーム確認を
-                1つにまとめたアプリです<br>
-                距離、種目、レッスン、主観強度、気になるポイントまで記録し、
-                自分の泳ぎをわかりやすく可視化できます
+                1つにまとめたアプリです。<br>
+                距離、種目、主観強度、気になるポイント、フォーム動画まで記録し、
+                自分の泳ぎをわかりやすく可視化できます。
               </p>
 
               <div class="ctaRow">
@@ -508,8 +472,8 @@
 
               <div class="heroNote">
                 <b>現在の位置づけ：</b> SwimLog+ は Vital Intelligence Lab における
-                健康・運動指向系プロダクトの第一弾です<br>
-                今後、Beauty Log+ や他の分析系アプリへも拡張予定です
+                健康・運動指向系プロダクトの第一弾です。<br>
+                日々の記録から分析・フォーム確認まで、実用性を重視した軽量アプリとして育てています。
               </div>
             </div>
 
@@ -518,7 +482,7 @@
               <p class="subtitle">
                 SwimLog+ is a lightweight app for logging, reviewing, analyzing,
                 and improving your swim training.<br>
-                Track distance, stroke sets, lessons, perceived effort, and focus points,
+                Track distance, stroke sets, perceived effort, focus points, and form videos,
                 then review your progress in a clear and practical way.
               </p>
 
@@ -530,7 +494,7 @@
 
               <div class="heroNote">
                 <b>Positioning:</b> SwimLog+ is the first health & movement product under Vital Intelligence Lab,
-                with future expansion planned for Beauty Log+ and other analytics-driven tools.
+                designed as a practical swim log with clear review, analytics, and form-check features.
               </div>
             </div>
           </div>
@@ -548,10 +512,10 @@
             <h2 data-lang="en">Core Features</h2>
 
             <p data-lang="ja" class="show">
-              距離記録だけで終わらず、継続・振り返り・フォーム確認までつなげる構成です
+              記録だけで終わらず、振り返り・分析・フォーム確認までつなげる構成です。
             </p>
             <p data-lang="en">
-              More than just distance logging — built to support consistency, review, and technique awareness.
+              More than just logging — built to support review, analytics, and technique awareness.
             </p>
           </div>
         </div>
@@ -562,10 +526,10 @@
             <h3 data-lang="en">Training Log</h3>
 
             <p data-lang="ja" class="show">
-              総距離でも、種目別セットでも記録可能。レッスン日、主観強度（RPE）、気になるポイントも残せます
+              総距離でも、種目別でも記録可能。主観強度（RPE）や気になるポイントも残せます。
             </p>
             <p data-lang="en">
-              Log either total distance or stroke-based sets. Also record lesson days, perceived effort (RPE), and focus points.
+              Log either total distance or stroke-based training. Also record perceived effort (RPE) and focus points.
             </p>
 
             <div class="tagRow">
@@ -580,16 +544,16 @@
             <h3 data-lang="en">Calendar & Review</h3>
 
             <p data-lang="ja" class="show">
-              練習日・日別記録・週間サマリーを確認。CSV出力にも対応し、継続の見える化を強力にサポートします
+              練習日・日別記録・週間サマリーを確認。継続の見える化をシンプルに支えます。
             </p>
             <p data-lang="en">
-              Review swim days, daily records, and weekly summaries. Export training data via CSV when needed.
+              Review swim days, daily records, and weekly summaries to stay consistent.
             </p>
 
             <div class="tagRow">
               <span class="tag">Calendar</span>
+              <span class="tag">Daily Review</span>
               <span class="tag">Weekly Summary</span>
-              <span class="tag">CSV</span>
             </div>
           </div>
 
@@ -598,16 +562,16 @@
             <h3 data-lang="en">Insights & Form Video</h3>
 
             <p data-lang="ja" class="show">
-              総泳距離、継続日数、最長距離、楽に泳げる距離、RPE傾向などを確認。フォーム動画の再生・比較にも対応
+              月間分析、種目別グラフ、RPE傾向、CSV出力、フォーム動画の再生・比較に対応しています。
             </p>
             <p data-lang="en">
-              Track total distance, streaks, longest swim, comfort distance, and effort trends. Store and compare form videos.
+              Access monthly analytics, stroke charts, RPE trends, CSV export, and form video playback/comparison.
             </p>
 
             <div class="tagRow">
               <span class="tag">Insights</span>
+              <span class="tag">CSV</span>
               <span class="tag">Video</span>
-              <span class="tag">Progress</span>
             </div>
           </div>
         </div>
@@ -620,43 +584,56 @@
             <h2 data-lang="en">Screenshots</h2>
 
             <p data-lang="ja" class="show">
-              SwimLog+ の主要画面です。記録、カレンダー、フォーム確認、Insights、Pro分析まで確認できます
+              SwimLog+ の主要画面です。記録、カレンダー、フォーム確認、分析、Pro機能まで確認できます。
             </p>
             <p data-lang="en">
-              Main screens of SwimLog+, covering logging, calendar review, form analysis, insights, and Pro analytics.
+              Main screens of SwimLog+, covering logging, calendar review, form video, analytics, and Pro features.
             </p>
           </div>
         </div>
 
         <div class="screens">
+
           <div class="screenCard">
-            <img src="/assets/swimlog/1.png" alt="SwimLog Home" />
-            <div class="screenTitle" data-lang="ja" class="show">Home — 距離・レッスン・主観メモを記録</div>
-            <div class="screenTitle" data-lang="en">Home — Log distance, lessons, and effort</div>
+            <img src="/assets/swimlog/6.png" alt="SwimLog screenshot 6" />
+            <div class="screenTitle" data-lang="ja" class="show">6 — Form：単画面でフォーム確認</div>
+            <div class="screenTitle" data-lang="en">6 — Form: Review form in single-player mode</div>
           </div>
 
           <div class="screenCard">
-            <img src="/assets/swimlog/2.png" alt="SwimLog Calendar" />
-            <div class="screenTitle" data-lang="ja" class="show">Calendar — 練習日と記録を可視化</div>
-            <div class="screenTitle" data-lang="en">Calendar — Visualize swim days and records</div>
+            <img src="/assets/swimlog/7.png" alt="SwimLog screenshot 7" />
+            <div class="screenTitle" data-lang="ja" class="show">7 — Form Pro：上下2画面で比較</div>
+            <div class="screenTitle" data-lang="en">7 — Form Pro: Compare with two-screen playback</div>
           </div>
 
           <div class="screenCard">
-            <img src="/assets/swimlog/3.png" alt="SwimLog Form Compare" />
-            <div class="screenTitle" data-lang="ja" class="show">Form — 比較・スロー再生でフォーム確認</div>
-            <div class="screenTitle" data-lang="en">Form — Compare and review technique in slow motion</div>
+            <img src="/assets/swimlog/8.png" alt="SwimLog screenshot 8" />
+            <div class="screenTitle" data-lang="ja" class="show">8 — Insights Pro：全体の分析ダッシュボード</div>
+            <div class="screenTitle" data-lang="en">8 — Insights Pro: Overall analytics dashboard</div>
           </div>
 
           <div class="screenCard">
-            <img src="/assets/swimlog/4.png" alt="SwimLog Insights" />
-            <div class="screenTitle" data-lang="ja" class="show">Insights — 今の状態と目指すものを分析</div>
-            <div class="screenTitle" data-lang="en">Insights — Understand your current state and goals</div>
+            <img src="/assets/swimlog/9.png" alt="SwimLog screenshot 9" />
+            <div class="screenTitle" data-lang="ja" class="show">9 — Insights Pro：月間分析</div>
+            <div class="screenTitle" data-lang="en">9 — Insights Pro: Monthly analysis</div>
           </div>
 
           <div class="screenCard">
-            <img src="/assets/swimlog/5.png" alt="SwimLog Pro" />
-            <div class="screenTitle" data-lang="ja" class="show">Pro — 種目別・日別の分析を強化</div>
-            <div class="screenTitle" data-lang="en">Pro — Advanced monthly and stroke-based analytics</div>
+            <img src="/assets/swimlog/10.png" alt="SwimLog screenshot 10" />
+            <div class="screenTitle" data-lang="ja" class="show">10 — Insights Pro：種目別グラフ</div>
+            <div class="screenTitle" data-lang="en">10 — Insights Pro: Stroke breakdown chart</div>
+          </div>
+
+          <div class="screenCard">
+            <img src="/assets/swimlog/11.png" alt="SwimLog screenshot 11" />
+            <div class="screenTitle" data-lang="ja" class="show">11 — Insights Pro：月間グラフ</div>
+            <div class="screenTitle" data-lang="en">11 — Insights Pro: Monthly training chart</div>
+          </div>
+
+          <div class="screenCard">
+            <img src="/assets/swimlog/12.png" alt="SwimLog screenshot 12" />
+            <div class="screenTitle" data-lang="ja" class="show">12 — Pro：CSV出力と分析機能</div>
+            <div class="screenTitle" data-lang="en">12 — Pro: CSV export and analytics tools</div>
           </div>
         </div>
       </section>
@@ -668,10 +645,10 @@
             <h2 data-lang="en">Pro Features</h2>
 
             <p data-lang="ja" class="show">
-              より深く分析したい人向けに、月間分析・詳細CSV・フォーム比較機能を用意しています
+              より深く分析したい人向けに、分析・CSV・フォーム比較・コーチ機能を用意しています。
             </p>
             <p data-lang="en">
-              For swimmers who want deeper analysis, Pro unlocks monthly insights, detailed CSV export, and enhanced form comparison.
+              For swimmers who want deeper review, Pro unlocks analytics, CSV export, form comparison, and coach features.
             </p>
           </div>
         </div>
@@ -679,46 +656,37 @@
         <div class="proBox">
           <div class="grid3">
             <div class="card">
-              <h3 data-lang="ja" class="show">月間分析</h3>
-              <h3 data-lang="en">Monthly Analysis</h3>
+              <h3 data-lang="ja" class="show">分析ダッシュボード</h3>
+              <h3 data-lang="en">Analytics Dashboard</h3>
               <p data-lang="ja" class="show">
-                月合計、泳いだ日数、種目別距離、日別グラフをまとめて確認できます
+                月間分析、泳いだ日数、RPE傾向、種目別・月間グラフをまとめて確認できます。
               </p>
               <p data-lang="en">
-                Review monthly totals, swim days, stroke breakdown, and daily charts in one place.
+                Review monthly totals, swim days, RPE trends, stroke charts, and monthly graphs in one place.
               </p>
             </div>
 
             <div class="card">
-              <h3 data-lang="ja" class="show">詳細CSV</h3>
-              <h3 data-lang="en">Detailed CSV Export</h3>
+              <h3 data-lang="ja" class="show">CSVエクスポート</h3>
+              <h3 data-lang="en">CSV Export</h3>
               <p data-lang="ja" class="show">
-                種目別内訳やコーチメモを含めた詳細データを書き出せます
+                今月のトレーニングデータをCSVで書き出せます。記録の整理や外部分析にも使えます。
               </p>
               <p data-lang="en">
-                Export detailed CSV including stroke breakdown and coach notes.
+                Export current-month training data as CSV for review, organization, or external analysis.
               </p>
             </div>
 
             <div class="card">
-              <h3 data-lang="ja" class="show">フォーム比較</h3>
-              <h3 data-lang="en">Video Comparison</h3>
+              <h3 data-lang="ja" class="show">フォーム比較・コーチ機能</h3>
+              <h3 data-lang="en">Form Comparison & Coach Features</h3>
               <p data-lang="ja" class="show">
-                スロー再生、上下2画面比較でフォームを見返せます
+                スロー再生、上下2画面比較、コーチメモの活用など、より深い振り返りが可能です。
               </p>
               <p data-lang="en">
-                Compare technique using slow motion and stacked two-screen playback.
+                Use slow motion, stacked two-screen playback, and coach-related features for deeper review.
               </p>
             </div>
-          </div>
-
-          <div class="note">
-            <span data-lang="ja" class="show">
-              <b>今後の予定：</b> Elite では AIフォーム解析、コーチ提案、傾向分析などの追加を予定
-            </span>
-            <span data-lang="en">
-              <b>Coming next:</b> Elite will introduce AI form analysis, coaching suggestions, and deeper trend analysis.
-            </span>
           </div>
         </div>
       </section>
@@ -730,7 +698,7 @@
             <h2 data-lang="en">Support & Policy</h2>
 
             <p data-lang="ja" class="show">
-              アプリ内からは、以下の個別ページに直接遷移する想定です
+              アプリ内からは、以下の個別ページに直接遷移する想定です。
             </p>
             <p data-lang="en">
               In-app links can point directly to the following dedicated pages.
@@ -759,8 +727,8 @@
 
           <div class="card">
             <h3>Contact</h3>
-            <p data-lang="ja" class="show">問い合わせフォーム</p>
-            <p data-lang="en">Inquiry form powered by Formspree.</p>
+            <p data-lang="ja" class="show">問い合わせフォーム。</p>
+            <p data-lang="en">Contact form for inquiries.</p>
             <div class="ctaRow" style="margin-top:12px">
               <a class="btn" href="/swimlog/contact.html">/swimlog/contact.html</a>
             </div>
@@ -770,8 +738,7 @@
 
       <footer>
         <div>
-          <div class="mono">©　<span id="year"></span> Vital Intelligence Lab. All rights reserved.</div>
-          <!-- <div style="margin-top:6px;">Hosted on GitHub Pages + Cloudflare</div> -->
+          <div class="mono">© <span id="year"></span> Vital Intelligence Lab. All rights reserved.</div>
         </div>
 
         <div class="links">
