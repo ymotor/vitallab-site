@@ -1,20 +1,18 @@
 <!doctype html>
 <html lang="ja">
 <head>
-
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>SwimLog+ Contact | Vital Intelligence Lab</title>
+<title>SwimLog+ Support | Vital Intelligence Lab</title>
 
-<meta name="description" content="SwimLog+ のお問い合わせページ。質問、不具合報告、要望を受け付けています。">
+<meta name="description" content="SwimLog+ のサポートページ。使い方、問い合わせ方法、公開情報への導線をまとめています。">
 <meta name="theme-color" content="#0b1220">
 
 <link rel="icon" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
 <style>
-
 :root{
 --bg0:#070b13;
 --bg1:#0b1220;
@@ -25,7 +23,7 @@
 --shadow:0 20px 60px rgba(0,0,0,.35);
 --radius:18px;
 --radius2:26px;
---max:880px;
+--max:920px;
 }
 
 *{box-sizing:border-box;}
@@ -34,7 +32,6 @@ body{
 margin:0;
 color:var(--text);
 font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
-
 background:
 radial-gradient(1200px 600px at 15% 8%, rgba(77,208,255,.18), transparent 60%),
 radial-gradient(1000px 620px at 85% 18%, rgba(124,255,198,.12), transparent 58%),
@@ -149,58 +146,44 @@ margin:0 0 12px;
 font-size:20px;
 }
 
-p{
+h3{
+margin:0 0 8px;
+font-size:16px;
+}
+
+p, li{
 color:var(--muted);
 line-height:1.8;
 font-size:14px;
 }
 
-form{
-display:flex;
-flex-direction:column;
-gap:16px;
-margin-top:10px;
+ul{
+margin:8px 0 0 18px;
+padding:0;
 }
 
-label{
-font-size:13px;
-color:var(--text);
-display:block;
+.cardGrid{
+display:grid;
+grid-template-columns:repeat(2, 1fr);
+gap:14px;
 }
 
-.fieldNote{
-margin-top:4px;
-font-size:12px;
-color:var(--muted);
+@media (max-width: 760px){
+.cardGrid{grid-template-columns:1fr;}
 }
 
-input,textarea{
-width:100%;
-margin-top:8px;
-padding:14px;
-border-radius:14px;
+.card{
 border:1px solid var(--line);
 background:rgba(255,255,255,.04);
-color:var(--text);
-font-size:14px;
-outline:none;
-}
-
-textarea{
-min-height:160px;
-resize:vertical;
-}
-
-input:focus,textarea:focus{
-border-color:rgba(77,208,255,.6);
-background:rgba(255,255,255,.06);
+border-radius:18px;
+padding:18px;
 }
 
 .btnRow{
 display:flex;
 gap:10px;
 flex-wrap:wrap;
-margin-top:4px;
+margin-top:12px;
 }
 
 .btn{
@@ -223,7 +206,7 @@ color:#07101b;
 font-weight:700;
 }
 
-.subInfo{
+.note{
 margin-top:14px;
 font-size:12px;
 color:rgba(234,240,255,.62);
@@ -248,16 +231,14 @@ border-bottom:1px solid rgba(234,240,255,.12);
 
 [data-lang]{display:none;}
 [data-lang].show{display:block;}
-
+.inlineLang[data-lang].show{display:inline;}
 </style>
 </head>
 
 <body>
-
 <div class="wrap">
 
 <header>
-
 <div class="brand">
 <img class="appIcon" src="/assets/swimlog/icon.png" alt="SwimLog+ icon">
 <div>
@@ -267,132 +248,153 @@ border-bottom:1px solid rgba(234,240,255,.12);
 </div>
 
 <div class="navRow">
-
 <a class="pill" href="/">VIL Home</a>
 <a class="pill" href="/swimlog/">SwimLog+ Top</a>
-<a class="pill" href="/swimlog/support.html">Support</a>
 <a class="pill" href="/swimlog/privacy.html">Privacy</a>
 <a class="pill" href="/swimlog/terms.html">Terms</a>
+<a class="pill" href="/swimlog/contact.html">Contact</a>
 
 <div class="langToggle">
 <button class="langBtn active" onclick="setLang('ja')">日本語</button>
 <button class="langBtn" onclick="setLang('en')">EN</button>
 </div>
-
 </div>
-
 </header>
 
 <main>
 
 <section class="hero">
-
 <div data-lang="ja" class="show">
-<div class="eyebrow">Contact</div>
-<h2 class="title">SwimLog+ お問い合わせ</h2>
-
+<div class="eyebrow">Support</div>
+<h2 class="title">SwimLog+ サポート</h2>
 <p class="subtitle">
-SwimLog+ に関するご質問、不具合報告、ご要望がありましたら、
-以下のフォームからご連絡ください。内容を確認のうえ、必要に応じて返信いたします。
+SwimLog+ の使い方、問い合わせ先、公開情報への導線をまとめたページです。
+不具合報告やご要望がある場合は、お問い合わせフォームからご連絡ください。
 </p>
 </div>
 
 <div data-lang="en">
-<div class="eyebrow">Contact</div>
-<h2 class="title">Contact SwimLog+</h2>
-
+<div class="eyebrow">Support</div>
+<h2 class="title">SwimLog+ Support</h2>
 <p class="subtitle">
-If you have questions, bug reports, or feature requests about SwimLog+, please send a message using the form below.
+This page provides support information for SwimLog+, including how to get help,
+where to contact us, and links to public policy pages.
 </p>
 </div>
-
 </section>
 
 <section class="section">
+<div class="cardGrid">
 
-<h2 data-lang="ja" class="show">問い合わせフォーム</h2>
-<h2 data-lang="en">Contact Form</h2>
+<div class="card">
+<h3 data-lang="ja" class="show">サポート内容</h3>
+<h3 data-lang="en">What we support</h3>
 
-<form action="https://formspree.io/f/myknwqkr" method="POST">
-
-<label>
-<span data-lang="ja" class="show">お名前</span>
-<span data-lang="en">Name</span>
-<input type="text" name="name" required>
-</label>
-
-<label>
-<span data-lang="ja" class="show">メールアドレス</span>
-<span data-lang="en">Email</span>
-<input type="email" name="email" required>
-
-<div class="fieldNote">
-<span data-lang="ja" class="show">返信が必要な場合に利用します。</span>
-<span data-lang="en">Used only if a reply is needed.</span>
+<div data-lang="ja" class="show">
+<ul>
+<li>基本的な使い方</li>
+<li>不具合報告の受付</li>
+<li>改善要望の受付</li>
+<li>公開情報ページへの案内</li>
+</ul>
 </div>
-</label>
 
-<label>
-<span data-lang="ja" class="show">内容</span>
-<span data-lang="en">Message</span>
-<textarea name="message" required></textarea>
-</label>
+<div data-lang="en">
+<ul>
+<li>Basic usage guidance</li>
+<li>Bug report intake</li>
+<li>Feature request intake</li>
+<li>Links to public policy pages</li>
+</ul>
+</div>
+</div>
 
-<input type="hidden" name="_subject" value="SwimLog+ Contact">
+<div class="card">
+<h3 data-lang="ja" class="show">お問い合わせ</h3>
+<h3 data-lang="en">Contact</h3>
+
+<p data-lang="ja" class="show">
+質問、不具合報告、改善要望がある場合は、お問い合わせフォームをご利用ください。
+</p>
+<p data-lang="en">
+For questions, bug reports, or feature requests, please use the contact form.
+</p>
 
 <div class="btnRow">
+<a class="btn btnPrimary" href="/swimlog/contact.html">
+<span class="inlineLang" data-lang="ja">お問い合わせフォームへ</span>
+<span class="inlineLang" data-lang="en">Open Contact Form</span>
+</a>
+</div>
+</div>
 
-<button type="submit" class="btn btnPrimary">
-<span data-lang="ja" class="show">送信する</span>
-<span data-lang="en">Send Message</span>
-</button>
+<div class="card">
+<h3 data-lang="ja" class="show">公開情報</h3>
+<h3 data-lang="en">Public Information</h3>
 
-<a class="btn" href="/swimlog/support.html">
-<span data-lang="ja" class="show">Support に戻る</span>
-<span data-lang="en">Back to Support</span>
+<p data-lang="ja" class="show">
+プライバシーポリシーと利用規約は以下から確認できます。
+</p>
+<p data-lang="en">
+Privacy Policy and Terms of Use are available below.
+</p>
+
+<div class="btnRow">
+<a class="btn" href="/swimlog/privacy.html">
+<span class="inlineLang" data-lang="ja">Privacyを見る</span>
+<span class="inlineLang" data-lang="en">Open Privacy</span>
 </a>
 
+<a class="btn" href="/swimlog/terms.html">
+<span class="inlineLang" data-lang="ja">Termsを見る</span>
+<span class="inlineLang" data-lang="en">Open Terms</span>
+</a>
+</div>
 </div>
 
-</form>
+<div class="card">
+<h3 data-lang="ja" class="show">補足</h3>
+<h3 data-lang="en">Notes</h3>
 
-<div class="subInfo">
+<p data-lang="ja" class="show">
+サポートは順次確認し、必要に応じて返信します。
+内容によっては返答までお時間をいただく場合があります。
+</p>
+<p data-lang="en">
+Support requests are reviewed in order, and replies are sent when needed.
+Response time may vary depending on the inquiry.
+</p>
+</div>
 
+</div>
+
+<div class="note">
 <span data-lang="ja" class="show">
-お問い合わせ内容はサポート対応のために利用されます。
-迷惑送信対策を含む適切な受付経路を通じて処理されます。
+アプリ内の Support / Privacy / Terms / Contact リンクは、この公開ページ群へ直接つながる想定です。
 </span>
-
 <span data-lang="en">
-Messages are used only for support and inquiry handling.
-They are processed through a secure flow that also helps prevent spam.
+In-app Support / Privacy / Terms / Contact links are intended to point directly to these public pages.
 </span>
-
 </div>
-
 </section>
 
 <footer>
-
 <div>© <span id="year"></span> Vital Intelligence Lab</div>
 
 <div class="linksRow links">
 <a href="/">VIL Home</a>
 <a href="/swimlog/">SwimLog+ Top</a>
-<a href="/swimlog/support.html">Support</a>
 <a href="/swimlog/privacy.html">Privacy</a>
 <a href="/swimlog/terms.html">Terms</a>
+<a href="/swimlog/contact.html">Contact</a>
 </div>
-
 </footer>
 
 </main>
 </div>
 
 <script>
-
 function setLang(lang){
-
 document.querySelectorAll('[data-lang]').forEach(el=>el.classList.remove('show'));
 document.querySelectorAll('[data-lang="'+lang+'"]').forEach(el=>el.classList.add('show'));
 
@@ -406,18 +408,17 @@ document.querySelectorAll('.langBtn')[1].classList.add('active');
 document.documentElement.lang='en';
 }
 
-localStorage.setItem('swimlog_contact_lang',lang);
+localStorage.setItem('swimlog_support_lang',lang);
 }
 
 (function initLang(){
-const saved=localStorage.getItem('swimlog_contact_lang');
+const saved=localStorage.getItem('swimlog_support_lang');
 const browserLang=(navigator.language||'').toLowerCase();
 const lang=saved||(browserLang.startsWith('ja')?'ja':'en');
 setLang(lang);
 })();
 
 document.getElementById('year').textContent=new Date().getFullYear();
-
 </script>
 
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
