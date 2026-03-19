@@ -15,6 +15,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://vitalintlab.com/swimlog/" />
   <meta property="og:image" content="https://vitalintlab.com/assets/swimlog/6.png" />
+
   <style>
     :root{
       --bg0:#070b13;
@@ -381,6 +382,14 @@
       padding:18px;
     }
 
+    .supportBtnLabel{
+      display:inline;
+    }
+
+    [data-lang]{ display:none; }
+    [data-lang].show{ display:block; }
+    .supportBtnLabel[data-lang].show{ display:inline; }
+
     footer{
       margin-top:22px;
       padding:18px 6px 0;
@@ -412,9 +421,6 @@
     .mono{
       font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
     }
-
-    [data-lang]{ display:none; }
-    [data-lang].show{ display:block; }
   </style>
 </head>
 
@@ -577,92 +583,84 @@
       </section>
 
       <section id="screens" class="sectionCard">
-  <div class="sectionHead">
-    <div>
-      <h2 data-lang="ja" class="show">スクリーンショット</h2>
-      <h2 data-lang="en">Screenshots</h2>
+        <div class="sectionHead">
+          <div>
+            <h2 data-lang="ja" class="show">スクリーンショット</h2>
+            <h2 data-lang="en">Screenshots</h2>
 
-      <p data-lang="ja" class="show">
-        SwimLog+ の主要画面です。記録、カレンダー、分析、フォーム確認まで
-        実際の利用イメージを見ることができます
-      </p>
-      <p data-lang="en">
-        Key screens of SwimLog+.  
-        Logging, calendar tracking, insights, and form review.
-      </p>
-    </div>
-  </div>
+            <p data-lang="ja" class="show">
+              SwimLog+ の主要画面です。記録、カレンダー、分析、フォーム確認まで
+              実際の利用イメージを見ることができます
+            </p>
+            <p data-lang="en">
+              Key screens of SwimLog+.
+              Logging, calendar tracking, insights, and form review.
+            </p>
+          </div>
+        </div>
 
-  <div class="screens">
+        <div class="screens">
+          <div class="screenCard">
+            <img src="/assets/swimlog/6.png" alt="SwimLog Home total distance" />
+            <div class="screenTitle" data-lang="ja" class="show">
+              Home — 総距離・主観メモ・ポイントをすばやく記録
+            </div>
+            <div class="screenTitle" data-lang="en">
+              Home — Quickly log total distance, effort, and focus points
+            </div>
+          </div>
 
-    <!-- 6 -->
-    <div class="screenCard">
-      <img src="/assets/swimlog/6.png" alt="SwimLog Home total distance" />
-      <div class="screenTitle" data-lang="ja" class="show">
-        Home — 総距離・主観メモ・ポイントをすばやく記録
-      </div>
-      <div class="screenTitle" data-lang="en">
-        Home — Quickly log total distance, effort, and focus points
-      </div>
-    </div>
+          <div class="screenCard">
+            <img src="/assets/swimlog/8.png" alt="SwimLog stroke input" />
+            <div class="screenTitle" data-lang="ja" class="show">
+              種目別記録 — 種目・距離・詳細メモを記録
+            </div>
+            <div class="screenTitle" data-lang="en">
+              Stroke Log — Record stroke, distance, and detailed notes
+            </div>
+          </div>
 
-    <!-- 8 -->
-    <div class="screenCard">
-      <img src="/assets/swimlog/8.png" alt="SwimLog stroke input" />
-      <div class="screenTitle" data-lang="ja" class="show">
-        種目別記録 — 種目・距離・詳細メモを記録
-      </div>
-      <div class="screenTitle" data-lang="en">
-        Stroke Log — Record stroke, distance, and detailed notes
-      </div>
-    </div>
+          <div class="screenCard">
+            <img src="/assets/swimlog/7.png" alt="SwimLog calendar weekly summary" />
+            <div class="screenTitle" data-lang="ja" class="show">
+              Calendar — 泳いだ日と週間距離を自動集計
+            </div>
+            <div class="screenTitle" data-lang="en">
+              Calendar — Automatically track swim days and weekly totals
+            </div>
+          </div>
 
-    <!-- 7 -->
-    <div class="screenCard">
-      <img src="/assets/swimlog/7.png" alt="SwimLog calendar weekly summary" />
-      <div class="screenTitle" data-lang="ja" class="show">
-        Calendar — 泳いだ日と週間距離を自動集計
-      </div>
-      <div class="screenTitle" data-lang="en">
-        Calendar — Automatically track swim days and weekly totals
-      </div>
-    </div>
+          <div class="screenCard">
+            <img src="/assets/swimlog/11.png" alt="SwimLog insights stats" />
+            <div class="screenTitle" data-lang="ja" class="show">
+              Insights — 距離・習慣・強度を自動で可視化
+            </div>
+            <div class="screenTitle" data-lang="en">
+              Insights — Visualize distance, habits, and effort trends
+            </div>
+          </div>
 
-    <!-- 11 -->
-    <div class="screenCard">
-      <img src="/assets/swimlog/11.png" alt="SwimLog insights stats" />
-      <div class="screenTitle" data-lang="ja" class="show">
-        Insights — 距離・習慣・強度を自動で可視化
-      </div>
-      <div class="screenTitle" data-lang="en">
-        Insights — Visualize distance, habits, and effort trends
-      </div>
-    </div>
+          <div class="screenCard">
+            <img src="/assets/swimlog/10.png" alt="SwimLog monthly analytics" />
+            <div class="screenTitle" data-lang="ja" class="show">
+              Insights Pro — 月間データをグラフで分析
+            </div>
+            <div class="screenTitle" data-lang="en">
+              Insights Pro — Monthly distance and stroke charts
+            </div>
+          </div>
 
-    <!-- 10 -->
-    <div class="screenCard">
-      <img src="/assets/swimlog/10.png" alt="SwimLog monthly analytics" />
-      <div class="screenTitle" data-lang="ja" class="show">
-        Insights Pro — 月間データをグラフで分析
-      </div>
-      <div class="screenTitle" data-lang="en">
-        Insights Pro — Monthly distance and stroke charts
-      </div>
-    </div>
-
-    <!-- 12 -->
-    <div class="screenCard">
-      <img src="/assets/swimlog/12.png" alt="SwimLog monthly analytics" />
-      <div class="screenTitle" data-lang="ja" class="show">
-        Form Pro — 上下2画面比較とスロー再生
-      </div>
-      <div class="screenTitle" data-lang="en">
-        Form Pro — Compare swim technique with slow motion
-      </div>
-    </div>
-
-  </div>
-</section>
+          <div class="screenCard">
+            <img src="/assets/swimlog/12.png" alt="SwimLog monthly analytics" />
+            <div class="screenTitle" data-lang="ja" class="show">
+              Form Pro — 上下2画面比較とスロー再生
+            </div>
+            <div class="screenTitle" data-lang="en">
+              Form Pro — Compare swim technique with slow motion
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section id="pro" class="sectionCard">
         <div class="sectionHead">
@@ -693,13 +691,13 @@
             </div>
 
             <div class="card">
-              <h3 data-lang="ja" class="show">CSVエクスポート</h3>
-              <h3 data-lang="en">CSV Export</h3>
+              <h3 data-lang="ja" class="show">CSV保存・復元</h3>
+              <h3 data-lang="en">CSV Export & Restore</h3>
               <p data-lang="ja" class="show">
-                今月のトレーニングデータをCSVで書き出し、読み込み可能。記録の整理や外部分析にも使えます
+                今月のトレーニングデータをCSVで書き出し、あとから読み込んで復元できます
               </p>
               <p data-lang="en">
-                Export current-month training data as CSV for review, organization, or external analysis.
+                Export current-month training data as CSV and import it later for backup and restore.
               </p>
             </div>
 
@@ -738,20 +736,10 @@
             <p data-lang="ja" class="show">使い方、FAQ、更新情報など。</p>
             <p data-lang="en">Usage help, FAQ, and update information.</p>
             <div class="ctaRow" style="margin-top:12px">
-              <section class="sectionCard">
-          <div class="sectionHead">
-            <div>
-              <h2 data-lang="ja" class="show">サポートと公開情報</h2>
-              <h2 data-lang="en">Support & Policy</h2>
-
-              <p data-lang="ja" class="show">
-                アプリ内からは、以下の個別ページに直接遷移する想定です
-              </p>
-              <p data-lang="en">
-                In-app links can point directly to the following dedicated pages.
-              </p>
-            </div>
-          </div>
+              <a class="btn" href="/swimlog/support.html">
+                <span class="supportBtnLabel" data-lang="ja">サポートページを見る</span>
+                <span class="supportBtnLabel" data-lang="en">Open Support Page</span>
+              </a>
             </div>
           </div>
 
@@ -760,7 +748,10 @@
             <p data-lang="ja" class="show">プライバシーポリシー。</p>
             <p data-lang="en">Privacy policy.</p>
             <div class="ctaRow" style="margin-top:12px">
-              <a class="btn" href="/swimlog/privacy.html">/swimlog/privacy.html</a>
+              <a class="btn" href="/swimlog/privacy.html">
+                <span class="supportBtnLabel" data-lang="ja">プライバシーポリシーを見る</span>
+                <span class="supportBtnLabel" data-lang="en">Open Privacy Policy</span>
+              </a>
             </div>
           </div>
 
@@ -769,7 +760,10 @@
             <p data-lang="ja" class="show">問い合わせフォーム。</p>
             <p data-lang="en">Contact form for inquiries.</p>
             <div class="ctaRow" style="margin-top:12px">
-              <a class="btn" href="/swimlog/contact.html">/swimlog/contact.html</a>
+              <a class="btn" href="/swimlog/contact.html">
+                <span class="supportBtnLabel" data-lang="ja">お問い合わせフォームへ</span>
+                <span class="supportBtnLabel" data-lang="en">Open Contact Form</span>
+              </a>
             </div>
           </div>
         </div>
