@@ -1,898 +1,685 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
   <title>Vital Intelligence Lab</title>
-  <meta name="description" content="Vital Intelligence Lab (VIL) — Apps & analytics for health, daily life, and research." />
-  <meta name="theme-color" content="#0b1220" />
-
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" href="/favicon.png">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
-
-  <meta property="og:title" content="Vital Intelligence Lab" />
-  <meta property="og:description" content="Apps & analytics for health, daily life, and research." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://vitalintlab.com" />
-  <meta property="og:image" content="https://vitalintlab.com/assets/swimlog/6.png" />
-
+  <meta
+    name="description"
+    content="Vital Intelligence Lab は、個人ベースの研究開発と社会実装を通じて、小さくても実用的なデジタル価値を継続的に形にしていく活動の場です。"
+  />
   <style>
-    :root{
-      --bg0:#070b13;
-      --bg1:#0b1220;
-      --card:rgba(255,255,255,.06);
-      --card2:rgba(255,255,255,.09);
-      --text:#eaf0ff;
-      --muted:rgba(234,240,255,.72);
-      --line:rgba(255,255,255,.10);
-      --accent:#4dd0ff;
-      --accent2:#7cffc6;
-      --accent3:#9b8cff;
-      --shadow:0 20px 60px rgba(0,0,0,.35);
-      --radius:18px;
-      --radius2:26px;
-      --max:1120px;
+    :root {
+      --bg: #0b1020;
+      --bg-soft: #10172a;
+      --panel: rgba(255, 255, 255, 0.06);
+      --panel-strong: rgba(255, 255, 255, 0.1);
+      --text: #f5f7fb;
+      --muted: #c4ccdb;
+      --line: rgba(255, 255, 255, 0.12);
+      --accent: #6dd3ff;
+      --accent-strong: #35baf3;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+      --radius: 22px;
+      --container: 1120px;
     }
 
-    *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
+    * {
+      box-sizing: border-box;
+    }
 
-    body{
-      margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
-      color:var(--text);
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background:
-        radial-gradient(1200px 600px at 10% 5%, rgba(77,208,255,.18), transparent 60%),
-        radial-gradient(900px 520px at 88% 12%, rgba(124,255,198,.13), transparent 56%),
-        radial-gradient(800px 560px at 55% 92%, rgba(155,140,255,.10), transparent 58%),
-        linear-gradient(180deg, var(--bg0), var(--bg1));
-      letter-spacing:.2px;
+        radial-gradient(circle at top left, rgba(109, 211, 255, 0.12), transparent 28%),
+        radial-gradient(circle at top right, rgba(53, 186, 243, 0.1), transparent 24%),
+        linear-gradient(180deg, #0b1020 0%, #0d1325 45%, #111726 100%);
+      color: var(--text);
+      line-height: 1.6;
     }
 
-    a{ color:inherit; text-decoration:none; }
-    img{ max-width:100%; display:block; }
-
-    .wrap{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:28px 18px 64px;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    header{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      padding:10px 4px 22px;
-      flex-wrap:wrap;
+    .container {
+      width: min(calc(100% - 32px), var(--container));
+      margin: 0 auto;
     }
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      min-width:0;
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(11, 16, 32, 0.7);
+      border-bottom: 1px solid var(--line);
     }
 
-    .logo{
-      width:46px;
-      height:46px;
-      border-radius:14px;
-      object-fit:cover;
-      box-shadow:0 10px 30px rgba(0,0,0,.3);
+    .site-header-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
     }
 
-    .brand h1{
-      margin:0;
-      font-size:16px;
-      line-height:1.12;
-      letter-spacing:.7px;
+    .brand {
+      font-weight: 700;
+      font-size: 0.98rem;
+      letter-spacing: 0.01em;
     }
 
-    .brand span{
-      display:block;
-      margin-top:4px;
-      font-size:12px;
-      color:var(--muted);
+    .site-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
     }
 
-    .navRow{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
+    .site-nav a:hover,
+    .footer-links a:hover,
+    .text-link:hover,
+    .section-link:hover {
+      color: var(--accent);
     }
 
-    nav{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
+    .hero {
+      padding: 86px 0 58px;
     }
 
-    .pill{
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.04);
-      padding:8px 12px;
-      border-radius:999px;
-      font-size:12px;
-      color:var(--muted);
-      transition:.18s ease;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 34px;
+      align-items: center;
     }
 
-    .pill:hover{
-      background:rgba(255,255,255,.08);
-      color:var(--text);
-      transform:translateY(-1px);
+    .eyebrow {
+      display: inline-block;
+      margin: 0 0 14px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(109, 211, 255, 0.28);
+      color: var(--accent);
+      background: rgba(109, 211, 255, 0.08);
+      font-size: 0.84rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
 
-    .langToggle{
-      display:flex;
-      gap:8px;
+    h1,
+    h2,
+    h3 {
+      line-height: 1.15;
+      margin: 0;
     }
 
-    .langBtn{
-      cursor:pointer;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.04);
-      color:var(--text);
-      padding:8px 12px;
-      border-radius:999px;
-      font-size:12px;
-      transition:.18s ease;
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4.8rem);
+      letter-spacing: -0.04em;
+      max-width: 11ch;
     }
 
-    .langBtn.active{
-      background:rgba(255,255,255,.12);
+    h2 {
+      font-size: clamp(1.7rem, 3vw, 2.3rem);
+      margin-bottom: 18px;
+      letter-spacing: -0.02em;
     }
 
-    .hero{
-      border:1px solid var(--line);
-      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
-      border-radius:var(--radius2);
-      padding:30px;
-      box-shadow:var(--shadow);
-      overflow:hidden;
-      position:relative;
+    h3 {
+      font-size: 1.16rem;
+      margin-bottom: 8px;
     }
 
-    .hero:after{
-      content:"";
-      position:absolute;
-      inset:-2px;
+    .lead {
+      margin: 18px 0 0;
+      max-width: 64ch;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255, 255, 255, 0.24);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .button.primary {
+      background: linear-gradient(180deg, var(--accent), var(--accent-strong));
+      color: #08111d;
+      border: none;
+    }
+
+    .button.primary:hover {
+      filter: brightness(1.03);
+    }
+
+    .hero-panel,
+    .card,
+    .feature-card,
+    .app-card,
+    .note-card,
+    .info-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-panel {
+      padding: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04));
+    }
+
+    .preview-board {
+      min-height: 420px;
+      border-radius: 20px;
+      padding: 18px;
       background:
-        radial-gradient(600px 240px at 15% 0%, rgba(77,208,255,.15), transparent 60%),
-        radial-gradient(500px 230px at 98% 12%, rgba(124,255,198,.11), transparent 55%);
-      pointer-events:none;
+        linear-gradient(160deg, rgba(109, 211, 255, 0.22), rgba(255,255,255,0.04) 35%),
+        linear-gradient(180deg, #132038 0%, #0f172a 100%);
+      border: 1px solid rgba(255,255,255,0.12);
+      display: grid;
+      gap: 16px;
+      align-content: start;
     }
 
-    .heroGrid{
-      position:relative;
-      display:grid;
-      grid-template-columns:1.25fr .85fr;
-      gap:18px;
+    .preview-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: rgba(255,255,255,0.78);
+      font-size: 0.92rem;
     }
 
-    @media (max-width: 860px){
-      .heroGrid{ grid-template-columns:1fr; }
+    .preview-dots {
+      display: flex;
+      gap: 6px;
     }
 
-    .title{
-      margin:0;
-      font-size:46px;
-      line-height:1.04;
-      letter-spacing:.5px;
+    .preview-dots span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.35);
     }
 
-    @media (max-width: 560px){
-      .title{ font-size:36px; }
+    .preview-card {
+      padding: 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
     }
 
-    .subtitle{
-      margin:14px 0 0;
-      color:var(--muted);
-      font-size:15px;
-      line-height:1.72;
-      max-width:62ch;
+    .preview-card strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1rem;
     }
 
-    .ctaRow{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:18px;
+    .preview-card p,
+    .section-text,
+    .card p,
+    .feature-card p,
+    .app-card p,
+    .note-card p,
+    .info-card p,
+    .footer-copy,
+    .meta {
+      margin: 0;
+      color: var(--muted);
     }
 
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:11px 15px;
-      border-radius:14px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.05);
-      font-size:13px;
-      transition:.18s ease;
+    .preview-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
     }
 
-    .btn:hover{
-      transform:translateY(-1px);
-      background:rgba(255,255,255,.08);
+    .metric-box {
+      padding: 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      text-align: center;
     }
 
-    .btnPrimary{
-      border:none;
-      background:linear-gradient(135deg, rgba(77,208,255,.95), rgba(124,255,198,.85));
-      color:#07101b;
-      font-weight:700;
+    .metric-box strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 1rem;
     }
 
-    .heroNote{
-      margin-top:16px;
-      border:1px dashed rgba(255,255,255,.18);
-      background:rgba(255,255,255,.04);
-      border-radius:16px;
-      padding:14px;
-      color:var(--muted);
-      font-size:12px;
-      line-height:1.7;
+    .metric-box span {
+      color: var(--muted);
+      font-size: 0.84rem;
     }
 
-    .kpi{
-      display:grid;
-      gap:10px;
+    .section {
+      padding: 26px 0 74px;
     }
 
-    .kpiCard{
-      border:1px solid var(--line);
-      background:rgba(0,0,0,.18);
-      border-radius:var(--radius);
-      padding:14px;
+    .section.alt {
+      background: rgba(255,255,255,0.025);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
 
-    .kpiTop{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:8px;
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 22px;
     }
 
-    .kpiLabel{
-      font-size:12px;
-      color:var(--muted);
+    .section-link {
+      color: var(--accent);
+      font-weight: 600;
     }
 
-    .kpiValue{
-      font-size:18px;
-      font-weight:800;
+    .feature-grid,
+    .app-grid,
+    .note-grid,
+    .info-grid {
+      display: grid;
+      gap: 18px;
     }
 
-    .kpiHint{
-      font-size:12px;
-      color:var(--muted);
-      margin-top:6px;
-      line-height:1.5;
+    .feature-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    section{
-      margin-top:18px;
+    .app-grid {
+      grid-template-columns: 1.2fr 0.8fr;
     }
 
-    .sectionCard{
-      border:1px solid var(--line);
-      background:var(--card);
-      border-radius:var(--radius2);
-      padding:20px;
-      box-shadow:0 18px 40px rgba(0,0,0,.22);
+    .note-grid,
+    .info-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    .sectionHead{
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-bottom:14px;
+    .feature-card,
+    .app-card,
+    .note-card,
+    .info-card {
+      padding: 22px;
     }
 
-    .sectionHead h2{
-      margin:0;
-      font-size:20px;
-      letter-spacing:.3px;
+    .app-card {
+      position: relative;
+      overflow: hidden;
     }
 
-    .sectionHead p{
-      margin:6px 0 0;
-      font-size:13px;
-      color:var(--muted);
-      line-height:1.65;
+    .app-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(109, 211, 255, 0.08), transparent 45%);
+      pointer-events: none;
     }
 
-    .grid3{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:12px;
+    .app-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 14px;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 1;
     }
 
-    @media (max-width: 980px){
-      .grid3{ grid-template-columns:1fr; }
+    .app-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(109, 211, 255, 0.24), rgba(255,255,255,0.08));
+      border: 1px solid rgba(255,255,255,0.12);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      color: var(--accent);
+      flex-shrink: 0;
     }
 
-    .card{
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.04);
-      border-radius:var(--radius);
-      padding:16px;
+    .app-tag {
+      display: inline-flex;
+      width: fit-content;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      color: var(--accent);
+      border: 1px solid rgba(109, 211, 255, 0.22);
+      background: rgba(109, 211, 255, 0.08);
     }
 
-    .card h3{
-      margin:0;
-      font-size:15px;
-      letter-spacing:.25px;
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      margin-top: 16px;
+      position: relative;
+      z-index: 1;
     }
 
-    .card p{
-      margin:10px 0 0;
-      font-size:13px;
-      line-height:1.7;
-      color:var(--muted);
+    .meta {
+      font-size: 0.92rem;
     }
 
-    .tagRow{
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-      margin-top:12px;
+    .card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+      position: relative;
+      z-index: 1;
     }
 
-    .tag{
-      font-size:11px;
-      padding:6px 10px;
-      border-radius:999px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
-      color:rgba(234,240,255,.78);
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--accent);
+      font-weight: 600;
     }
 
-    .featureList{
-      margin:12px 0 0;
-      padding-left:18px;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.8;
+    .site-footer {
+      border-top: 1px solid var(--line);
+      padding: 26px 0 36px;
+      background: rgba(8, 11, 20, 0.34);
     }
 
-    .featureList li+li{ margin-top:3px; }
-
-    .projectHero{
-      display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:14px;
-      align-items:stretch;
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
-    @media (max-width: 920px){
-      .projectHero{ grid-template-columns:1fr; }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      color: var(--muted);
+      font-size: 0.94rem;
     }
 
-    .projectPanel{
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.04);
-      border-radius:22px;
-      padding:18px;
-    }
-
-    .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      font-size:11px;
-      color:var(--muted);
-      border:1px solid rgba(255,255,255,.12);
-      padding:6px 10px;
-      border-radius:999px;
-      background:rgba(255,255,255,.04);
-    }
-
-    .projectTitle{
-      margin:12px 0 0;
-      font-size:30px;
-      line-height:1.08;
-    }
-
-    .projectText{
-      margin:12px 0 0;
-      color:var(--muted);
-      line-height:1.75;
-      font-size:14px;
-    }
-
-    .projectShot{
-      border:1px solid var(--line);
-      background:rgba(0,0,0,.18);
-      border-radius:24px;
-      padding:14px;
-    }
-
-    .projectShot img{
-      width:100%;
-      border-radius:18px;
-      display:block;
-    }
-
-    .miniCards{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:10px;
-      margin-top:14px;
-    }
-
-    @media (max-width: 760px){
-      .miniCards{ grid-template-columns:1fr; }
-    }
-
-    .miniCard{
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.04);
-      border-radius:16px;
-      padding:12px;
-    }
-
-    .miniCard strong{
-      display:block;
-      font-size:12px;
-    }
-
-    .miniCard span{
-      display:block;
-      margin-top:6px;
-      font-size:12px;
-      color:var(--muted);
-      line-height:1.55;
-    }
-
-    .note{
-      margin-top:14px;
-      border:1px dashed rgba(255,255,255,.18);
-      background:rgba(255,255,255,.04);
-      border-radius:16px;
-      padding:14px;
-      color:var(--muted);
-      font-size:12px;
-      line-height:1.7;
-    }
-
-    footer{
-      margin-top:22px;
-      padding:18px 6px 0;
-      color:rgba(234,240,255,.55);
-      font-size:12px;
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-
-    .links{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-
-    .links a{
-      color:rgba(234,240,255,.65);
-      border-bottom:1px solid rgba(234,240,255,.12);
-    }
-
-    .links a:hover{
-      color:var(--text);
-      border-bottom-color:rgba(234,240,255,.35);
-    }
-
-    .mono{
-      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
-    }
-
-    [data-lang]{ display:none; }
-    [data-lang].show{ display:block; }
-  </style>
-</head>
-
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js"
-        data-cf-beacon='{"token":"d3bbf828070c48a49ec54314ca9e0e93"}'></script>
-
-<body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <img src="/favicon.png" class="logo" alt="Vital Intelligence Lab logo">
-        <div>
-          <h1>VITAL INTELLIGENCE LAB</h1>
-          <span class="mono">VIL / vitalintlab.com</span>
-        </div>
-      </div>
-
-      <div class="navRow">
-        <nav>
-          <a class="pill" href="#categories">Categories</a>
-          <a class="pill" href="#featured">Featured</a>
-          <a class="pill" href="#about">About</a>
-          <a class="pill" href="#contact">Contact</a>
-        </nav>
-
-        <div class="langToggle" aria-label="Language switch">
-          <button class="langBtn active" onclick="setLang('ja')">日本語</button>
-          <button class="langBtn" onclick="setLang('en')">EN</button>
-        </div>
-      </div>
-    </header>
-
-    <main>
-      <section class="hero" aria-label="Hero">
-        <div class="heroGrid">
-          <div>
-            <div data-lang="ja" class="show">
-              <h2 class="title">健康・生活・人生に、<br>　優しく寄り添う</h2>
-              <p class="subtitle">
-                Vital Intelligence Lab は、<b>健康・運動指向系</b>、<b>生活支援系</b>、<b>研究指向系</b>の
-                アプリや分析プロトタイプを設計・公開するラボです<br>
-                記録、可視化、分析、改善を軸に、日常で実際に使える軽量なプロダクトを育てています
-              </p>
-
-              <div class="ctaRow">
-                <a class="btn btnPrimary" href="/swimlog/">SwimLog+ を見る</a>
-                <a class="btn" href="#categories">カテゴリを見る</a>
-                <a class="btn" href="#contact">お問い合わせ</a>
-              </div>
-
-              <div class="heroNote" id="about">
-                <b>ブランド方針：</b> VIL は全体ブランドであり、各アプリは個別ページで詳しく説明します<br>
-                まずは SwimLog+ を公開し、今後は Beauty Log+、EVLog+、研究系プロトタイプへ拡張していきます
-              </div>
-            </div>
-
-            <div data-lang="en">
-              <h2 class="title">Small, practical tools<br>for health, life, and research.</h2>
-              <p class="subtitle">
-                Vital Intelligence Lab designs and publishes apps and analytics prototypes across
-                <b>health & movement</b>, <b>daily life support</b>, and <b>research-oriented</b> domains.<br>
-                We build lightweight tools around logging, visualization, analysis, and improvement.
-              </p>
-
-              <div class="ctaRow">
-                <a class="btn btnPrimary" href="/swimlog/">Explore SwimLog+</a>
-                <a class="btn" href="#categories">View categories</a>
-                <a class="btn" href="#contact">Contact</a>
-              </div>
-
-              <div class="heroNote">
-                <b>Brand policy:</b> VIL is the umbrella brand, while each product has its own detailed landing page.<br>
-                SwimLog+ is the first public product, followed by Beauty Log+, EVLog+, and research-driven prototypes.
-              </div>
-            </div>
-          </div>
-
-          <div class="kpi" aria-label="Highlights">
-            <div class="kpiCard">
-              <div class="kpiTop">
-                <div class="kpiLabel" data-lang="ja" class="show">ブランド</div>
-                <div class="kpiLabel" data-lang="en">Brand</div>
-                <div class="kpiValue">VIL</div>
-              </div>
-              <div class="kpiHint" data-lang="ja" class="show">複数プロダクトを束ねる共通ブランド。各サービスは個別ページで展開</div>
-              <div class="kpiHint" data-lang="en">Umbrella brand for focused products, each with a dedicated page.</div>
-            </div>
-
-            <div class="kpiCard">
-              <div class="kpiTop">
-                <div class="kpiLabel" data-lang="ja" class="show">公開中</div>
-                <div class="kpiLabel" data-lang="en">Live</div>
-                <div class="kpiValue">SwimLog+</div>
-              </div>
-              <div class="kpiHint" data-lang="ja" class="show">泳ぎの記録、Insights、フォーム確認を支える水泳ログアプリ</div>
-              <div class="kpiHint" data-lang="en">Swim logging app focused on training records, insights, and form review.</div>
-            </div>
-
-            <div class="kpiCard">
-              <div class="kpiTop">
-                <div class="kpiLabel" data-lang="ja" class="show">次の展開</div>
-                <div class="kpiLabel" data-lang="en">Next</div>
-                <div class="kpiValue">Beauty / EV / Research</div>
-              </div>
-              <div class="kpiHint" data-lang="ja" class="show">Beauty Log+、EVLog+、虫行動解析、小鳥交信研究などへ展開予定。</div>
-              <div class="kpiHint" data-lang="en">Planned expansion includes Beauty Log+, EVLog+, insect behavior analysis, and bird communication research.</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="categories" class="sectionCard">
-        <div class="sectionHead">
-          <div>
-            <h2 data-lang="ja" class="show">カテゴリ</h2>
-            <h2 data-lang="en">Categories</h2>
-
-            <p data-lang="ja" class="show">
-              実用性と研究性の両方を意識しながら、テーマごとにプロダクトを整理しています
-            </p>
-            <p data-lang="en">
-              Products are organized by theme while balancing practical everyday value and research exploration.
-            </p>
-          </div>
-        </div>
-
-        <div class="grid3">
-          <div class="card">
-            <h3 data-lang="ja" class="show">健康・運動指向系</h3>
-            <h3 data-lang="en">Health & Movement</h3>
-
-            <p data-lang="ja" class="show">
-              身体の記録、継続、改善を支えるカテゴリです。入力負荷を抑えながら、成長実感が得られる設計を重視します
-            </p>
-            <p data-lang="en">
-              Tools that support logging, consistency, and improvement in health and movement with low-friction daily use.
-            </p>
-
-            <ul class="featureList" data-lang="ja" class="show">
-              <li>SwimLog+</li>
-              <li>Beauty Log+（予定）</li>
-              <li>今後のコンディション管理系アプリ</li>
-            </ul>
-            <ul class="featureList" data-lang="en">
-              <li>SwimLog+</li>
-              <li>Beauty Log+ (planned)</li>
-              <li>Future condition tracking tools</li>
-            </ul>
-
-            <div class="tagRow">
-              <span class="tag">Health</span>
-              <span class="tag">Training</span>
-              <span class="tag">Habit</span>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3 data-lang="ja" class="show">生活支援系</h3>
-            <h3 data-lang="en">Daily Life Support</h3>
-
-            <p data-lang="ja" class="show">
-              移動、記録、効率化など、日常を少し賢くするアプリ群です。軽量で実務的な体験を目指します
-            </p>
-            <p data-lang="en">
-              Practical apps for mobility, logging, and smarter daily decisions with simple, lightweight workflows.
-            </p>
-
-            <ul class="featureList" data-lang="ja" class="show">
-              <li>EVLog+（予定）</li>
-              <li>移動・電費・生活データの可視化</li>
-            </ul>
-            <ul class="featureList" data-lang="en">
-              <li>EVLog+ (planned)</li>
-              <li>Mobility, energy, and daily-life analytics</li>
-            </ul>
-
-            <div class="tagRow">
-              <span class="tag">Life</span>
-              <span class="tag">Efficiency</span>
-              <span class="tag">Logging</span>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3 data-lang="ja" class="show">研究指向系</h3>
-            <h3 data-lang="en">Research-Oriented</h3>
-
-            <p data-lang="ja" class="show">
-              生体・行動・信号理解に関する仮説検証のためのプロトタイプ群です。研究公開や分析実験も視野に入れます
-            </p>
-            <p data-lang="en">
-              Prototype projects for hypothesis testing in behavior, biology, and signal understanding.
-            </p>
-
-            <ul class="featureList" data-lang="ja" class="show">
-              <li>美肌管理研究（予定）</li>
-              <li>快適睡眠研究（予定）</li>
-            </ul>
-            <ul class="featureList" data-lang="en">
-              <li>Insect behavior analysis (planned)</li>
-              <li>Bird communication research (planned)</li>
-            </ul>
-
-            <div class="tagRow">
-              <span class="tag">Research</span>
-              <span class="tag">Signal</span>
-              <span class="tag">Behavior</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="featured" class="sectionCard">
-        <div class="sectionHead">
-          <div>
-            <h2 data-lang="ja" class="show">注目プロダクト</h2>
-            <h2 data-lang="en">Featured Product</h2>
-
-            <p data-lang="ja" class="show">
-              現在の主力プロダクトは <b>SwimLog+</b> です。アプリからのサポート導線も、この個別ページへ直接接続する想定です。
-            </p>
-            <p data-lang="en">
-              Our current flagship product is <b>SwimLog+</b>, and app support links can point directly to its dedicated page.
-            </p>
-          </div>
-        </div>
-
-        <div class="projectHero">
-          <div class="projectPanel">
-            <div class="eyebrow">Featured / SwimLog+</div>
-
-            <div data-lang="ja" class="show">
-              <h3 class="projectTitle">泳ぎの成長を記録し、<br>理解し、改善する</h3>
-              <p class="projectText">
-                SwimLog+ は、水泳トレーニングの記録、カレンダー振り返り、Insights分析、
-                フォーム動画確認を1つにまとめたアプリです
-                日々の記録から、継続・距離・主観強度・気になるポイントの傾向まで把握できます
-              </p>
-
-              <div class="ctaRow">
-                <a class="btn btnPrimary" href="/swimlog/">SwimLog+ ページへ</a>
-                <a class="btn" href="/swimlog/support.html">サポート</a>
-                <a class="btn" href="/swimlog/privacy.html">Privacy</a>
-              </div>
-            </div>
-
-            <div data-lang="en">
-              <h3 class="projectTitle">Log your swims.<br>Understand your training.</h3>
-              <p class="projectText">
-                SwimLog+ combines swim workout logging, calendar review, insights analytics,
-                and form video support in one lightweight app.
-                It helps swimmers understand consistency, distance, perceived effort, and recurring focus points.
-              </p>
-
-              <div class="ctaRow">
-                <a class="btn btnPrimary" href="/swimlog/">Go to SwimLog+</a>
-                <a class="btn" href="/swimlog/support.html">Support</a>
-                <a class="btn" href="/swimlog/privacy.html">Privacy</a>
-              </div>
-            </div>
-
-            <div class="miniCards">
-              <div class="miniCard">
-                <strong data-lang="ja" class="show">記録</strong>
-                <strong data-lang="en">Logging</strong>
-                <span data-lang="ja" class="show">距離、セット、レッスン、RPE、気になる点。</span>
-                <span data-lang="en">Distance, sets, lesson notes, RPE, and focus tags.</span>
-              </div>
-
-              <div class="miniCard">
-                <strong data-lang="ja" class="show">可視化</strong>
-                <strong data-lang="en">Review</strong>
-                <span data-lang="ja" class="show">Calendar、Insights、CSVで振り返り</span>
-                <span data-lang="en">Review with calendar views, insights, and CSV export.</span>
-              </div>
-
-              <div class="miniCard">
-                <strong data-lang="ja" class="show">改善</strong>
-                <strong data-lang="en">Improve</strong>
-                <span data-lang="ja" class="show">フォーム動画、比較、スロー再生に対応</span>
-                <span data-lang="en">Supports form videos, comparison, and slow-motion review.</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="projectShot">
-            <img src="/assets/swimlog/6.png" alt="SwimLog+ screenshot" />
-          </div>
-        </div>
-
-        <div class="note">
-          <span data-lang="ja" class="show">
-            <b>導線方針：</b> VILトップはブランドの全体像を示し、各アプリは個別ページで詳しく説明します。<br>
-            アプリ内のサポート / プライバシー / 利用規約リンクは、それぞれ SwimLog+ 専用ページへ直接遷移させる構成です
-          </span>
-          <span data-lang="en">
-            <b>Navigation policy:</b> The VIL top page presents the umbrella brand, while each app has its own detailed landing page.<br>
-            In-app support, privacy, and terms links can point directly to SwimLog+ specific pages.
-          </span>
-        </div>
-      </section>
-
-      <section id="contact" class="sectionCard">
-        <div class="sectionHead">
-          <div>
-            <h2 data-lang="ja" class="show">お問い合わせ</h2>
-            <h2 data-lang="en">Contact</h2>
-
-            <p data-lang="ja" class="show">
-              お問い合わせはフォーム経由で受け付けます。迷惑メール対策のため、メールアドレスの直接掲載は行いません。
-            </p>
-            <p data-lang="en">
-              We handle inquiries through forms to reduce spam and keep requests organized. Direct email addresses are not publicly listed.
-            </p>
-          </div>
-        </div>
-
-        <div class="grid3">
-          <div class="card">
-            <h3 data-lang="ja" class="show">SwimLog+ サポート</h3>
-            <h3 data-lang="en">SwimLog+ Support</h3>
-            <p data-lang="ja" class="show">使い方、FAQ、不具合報告、機能要望など</p>
-            <p data-lang="en">Usage help, FAQ, bug reports, and feature requests.</p>
-            <div class="ctaRow" style="margin-top:12px">
-              <a class="btn" href="/swimlog/support.html">Support</a>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3 data-lang="ja" class="show">問い合わせフォーム</h3>
-            <h3 data-lang="en">Inquiry Form</h3>
-            <p data-lang="ja" class="show">SwimLog+ へのお問い合わせは専用フォームから送信できます</p>
-            <p data-lang="en">You can send SwimLog+ inquiries through the dedicated contact form.</p>
-            <div class="ctaRow" style="margin-top:12px">
-              <a class="btn" href="/swimlog/contact.html">Contact</a>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3 data-lang="ja" class="show">公開情報</h3>
-            <h3 data-lang="en">Policy Pages</h3>
-            <p data-lang="ja" class="show">プライバシーポリシーと利用規約を個別ページで公開しています</p>
-            <p data-lang="en">Privacy policy and terms are available on dedicated pages.</p>
-            <div class="ctaRow" style="margin-top:12px">
-              <a class="btn" href="/swimlog/privacy.html">Privacy</a>
-              <a class="btn" href="/swimlog/terms.html">Terms</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <footer>
-        <div>
-          <div class="mono">©　<span id="year"></span> Vital Intelligence Lab. All rights reserved.</div>
-        </div>
-
-        <div class="links">
-          <a href="/swimlog/">SwimLog+</a>
-          <a href="/swimlog/support.html">Support</a>
-          <a href="/swimlog/privacy.html">Privacy</a>
-          <a href="/swimlog/terms.html">Terms</a>
-          <a href="/swimlog/contact.html">Contact</a>
-        </div>
-      </footer>
-    </main>
-  </div>
-
-  <script>
-    function setLang(lang){
-      document.querySelectorAll('[data-lang]').forEach(el => el.classList.remove('show'));
-      document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => el.classList.add('show'));
-
-      document.querySelectorAll('.langBtn').forEach(btn => btn.classList.remove('active'));
-      if(lang === 'ja'){
-        document.querySelectorAll('.langBtn')[0].classList.add('active');
-        document.documentElement.lang = 'ja';
-      } else {
-        document.querySelectorAll('.langBtn')[1].classList.add('active');
-        document.documentElement.lang = 'en';
+    @media (max-width: 980px) {
+      .hero-grid,
+      .feature-grid,
+      .app-grid,
+      .note-grid,
+      .info-grid {
+        grid-template-columns: 1fr;
       }
 
-      localStorage.setItem('vil_lang', lang);
+      .preview-board {
+        min-height: auto;
+      }
     }
 
-    (function initLang(){
-      const saved = localStorage.getItem('vil_lang');
-      const browserLang = (navigator.language || '').toLowerCase();
-      const lang = saved || (browserLang.startsWith('ja') ? 'ja' : 'en');
-      setLang(lang);
-    })();
+    @media (max-width: 640px) {
+      .site-header-inner {
+        min-height: 64px;
+      }
 
-    document.getElementById('year').textContent = String(new Date().getFullYear());
-  </script>
+      .site-nav {
+        gap: 12px;
+        font-size: 0.9rem;
+      }
 
-  <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
-        data-cf-beacon='{"token":"d3bbf828070c48a49ec54314ca9e0e93"}'></script>
+      .hero {
+        padding-top: 50px;
+      }
+
+      .section {
+        padding: 18px 0 56px;
+      }
+
+      .hero-panel,
+      .feature-card,
+      .app-card,
+      .note-card,
+      .info-card {
+        padding: 18px;
+      }
+
+      .preview-metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        align-items: start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header-inner">
+      <a class="brand" href="/">Vital Intelligence Lab</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/apps/">Apps</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Vital Intelligence Lab</p>
+          <h1>小さくても実用的な価値を、継続して社会へ。</h1>
+          <p class="lead">
+            Vital Intelligence Lab は、個人ベースの研究開発と社会実装を通じて、
+            アプリ、システム、その他のデジタルな試みを形にしていく活動の場です。
+            日常や現場で役立つものを、小さく作り、改善しながら積み重ねていきます。
+          </p>
+          <div class="actions">
+            <a class="button primary" href="/apps/">公開アプリを見る</a>
+            <a class="button" href="/contact.html">Contact</a>
+          </div>
+        </div>
+
+        <div class="hero-panel" aria-hidden="true">
+          <div class="preview-board">
+            <div class="preview-top">
+              <span>VIL Overview</span>
+              <div class="preview-dots">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+
+            <div class="preview-card">
+              <strong>Apps</strong>
+              <p>継続して使える、小さくても実用的なデジタルツールを公開。</p>
+            </div>
+
+            <div class="preview-metrics">
+              <div class="metric-box">
+                <strong>1</strong>
+                <span>Published App</span>
+              </div>
+              <div class="metric-box">
+                <strong>Ongoing</strong>
+                <span>R&amp;D</span>
+              </div>
+              <div class="metric-box">
+                <strong>More</strong>
+                <span>To Build</span>
+              </div>
+            </div>
+
+            <div class="preview-card">
+              <strong>swimLogPlus</strong>
+              <p>水泳ログをシンプルに記録・振り返るための iOS アプリを公開中です。</p>
+            </div>
+
+            <div class="preview-card">
+              <strong>Next</strong>
+              <p>今後もアプリや仕組みを追加し、VIL 全体として少しずつ広げていきます。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>About</h2>
+        <div class="note-grid">
+          <article class="note-card">
+            <h3>What VIL is</h3>
+            <p>まだ会社ではなく、個人ベースで研究開発と社会実装を行う活動の場として運用しています。</p>
+          </article>
+          <article class="note-card">
+            <h3>What we value</h3>
+            <p>派手さよりも、継続して使えること、役に立つこと、改善し続けられることを重視します。</p>
+          </article>
+          <article class="note-card">
+            <h3>What we aim for</h3>
+            <p>個人レベルの開発からでも、社会に接続できる実用的な価値を少しずつ増やしていくことを目指します。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <h2>What we build</h2>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>Apps</h3>
+            <p>日常の記録や行動を支える、軽量で継続利用しやすいアプリ。</p>
+          </article>
+          <article class="feature-card">
+            <h3>Systems</h3>
+            <p>個人や小規模な現場にフィットする、必要十分な仕組みづくり。</p>
+          </article>
+          <article class="feature-card">
+            <h3>R&amp;D</h3>
+            <p>小さな研究開発から実装可能な形に落とし込み、社会実装につなげる試み。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Featured App</h2>
+            <p class="section-text">現在公開中のアプリです。</p>
+          </div>
+          <a class="section-link" href="/apps/">Apps一覧へ</a>
+        </div>
+
+        <div class="app-grid">
+          <article class="app-card">
+            <div class="app-card-header">
+              <div>
+                <span class="app-tag">iOS App</span>
+                <h3 style="margin-top: 14px;">swimLogPlus</h3>
+              </div>
+              <div class="app-icon">SL</div>
+            </div>
+
+            <p>
+              水泳練習やトレーニングの記録を簡潔に残し、
+              継続的な振り返りへつなげるためのミニマルなアプリです。
+            </p>
+
+            <div class="meta-row">
+              <span class="meta">Platform: iOS</span>
+              <span class="meta">Category: Swim Log</span>
+              <span class="meta">Status: Live</span>
+            </div>
+
+            <div class="card-actions">
+              <a class="button primary" href="/apps/swimlogplus/">詳細を見る</a>
+              <a class="text-link" href="/support.html">Support</a>
+            </div>
+          </article>
+
+          <article class="info-card">
+            <h3>Current note</h3>
+            <p>
+              swimLogPlus を起点として、今後も VIL 配下に新しいアプリや仕組みを追加していく想定です。
+              一覧ページと詳細ページの構造をそろえることで、拡張しやすい運用を目指しています。
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <h2>Support & Policy</h2>
+        <div class="info-grid">
+          <article class="info-card">
+            <h3>Support</h3>
+            <p>アプリに関する質問やサポート導線を維持し、既存の運用を崩さずつなげます。</p>
+            <a class="text-link" href="/support.html">Support page</a>
+          </article>
+          <article class="info-card">
+            <h3>Privacy</h3>
+            <p>swimLog の既存ポリシーをベースに、現行運用を引き継ぎながら整理していきます。</p>
+            <a class="text-link" href="/privacy.html">Privacy policy</a>
+          </article>
+          <article class="info-card">
+            <h3>Terms</h3>
+            <p>既存の利用規約を維持しつつ、新しいサイト構造でも迷わない導線にします。</p>
+            <a class="text-link" href="/terms.html">Terms of use</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-copy">© Vital Intelligence Lab</p>
+      <div class="footer-links">
+        <a href="/apps/">Apps</a>
+        <a href="/support.html">Support</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
