@@ -3,632 +3,131 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="noindex" />
   <title>Apps | Vital Intelligence Lab</title>
-  <meta
-    name="description"
-    content="Vital Intelligence Lab が公開しているアプリ一覧です。実用的なデジタルツールを順次公開していきます。"
-  />
+  <meta name="description" content="Vital Intelligence Lab が公開しているアプリ一覧です。" />
+
   <style>
-    :root {
-      --bg: #0b1020;
-      --bg-soft: #10172a;
-      --panel: rgba(255, 255, 255, 0.06);
-      --panel-strong: rgba(255, 255, 255, 0.1);
-      --text: #f5f7fb;
-      --muted: #c4ccdb;
-      --line: rgba(255, 255, 255, 0.12);
-      --accent: #6dd3ff;
-      --accent-strong: #35baf3;
-      --shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
-      --radius: 22px;
-      --container: 1120px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(109, 211, 255, 0.12), transparent 28%),
-        radial-gradient(circle at top right, rgba(53, 186, 243, 0.1), transparent 24%),
-        linear-gradient(180deg, #0b1020 0%, #0d1325 45%, #111726 100%);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0b1320;
+      color: #eef4ff;
     }
 
     .container {
-      width: min(calc(100% - 32px), var(--container));
-      margin: 0 auto;
+      width: min(1100px, 92%);
+      margin: auto;
     }
 
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(16px);
-      background: rgba(11, 16, 32, 0.7);
-      border-bottom: 1px solid var(--line);
+    header {
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
-    .site-header-inner {
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .brand {
-      font-weight: 700;
-      font-size: 0.98rem;
-      letter-spacing: 0.01em;
-    }
-
-    .site-nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .site-nav a:hover,
-    .footer-links a:hover,
-    .text-link:hover {
-      color: var(--accent);
-    }
-
-    .page-hero {
-      padding: 78px 0 44px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      margin: 0 0 14px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(109, 211, 255, 0.28);
-      color: var(--accent);
-      background: rgba(109, 211, 255, 0.08);
-      font-size: 0.84rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    h1,
-    h2,
-    h3 {
-      line-height: 1.15;
-      margin: 0;
+    header a {
+      color: #53d7ff;
+      text-decoration: none;
+      font-weight: bold;
     }
 
     h1 {
-      font-size: clamp(2.3rem, 5vw, 4.4rem);
-      letter-spacing: -0.03em;
-      max-width: 11ch;
+      margin: 40px 0 10px;
     }
 
-    h2 {
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
-      margin-bottom: 18px;
-      letter-spacing: -0.02em;
-    }
-
-    h3 {
-      font-size: 1.2rem;
-      margin-bottom: 8px;
-    }
-
-    .lead {
-      margin: 18px 0 0;
-      max-width: 64ch;
-      color: var(--muted);
-      font-size: 1.08rem;
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 28px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 18px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--text);
-      font-weight: 600;
-      transition: 0.2s ease;
-    }
-
-    .button:hover {
-      transform: translateY(-1px);
-      border-color: rgba(255, 255, 255, 0.24);
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    .button.primary {
-      background: linear-gradient(180deg, var(--accent), var(--accent-strong));
-      color: #08111d;
-      border: none;
-    }
-
-    .button.primary:hover {
-      filter: brightness(1.03);
-    }
-
-    .hero-grid {
+    .grid {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 32px;
-      align-items: center;
-    }
-
-    .hero-panel,
-    .card,
-    .info-card,
-    .coming-card {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-
-    .hero-panel {
-      padding: 18px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04));
-    }
-
-    .preview-board {
-      border-radius: 20px;
-      padding: 18px;
-      min-height: 360px;
-      background:
-        linear-gradient(160deg, rgba(109, 211, 255, 0.22), rgba(255,255,255,0.04) 35%),
-        linear-gradient(180deg, #132038 0%, #0f172a 100%);
-      border: 1px solid rgba(255,255,255,0.12);
-      display: grid;
-      gap: 16px;
-      align-content: start;
-    }
-
-    .preview-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: rgba(255,255,255,0.78);
-      font-size: 0.92rem;
-    }
-
-    .preview-dots {
-      display: flex;
-      gap: 6px;
-    }
-
-    .preview-dots span {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.35);
-    }
-
-    .mini-app {
-      padding: 16px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .mini-app strong {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 1rem;
-    }
-
-    .mini-app p,
-    .section-text,
-    .card p,
-    .info-card p,
-    .coming-card p,
-    .footer-copy,
-    .meta {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .mini-metrics {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-
-    .metric-box {
-      padding: 12px;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
-      text-align: center;
-    }
-
-    .metric-box strong {
-      display: block;
-      margin-bottom: 4px;
-      font-size: 1rem;
-    }
-
-    .metric-box span {
-      color: var(--muted);
-      font-size: 0.84rem;
-    }
-
-    .section {
-      padding: 24px 0 72px;
-    }
-
-    .section.alt {
-      background: rgba(255,255,255,0.025);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 22px;
-    }
-
-    .section-head a {
-      color: var(--accent);
-      font-weight: 600;
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .card,
-    .info-card,
-    .coming-card {
-      padding: 22px;
-    }
-
-    .app-card {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .app-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(109, 211, 255, 0.08), transparent 45%);
-      pointer-events: none;
-    }
-
-    .app-card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: start;
-      gap: 14px;
-      margin-bottom: 18px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .app-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 18px;
-      background: linear-gradient(180deg, rgba(109, 211, 255, 0.24), rgba(255,255,255,0.08));
-      border: 1px solid rgba(255,255,255,0.12);
-      display: grid;
-      place-items: center;
-      font-weight: 700;
-      color: var(--accent);
-      flex-shrink: 0;
-    }
-
-    .app-tag {
-      display: inline-flex;
-      width: fit-content;
-      padding: 5px 10px;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      color: var(--accent);
-      border: 1px solid rgba(109, 211, 255, 0.22);
-      background: rgba(109, 211, 255, 0.08);
-    }
-
-    .app-card p,
-    .coming-card p {
-      position: relative;
-      z-index: 1;
-    }
-
-    .meta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 16px;
-      margin-top: 16px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .meta {
-      font-size: 0.92rem;
-    }
-
-    .card-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 22px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .text-link {
-      display: inline-flex;
-      align-items: center;
-      color: var(--accent);
-      font-weight: 600;
-    }
-
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-      margin-top: 22px;
-    }
-
-    .site-footer {
-      border-top: 1px solid var(--line);
-      padding: 26px 0 36px;
-      background: rgba(8, 11, 20, 0.34);
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 20px;
-      align-items: center;
-      flex-wrap: wrap;
+      margin-top: 30px;
     }
 
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      color: var(--muted);
-      font-size: 0.94rem;
+    .card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 20px;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: 0.2s;
     }
 
-    @media (max-width: 980px) {
-      .hero-grid,
-      .card-grid,
-      .info-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .preview-board {
-        min-height: auto;
-      }
+    .card:hover {
+      transform: translateY(-4px);
     }
 
-    @media (max-width: 640px) {
-      .site-header-inner {
-        min-height: 64px;
-      }
+    .icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      margin-bottom: 12px;
+    }
 
-      .site-nav {
-        gap: 12px;
-        font-size: 0.9rem;
-      }
+    .title {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
 
-      .page-hero {
-        padding-top: 48px;
-      }
+    .desc {
+      color: #c4cfdf;
+      font-size: 0.95rem;
+      margin: 8px 0 16px;
+    }
 
-      .section {
-        padding: 18px 0 54px;
-      }
+    .btn {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: #53d7ff;
+      color: #001018;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-      .hero-panel,
-      .card,
-      .info-card,
-      .coming-card {
-        padding: 18px;
-      }
+    footer {
+      margin-top: 60px;
+      padding: 30px 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem;
+    }
 
-      .mini-metrics {
-        grid-template-columns: 1fr;
-      }
-
-      .section-head {
-        align-items: start;
-        flex-direction: column;
-      }
+    footer a {
+      margin-right: 15px;
+      color: #c4cfdf;
+      text-decoration: none;
     }
   </style>
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="container site-header-inner">
-      <a class="brand" href="/">Vital Intelligence Lab</a>
-      <nav class="site-nav" aria-label="Primary">
-        <a href="/">Home</a>
-        <a href="/apps/">Apps</a>
-        <a href="/contact.html">Contact</a>
-      </nav>
-    </div>
+  <header class="container">
+    <a href="/">← Home</a>
   </header>
 
-  <main>
-    <section class="page-hero">
-      <div class="container hero-grid">
-        <div>
-          <p class="eyebrow">Apps</p>
-          <h1>公開アプリをまとめて見られる場所。</h1>
-          <p class="lead">
-            Vital Intelligence Lab が公開しているアプリ一覧です。
-            小さくても実用的で、継続的に使えるデジタルツールを順次追加していきます。
-          </p>
-          <div class="actions">
-            <a class="button primary" href="/apps/swimlogplus/">swimLogPlusを見る</a>
-            <a class="button" href="/contact.html">Contact</a>
-          </div>
+  <main class="container">
+    <h1>Apps</h1>
+    <p>公開しているアプリ一覧です。</p>
+
+    <div class="grid">
+
+      <!-- swimLogPlus -->
+      <div class="card">
+        <img src="/assets/apps/swimlogplus/icon.png" class="icon" alt="swimLogPlus icon">
+
+        <div class="title">SwimLog+</div>
+
+        <div class="desc">
+          水泳の記録・振り返り・フォーム確認を支援するアプリ
         </div>
 
-        <div class="hero-panel" aria-hidden="true">
-          <div class="preview-board">
-            <div class="preview-top">
-              <span>Apps Directory</span>
-              <div class="preview-dots">
-                <span></span><span></span><span></span>
-              </div>
-            </div>
-
-            <div class="mini-app">
-              <strong>swimLogPlus</strong>
-              <p>水泳ログをシンプルに記録・振り返るための iOS アプリ。</p>
-            </div>
-
-            <div class="mini-metrics">
-              <div class="metric-box">
-                <strong>1</strong>
-                <span>Published</span>
-              </div>
-              <div class="metric-box">
-                <strong>iOS</strong>
-                <span>Platform</span>
-              </div>
-              <div class="metric-box">
-                <strong>More</strong>
-                <span>Coming next</span>
-              </div>
-            </div>
-
-            <div class="mini-app">
-              <strong>Growing Library</strong>
-              <p>今後ここに新しいアプリやツールを追加していく想定です。</p>
-            </div>
-          </div>
-        </div>
+        <a class="btn" href="/apps/swimlogplus/">詳細を見る</a>
       </div>
-    </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Published</h2>
-            <p class="section-text">現在公開中のアプリです。</p>
-          </div>
-        </div>
-
-        <div class="card-grid">
-          <article class="card app-card">
-            <div class="app-card-header">
-              <div>
-                <span class="app-tag">iOS App</span>
-                <h3 style="margin-top: 14px;">swimLogPlus</h3>
-              </div>
-              <div class="app-icon">SL</div>
-            </div>
-
-            <p>
-              水泳練習やトレーニングの記録を簡潔に残し、
-              継続的な振り返りにつなげるためのミニマルな iOS アプリです。
-            </p>
-
-            <div class="meta-row">
-              <span class="meta">Platform: iOS</span>
-              <span class="meta">Category: Swim Log</span>
-              <span class="meta">Status: Live</span>
-            </div>
-
-            <div class="card-actions">
-              <a class="button primary" href="/apps/swimlogplus/">詳細を見る</a>
-              <a class="text-link" href="/support.html">Support</a>
-            </div>
-          </article>
-
-          <article class="coming-card">
-            <span class="app-tag">Coming Soon</span>
-            <h3 style="margin-top: 14px;">Next Project</h3>
-            <p>
-              今後追加予定のアプリやシステムがここに並んでいきます。
-              まずは swimLogPlus を起点に、VIL の公開物を拡張していく想定です。
-            </p>
-            <div class="meta-row">
-              <span class="meta">Status: Planning</span>
-              <span class="meta">Category: TBA</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section alt">
-      <div class="container">
-        <h2>About this page</h2>
-        <div class="info-grid">
-          <article class="info-card">
-            <h3>Simple</h3>
-            <p>追加しやすいように、アプリごとの情報構成をできるだけ揃えています。</p>
-          </article>
-          <article class="info-card">
-            <h3>Expandable</h3>
-            <p>今後アプリが増えても、カードを追加するだけで一覧を拡張できます。</p>
-          </article>
-          <article class="info-card">
-            <h3>Connected</h3>
-            <p>各アプリ詳細、support、privacy、terms へ自然につながる導線を維持します。</p>
-          </article>
-        </div>
-      </div>
-    </section>
+    </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p class="footer-copy">© Vital Intelligence Lab</p>
-      <div class="footer-links">
-        <a href="/">Home</a>
-        <a href="/support.html">Support</a>
-        <a href="/privacy.html">Privacy</a>
-        <a href="/terms.html">Terms</a>
-        <a href="/contact.html">Contact</a>
-      </div>
-    </div>
+  <footer class="container">
+    <a href="/support.html">Support</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/contact.html">Contact</a>
   </footer>
 </body>
 </html>
