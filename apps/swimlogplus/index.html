@@ -1,1 +1,539 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>swimLogPlus | Vital Intelligence Lab</title>
+  <meta
+    name="description"
+    content="swimLogPlus は、水泳トレーニングの記録・振り返り・分析・フォーム確認を1つにまとめた iOS アプリです。"
+  />
+  <style>
+    :root {
+      --bg: #07111d;
+      --bg-soft: #0d1726;
+      --panel: rgba(255, 255, 255, 0.06);
+      --panel-strong: rgba(255, 255, 255, 0.1);
+      --text: #eef4ff;
+      --muted: #c4cfdf;
+      --line: rgba(255, 255, 255, 0.12);
+      --accent: #53d7ff;
+      --accent-strong: #24c0f1;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+      --radius: 24px;
+      --container: 1180px;
+    }
 
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(83, 215, 255, 0.16), transparent 28%),
+        radial-gradient(circle at top right, rgba(36, 192, 241, 0.12), transparent 24%),
+        linear-gradient(180deg, #06111d 0%, #091423 45%, #0d1726 100%);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--container));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(7, 17, 29, 0.72);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .site-header-inner {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      object-fit: cover;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .brand-title {
+      font-size: 1.7rem;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-sub {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .site-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .site-nav a {
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .site-nav a:hover,
+    .footer-links a:hover,
+    .text-link:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      padding: 42px 0 28px;
+    }
+
+    .hero-shell {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 26px;
+      padding: 30px 28px;
+      border-radius: 32px;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at top left, rgba(83, 215, 255, 0.12), transparent 30%),
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      color: var(--muted);
+      background: rgba(255,255,255,0.04);
+      font-size: 0.88rem;
+      margin-bottom: 18px;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.12;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 5vw, 4.6rem);
+      letter-spacing: -0.05em;
+      max-width: 9ch;
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      font-size: clamp(1.7rem, 3vw, 2.3rem);
+      margin-bottom: 18px;
+      letter-spacing: -0.02em;
+    }
+
+    h3 {
+      font-size: 1.14rem;
+      margin-bottom: 10px;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 1.08rem;
+      max-width: 58ch;
+      margin: 0 0 22px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 18px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .button.primary {
+      background: linear-gradient(180deg, var(--accent), var(--accent-strong));
+      color: #03111b;
+      border: none;
+    }
+
+    .button.store {
+      padding: 0;
+      overflow: hidden;
+      background: #000;
+      border: 1px solid rgba(255,255,255,0.16);
+    }
+
+    .button.store img {
+      height: 50px;
+      width: auto;
+      display: block;
+    }
+
+    .position-box {
+      margin-top: 8px;
+      padding: 16px 18px;
+      border-radius: 20px;
+      border: 1px dashed rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.03);
+      color: var(--muted);
+    }
+
+    .position-box strong {
+      color: var(--text);
+    }
+
+    .hero-visual {
+      display: flex;
+      align-items: stretch;
+    }
+
+    .hero-visual-inner {
+      width: 100%;
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.03);
+      padding: 16px;
+      overflow: hidden;
+    }
+
+    .hero-visual-inner img {
+      width: 100%;
+      border-radius: 22px;
+      object-fit: cover;
+    }
+
+    .section {
+      padding: 22px 0 70px;
+    }
+
+    .section.alt {
+      background: rgba(255,255,255,0.025);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .grid-3,
+    .support-grid,
+    .screens-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-3,
+    .support-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .card p,
+    .section-text,
+    .footer-copy {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .section-text {
+      max-width: 68ch;
+    }
+
+    .screens-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 22px;
+    }
+
+    .screen-shot {
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      box-shadow: var(--shadow);
+    }
+
+    .screen-shot img {
+      width: 100%;
+      display: block;
+    }
+
+    .support-card a {
+      margin-top: 14px;
+    }
+
+    .text-link {
+      display: inline-flex;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0 38px;
+      background: rgba(5, 10, 18, 0.35);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero-shell,
+      .grid-3,
+      .support-grid,
+      .screens-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .site-header-inner {
+        min-height: 68px;
+      }
+
+      .brand-title {
+        font-size: 1.3rem;
+      }
+
+      .site-nav {
+        gap: 10px;
+      }
+
+      .site-nav a {
+        padding: 9px 13px;
+      }
+
+      .hero-shell,
+      .card {
+        padding: 18px;
+      }
+
+      .hero {
+        padding-top: 24px;
+      }
+
+      .section {
+        padding: 16px 0 54px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header-inner">
+      <a href="/apps/swimlogplus/" class="brand-wrap">
+        <img src="/assets/apps/swimlogplus/icon.png" alt="swimLogPlus icon" class="brand-icon" />
+        <div>
+          <div class="brand-title">SwimLog+</div>
+          <div class="brand-sub">Vital Intelligence Lab</div>
+        </div>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#features">Features</a>
+        <a href="#screens">Screens</a>
+        <a href="/support.html">Support</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-shell">
+          <div>
+            <p class="eyebrow">Swim / Training / Insights</p>
+            <h1>楽しく、無理せず、美しく、健康に泳ごう</h1>
+            <p class="lead">
+              SwimLog+ は、水泳トレーニングの記録・振り返り・分析・フォーム確認を
+              1つにまとめたアプリです。距離、種目、主観強度、気になるポイント、
+              フォーム動画まで記録し、自分の泳ぎをわかりやすく可視化できます。
+            </p>
+
+            <div class="actions">
+              <a class="button store" href="https://apps.apple.com/" target="_blank" rel="noopener noreferrer" aria-label="Download on the App Store">
+                <img src="/assets/img/common/app-store-badge.svg" alt="Download on the App Store" />
+              </a>
+              <a class="button" href="#screens">スクリーンを見る</a>
+              <a class="button" href="/contact.html">お問い合わせ</a>
+            </div>
+
+            <div class="position-box">
+              <strong>現在の位置づけ：</strong>
+              SwimLog+ は Vital Intelligence Lab における健康・運動指向系プロダクトの第一弾です。  
+              日々の記録から分析・フォーム確認まで、実用性を重視した軽量アプリとして育成中です。
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="hero-visual-inner">
+              <img src="/assets/apps/swimlogplus/hero.png" alt="swimLogPlus hero image" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="container">
+        <h2>Features</h2>
+        <div class="grid-3">
+          <article class="card">
+            <h3>記録</h3>
+            <p>距離、種目、練習日、主観メモ、気になるポイントなどを、日々の練習記録として残せます。</p>
+          </article>
+          <article class="card">
+            <h3>振り返り</h3>
+            <p>ログを蓄積することで、自分の調子や練習の傾向をあとから見返しやすくします。</p>
+          </article>
+          <article class="card">
+            <h3>フォーム確認</h3>
+            <p>フォーム動画や観察メモを残し、改善ポイントを継続的に整理しやすくします。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <h2>About SwimLog+</h2>
+        <p class="section-text">
+          SwimLog+ は、ただ記録するだけでなく、記録を次の練習や改善につなげるためのアプリとして設計しています。
+          入力の負担を抑えつつ、水泳の継続と可視化を支えることを目指しています。
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="screens">
+      <div class="container">
+        <h2>Screens</h2>
+        <div class="screens-grid">
+          <div class="screen-shot">
+            <img src="/assets/apps/swimlogplus/screenshots/screenshot-01.png" alt="swimLogPlus screenshot 1" />
+          </div>
+          <div class="screen-shot">
+            <img src="/assets/apps/swimlogplus/screenshots/screenshot-02.png" alt="swimLogPlus screenshot 2" />
+          </div>
+          <div class="screen-shot">
+            <img src="/assets/apps/swimlogplus/screenshots/screenshot-03.png" alt="swimLogPlus screenshot 3" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <h2>Support & Policy</h2>
+        <div class="support-grid">
+          <article class="card support-card">
+            <h3>Support</h3>
+            <p>ご質問、不具合報告、利用上のお問い合わせはこちらからご確認ください。</p>
+            <a class="text-link" href="/support.html">Support page</a>
+          </article>
+          <article class="card support-card">
+            <h3>Privacy Policy</h3>
+            <p>現行の運用方針に基づくプライバシーポリシーはこちらです。</p>
+            <a class="text-link" href="/privacy.html">Privacy policy</a>
+          </article>
+          <article class="card support-card">
+            <h3>Terms</h3>
+            <p>利用条件や免責事項など、サービス利用に関する基本事項はこちらです。</p>
+            <a class="text-link" href="/terms.html">Terms of use</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-copy">© Vital Intelligence Lab</p>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/apps/">Apps</a>
+        <a href="/support.html">Support</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
