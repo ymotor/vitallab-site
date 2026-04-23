@@ -3,26 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="noindex" />
   <title>Vital Intelligence Lab</title>
   <meta
     name="description"
-    content="Vital Intelligence Lab は、個人ベースの研究開発と社会実装を通じて、小さくても実用的なデジタル価値を継続的に形にしていく活動の場です。"
+    content="Vital Intelligence Lab は、小さくても実用的なデジタルツールを通じで生活・人生を高揚させる機能を追求しています。"
   />
   <style>
     :root {
-      --bg: #0b1020;
-      --bg-soft: #10172a;
+      --bg: #07111d;
+      --bg-soft: #0d1726;
       --panel: rgba(255, 255, 255, 0.06);
-      --panel-strong: rgba(255, 255, 255, 0.1);
-      --text: #f5f7fb;
-      --muted: #c4ccdb;
+      --text: #eef4ff;
+      --muted: #c4cfdf;
       --line: rgba(255, 255, 255, 0.12);
-      --accent: #6dd3ff;
-      --accent-strong: #35baf3;
+      --accent: #53d7ff;
+      --accent-strong: #24c0f1;
       --shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
-      --radius: 22px;
-      --container: 1120px;
+      --radius: 24px;
+      --container: 1180px;
     }
 
     * {
@@ -37,16 +35,21 @@
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(109, 211, 255, 0.12), transparent 28%),
-        radial-gradient(circle at top right, rgba(53, 186, 243, 0.1), transparent 24%),
-        linear-gradient(180deg, #0b1020 0%, #0d1325 45%, #111726 100%);
+        radial-gradient(circle at top left, rgba(83, 215, 255, 0.16), transparent 28%),
+        radial-gradient(circle at top right, rgba(36, 192, 241, 0.12), transparent 24%),
+        linear-gradient(180deg, #06111d 0%, #091423 45%, #0d1726 100%);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     a {
       color: inherit;
       text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
     }
 
     .container {
@@ -59,12 +62,12 @@
       top: 0;
       z-index: 20;
       backdrop-filter: blur(16px);
-      background: rgba(11, 16, 32, 0.7);
+      background: rgba(7, 17, 29, 0.72);
       border-bottom: 1px solid var(--line);
     }
 
     .site-header-inner {
-      min-height: 72px;
+      min-height: 78px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -72,221 +75,192 @@
     }
 
     .brand {
-      font-weight: 700;
-      font-size: 0.98rem;
-      letter-spacing: 0.01em;
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
     }
 
     .site-nav {
       display: flex;
       flex-wrap: wrap;
-      gap: 18px;
+      gap: 12px;
       color: var(--muted);
       font-size: 0.95rem;
     }
 
+    .site-nav a {
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+    }
+
     .site-nav a:hover,
     .footer-links a:hover,
-    .text-link:hover,
-    .section-link:hover {
+    .text-link:hover {
       color: var(--accent);
     }
 
     .hero {
-      padding: 86px 0 58px;
+      padding: 44px 0 30px;
     }
 
-    .hero-grid {
+    .hero-shell {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 34px;
-      align-items: center;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 26px;
+      padding: 32px 28px;
+      border-radius: 32px;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at top left, rgba(83, 215, 255, 0.12), transparent 30%),
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      box-shadow: var(--shadow);
     }
 
     .eyebrow {
-      display: inline-block;
-      margin: 0 0 14px;
-      padding: 6px 10px;
+      display: inline-flex;
+      padding: 8px 14px;
       border-radius: 999px;
-      border: 1px solid rgba(109, 211, 255, 0.28);
-      color: var(--accent);
-      background: rgba(109, 211, 255, 0.08);
-      font-size: 0.84rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.14);
+      color: var(--muted);
+      background: rgba(255,255,255,0.04);
+      font-size: 0.88rem;
+      margin-bottom: 18px;
     }
 
-    h1,
-    h2,
-    h3 {
-      line-height: 1.15;
+    h1, h2, h3 {
+      line-height: 1.12;
       margin: 0;
     }
 
     h1 {
-      font-size: clamp(2.5rem, 5vw, 4.8rem);
-      letter-spacing: -0.04em;
-      max-width: 11ch;
+      font-size: clamp(2.7rem, 5vw, 4.8rem);
+      letter-spacing: -0.05em;
+      max-width: 10ch;
+      margin-bottom: 18px;
     }
 
     h2 {
-      font-size: clamp(1.7rem, 3vw, 2.3rem);
+      font-size: clamp(1.75rem, 3vw, 2.35rem);
       margin-bottom: 18px;
       letter-spacing: -0.02em;
     }
 
     h3 {
-      font-size: 1.16rem;
-      margin-bottom: 8px;
+      font-size: 1.14rem;
+      margin-bottom: 10px;
     }
 
     .lead {
-      margin: 18px 0 0;
-      max-width: 64ch;
       color: var(--muted);
       font-size: 1.08rem;
+      max-width: 60ch;
+      margin: 0 0 22px;
     }
 
     .actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 28px;
+      gap: 12px;
+      margin-bottom: 16px;
     }
 
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 48px;
+      min-height: 50px;
       padding: 0 18px;
-      border-radius: 999px;
+      border-radius: 16px;
       border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.04);
+      background: rgba(255,255,255,0.04);
       color: var(--text);
-      font-weight: 600;
+      font-weight: 700;
       transition: 0.2s ease;
     }
 
     .button:hover {
       transform: translateY(-1px);
-      border-color: rgba(255, 255, 255, 0.24);
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255,255,255,0.08);
     }
 
     .button.primary {
       background: linear-gradient(180deg, var(--accent), var(--accent-strong));
-      color: #08111d;
+      color: #03111b;
       border: none;
     }
 
-    .button.primary:hover {
-      filter: brightness(1.03);
-    }
-
-    .hero-panel,
-    .card,
-    .feature-card,
-    .app-card,
-    .note-card,
-    .info-card {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-
-    .hero-panel {
-      padding: 18px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04));
-    }
-
-    .preview-board {
-      min-height: 420px;
+    .hero-note {
+      padding: 16px 18px;
       border-radius: 20px;
-      padding: 18px;
-      background:
-        linear-gradient(160deg, rgba(109, 211, 255, 0.22), rgba(255,255,255,0.04) 35%),
-        linear-gradient(180deg, #132038 0%, #0f172a 100%);
+      border: 1px dashed rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.03);
+      color: var(--muted);
+    }
+
+    .hero-note strong {
+      color: var(--text);
+    }
+
+    .hero-card {
+      border-radius: 28px;
       border: 1px solid rgba(255,255,255,0.12);
-      display: grid;
+      background: rgba(255,255,255,0.03);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       gap: 16px;
-      align-content: start;
     }
 
-    .preview-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: rgba(255,255,255,0.78);
-      font-size: 0.92rem;
+    .mini-card {
+      padding: 18px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.05);
     }
 
-    .preview-dots {
-      display: flex;
-      gap: 6px;
-    }
-
-    .preview-dots span {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.35);
-    }
-
-    .preview-card {
-      padding: 16px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .preview-card strong {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 1rem;
-    }
-
-    .preview-card p,
+    .mini-card p,
     .section-text,
     .card p,
-    .feature-card p,
-    .app-card p,
-    .note-card p,
-    .info-card p,
-    .footer-copy,
-    .meta {
+    .footer-copy {
       margin: 0;
       color: var(--muted);
     }
 
-    .preview-metrics {
+    .mini-stat-grid,
+    .card-grid,
+    .support-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
+      gap: 18px;
     }
 
-    .metric-box {
-      padding: 12px;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
+    .mini-stat-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .mini-stat {
+      padding: 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.05);
       text-align: center;
     }
 
-    .metric-box strong {
+    .mini-stat strong {
       display: block;
-      margin-bottom: 4px;
       font-size: 1rem;
+      margin-bottom: 4px;
     }
 
-    .metric-box span {
+    .mini-stat span {
       color: var(--muted);
-      font-size: 0.84rem;
+      font-size: 0.85rem;
     }
 
     .section {
-      padding: 26px 0 74px;
+      padding: 24px 0 70px;
     }
 
     .section.alt {
@@ -295,134 +269,85 @@
       border-bottom: 1px solid var(--line);
     }
 
-    .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 22px;
-    }
-
-    .section-link {
-      color: var(--accent);
-      font-weight: 600;
-    }
-
-    .feature-grid,
-    .app-grid,
-    .note-grid,
-    .info-grid {
-      display: grid;
-      gap: 18px;
+    .card-grid,
+    .support-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .feature-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 18px;
     }
 
-    .app-grid {
-      grid-template-columns: 1.2fr 0.8fr;
-    }
-
-    .note-grid,
-    .info-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .feature-card,
-    .app-card,
-    .note-card,
-    .info-card {
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
       padding: 22px;
+      box-shadow: var(--shadow);
     }
 
-    .app-card {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .app-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(109, 211, 255, 0.08), transparent 45%);
-      pointer-events: none;
-    }
-
-    .app-card-header {
+    .featured-app {
       display: flex;
-      justify-content: space-between;
-      align-items: start;
-      gap: 14px;
-      margin-bottom: 18px;
-      position: relative;
-      z-index: 1;
+      gap: 18px;
+      align-items: flex-start;
     }
 
     .app-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 18px;
-      background: linear-gradient(180deg, rgba(109, 211, 255, 0.24), rgba(255,255,255,0.08));
-      border: 1px solid rgba(255,255,255,0.12);
-      display: grid;
-      place-items: center;
-      font-weight: 700;
-      color: var(--accent);
+      width: 72px;
+      height: 72px;
+      border-radius: 20px;
+      object-fit: cover;
       flex-shrink: 0;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
     }
 
     .app-tag {
       display: inline-flex;
-      width: fit-content;
-      padding: 5px 10px;
+      padding: 6px 12px;
       border-radius: 999px;
-      font-size: 0.8rem;
-      color: var(--accent);
-      border: 1px solid rgba(109, 211, 255, 0.22);
-      background: rgba(109, 211, 255, 0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      font-size: 0.84rem;
+      margin-bottom: 12px;
     }
 
     .meta-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px 16px;
-      margin-top: 16px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .meta {
-      font-size: 0.92rem;
+      gap: 10px 14px;
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 0.93rem;
     }
 
     .card-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 22px;
-      position: relative;
-      z-index: 1;
+      margin-top: 18px;
     }
 
     .text-link {
       display: inline-flex;
-      align-items: center;
       color: var(--accent);
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .site-footer {
       border-top: 1px solid var(--line);
-      padding: 26px 0 36px;
-      background: rgba(8, 11, 20, 0.34);
+      padding: 28px 0 38px;
+      background: rgba(5, 10, 18, 0.35);
     }
 
     .footer-inner {
       display: flex;
       justify-content: space-between;
-      gap: 20px;
       align-items: center;
+      gap: 20px;
       flex-wrap: wrap;
     }
 
@@ -435,52 +360,44 @@
     }
 
     @media (max-width: 980px) {
-      .hero-grid,
+      .hero-shell,
       .feature-grid,
-      .app-grid,
-      .note-grid,
-      .info-grid {
+      .card-grid,
+      .support-grid,
+      .mini-stat-grid {
         grid-template-columns: 1fr;
       }
 
-      .preview-board {
-        min-height: auto;
+      .featured-app {
+        flex-direction: column;
       }
     }
 
     @media (max-width: 640px) {
       .site-header-inner {
-        min-height: 64px;
+        min-height: 68px;
       }
 
-      .site-nav {
-        gap: 12px;
-        font-size: 0.9rem;
+      .site-nav a {
+        padding: 9px 13px;
       }
 
-      .hero {
-        padding-top: 50px;
-      }
-
-      .section {
-        padding: 18px 0 56px;
-      }
-
-      .hero-panel,
-      .feature-card,
-      .app-card,
-      .note-card,
-      .info-card {
+      .hero-shell,
+      .card {
         padding: 18px;
       }
 
-      .preview-metrics {
-        grid-template-columns: 1fr;
+      .hero {
+        padding-top: 24px;
       }
 
-      .section-head {
-        align-items: start;
-        flex-direction: column;
+      .section {
+        padding: 16px 0 54px;
+      }
+
+      .app-icon {
+        width: 64px;
+        height: 64px;
       }
     }
   </style>
@@ -488,69 +405,64 @@
 <body>
   <header class="site-header">
     <div class="container site-header-inner">
-      <a class="brand" href="/">Vital Intelligence Lab</a>
+      <a href="/" class="brand">Vital Intelligence Lab</a>
+
       <nav class="site-nav" aria-label="Primary">
-        <a href="/">Home</a>
         <a href="/apps/">Apps</a>
         <a href="/contact.html">Contact</a>
+        <a href="/support.html">Support</a>
       </nav>
     </div>
   </header>
 
   <main>
     <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <p class="eyebrow">Vital Intelligence Lab</p>
-          <h1>小さくても実用的な価値を、継続して社会へ。</h1>
-          <p class="lead">
-            Vital Intelligence Lab は、個人ベースの研究開発と社会実装を通じて、
-            アプリ、システム、その他のデジタルな試みを形にしていく活動の場です。
-            日常や現場で役立つものを、小さく作り、改善しながら積み重ねていきます。
-          </p>
-          <div class="actions">
-            <a class="button primary" href="/apps/">公開アプリを見る</a>
-            <a class="button" href="/contact.html">Contact</a>
+      <div class="container">
+        <div class="hero-shell">
+          <div>
+            <p class="eyebrow">Vital Intelligence Lab</p>
+            <h1>小さくても、役立つものを、継続して社会へ。</h1>
+            <p class="lead">
+              Vital Intelligence Lab は、研究開発と社会実装を通じて、
+              アプリ、システム、その他のデジタルな試みを形にしていく活動中です。
+              実用性を大切にしながら、小さな価値を継続的に積み上げていきます。
+            </p>
+
+            <div class="actions">
+              <a class="button primary" href="/apps/">公開アプリを見る</a>
+              <a class="button" href="/contact.html">お問い合わせ</a>
+            </div>
+
+            <div class="hero-note">
+              <strong>Position:</strong>
+              アプリや仕組みを少しずつ公開し、改善し、より役立つツールにしていきます。
+            </div>
           </div>
-        </div>
 
-        <div class="hero-panel" aria-hidden="true">
-          <div class="preview-board">
-            <div class="preview-top">
-              <span>VIL Overview</span>
-              <div class="preview-dots">
-                <span></span><span></span><span></span>
-              </div>
+          <div class="hero-card">
+            <div class="mini-card">
+              <h3>Apps</h3>
+              <p>継続利用しやすく、現場や日常に馴染むデジタルツールを公開。</p>
             </div>
 
-            <div class="preview-card">
-              <strong>Apps</strong>
-              <p>継続して使える、小さくても実用的なデジタルツールを公開。</p>
-            </div>
-
-            <div class="preview-metrics">
-              <div class="metric-box">
+            <div class="mini-stat-grid">
+              <div class="mini-stat">
                 <strong>1</strong>
                 <span>Published App</span>
               </div>
-              <div class="metric-box">
+              <div class="mini-stat">
                 <strong>Ongoing</strong>
                 <span>R&amp;D</span>
               </div>
-              <div class="metric-box">
+              <div class="mini-stat">
                 <strong>More</strong>
-                <span>To Build</span>
+                <span>Coming Next</span>
               </div>
             </div>
 
-            <div class="preview-card">
-              <strong>swimLogPlus</strong>
-              <p>水泳ログをシンプルに記録・振り返るための iOS アプリを公開中です。</p>
-            </div>
-
-            <div class="preview-card">
-              <strong>Next</strong>
-              <p>今後もアプリや仕組みを追加し、VIL 全体として少しずつ広げていきます。</p>
+            <div class="mini-card">
+              <h3>Current Focus</h3>
+              <p>現在は swimLogPlus を公開中。今後も VIL 配下に追加していく予定です。</p>
             </div>
           </div>
         </div>
@@ -558,88 +470,23 @@
     </section>
 
     <section class="section">
-      <div class="container">
-        <h2>About</h2>
-        <div class="note-grid">
-          <article class="note-card">
-            <h3>What VIL is</h3>
-            <p>まだ会社ではなく、個人ベースで研究開発と社会実装を行う活動の場として運用しています。</p>
-          </article>
-          <article class="note-card">
-            <h3>What we value</h3>
-            <p>派手さよりも、継続して使えること、役に立つこと、改善し続けられることを重視します。</p>
-          </article>
-          <article class="note-card">
-            <h3>What we aim for</h3>
-            <p>個人レベルの開発からでも、社会に接続できる実用的な価値を少しずつ増やしていくことを目指します。</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section alt">
       <div class="container">
         <h2>What we build</h2>
-        <div class="feature-grid">
-          <article class="feature-card">
+
+        <div class="card-grid">
+          <article class="card">
             <h3>Apps</h3>
-            <p>日常の記録や行動を支える、軽量で継続利用しやすいアプリ。</p>
+            <p>日常やトレーニング、実務に役立つ、軽量で実用的なアプリ。</p>
           </article>
-          <article class="feature-card">
+
+          <article class="card">
             <h3>Systems</h3>
-            <p>個人や小規模な現場にフィットする、必要十分な仕組みづくり。</p>
+            <p>個人や小規模な現場に合う、必要十分な仕組みづくり。</p>
           </article>
-          <article class="feature-card">
+
+          <article class="card">
             <h3>R&amp;D</h3>
-            <p>小さな研究開発から実装可能な形に落とし込み、社会実装につなげる試み。</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Featured App</h2>
-            <p class="section-text">現在公開中のアプリです。</p>
-          </div>
-          <a class="section-link" href="/apps/">Apps一覧へ</a>
-        </div>
-
-        <div class="app-grid">
-          <article class="app-card">
-            <div class="app-card-header">
-              <div>
-                <span class="app-tag">iOS App</span>
-                <h3 style="margin-top: 14px;">swimLogPlus</h3>
-              </div>
-              <div class="app-icon">SL</div>
-            </div>
-
-            <p>
-              水泳練習やトレーニングの記録を簡潔に残し、
-              継続的な振り返りへつなげるためのミニマルなアプリです。
-            </p>
-
-            <div class="meta-row">
-              <span class="meta">Platform: iOS</span>
-              <span class="meta">Category: Swim Log</span>
-              <span class="meta">Status: Live</span>
-            </div>
-
-            <div class="card-actions">
-              <a class="button primary" href="/apps/swimlogplus/">詳細を見る</a>
-              <a class="text-link" href="/support.html">Support</a>
-            </div>
-          </article>
-
-          <article class="info-card">
-            <h3>Current note</h3>
-            <p>
-              swimLogPlus を起点として、今後も VIL 配下に新しいアプリや仕組みを追加していく想定です。
-              一覧ページと詳細ページの構造をそろえることで、拡張しやすい運用を目指しています。
-            </p>
+            <p>小さな研究開発を、実装と公開につなげていく試み。</p>
           </article>
         </div>
       </div>
@@ -647,21 +494,69 @@
 
     <section class="section alt">
       <div class="container">
+        <h2>Featured App</h2>
+
+        <div class="feature-grid">
+          <article class="card">
+            <div class="featured-app">
+              <img
+                src="/assets/apps/swimlogplus/icon.png"
+                alt="swimLogPlus icon"
+                class="app-icon"
+              />
+
+              <div>
+                <span class="app-tag">iOS App</span>
+                <h3>SwimLog+</h3>
+                <p class="section-text">
+                  水泳トレーニングの記録・振り返り・分析・フォーム確認を
+                  1つにまとめたアプリです。
+                </p>
+
+                <div class="meta-row">
+                  <span>Platform: iOS</span>
+                  <span>Category: Swim / Training</span>
+                  <span>Status: Live</span>
+                </div>
+
+                <div class="card-actions">
+                  <a class="button primary" href="/apps/swimlogplus/">詳細を見る</a>
+                  <a class="text-link" href="/apps/">Apps一覧へ</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Why this structure</h3>
+            <p class="section-text">
+              VILは統合ブランドです
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
         <h2>Support & Policy</h2>
-        <div class="info-grid">
-          <article class="info-card">
+
+        <div class="support-grid">
+          <article class="card">
             <h3>Support</h3>
-            <p>アプリに関する質問やサポート導線を維持し、既存の運用を崩さずつなげます。</p>
+            <p>利用方法や不具合報告など、サポート情報はこちらから確認できます。</p>
             <a class="text-link" href="/support.html">Support page</a>
           </article>
-          <article class="info-card">
+
+          <article class="card">
             <h3>Privacy</h3>
-            <p>swimLog の既存ポリシーをベースに、現行運用を引き継ぎながら整理していきます。</p>
+            <p>公開サービスに関するプライバシーポリシーはこちらです。</p>
             <a class="text-link" href="/privacy.html">Privacy policy</a>
           </article>
-          <article class="info-card">
+
+          <article class="card">
             <h3>Terms</h3>
-            <p>既存の利用規約を維持しつつ、新しいサイト構造でも迷わない導線にします。</p>
+            <p>利用条件や免責事項など、基本的な利用ルールはこちらです。</p>
             <a class="text-link" href="/terms.html">Terms of use</a>
           </article>
         </div>
