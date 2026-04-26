@@ -1,1 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SwimLog+ | Vital Intelligence Lab</title>
 
+  <meta
+    name="description"
+    content="SwimLog+ is an iOS app for recording, reviewing, analyzing, and improving swimming training and technique."
+  />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #07111d;
+      color: #eef4ff;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      background: rgba(7,17,29,0.75);
+      backdrop-filter: blur(16px);
+    }
+
+    .header-inner {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      font-weight: 800;
+    }
+
+    .brand img {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    nav a {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #c4cfdf;
+    }
+
+    .hero {
+      padding: 50px 0;
+    }
+
+    .hero-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      padding: 30px;
+      border-radius: 30px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 18px;
+      max-width: 12ch;
+    }
+
+    .lead {
+      color: #c4cfdf;
+      margin-bottom: 20px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .button {
+      padding: 12px 18px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.12);
+      font-weight: 700;
+    }
+
+    .app-store-badge {
+      height: 48px;
+    }
+
+    .section {
+      padding: 60px 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 20px;
+    }
+
+    .card {
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding: 30px 0;
+      color: #c4cfdf;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    @media(max-width:900px){
+      .hero-box,
+      .grid{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container header-inner">
+    <a href="/en/" class="brand">
+      <img src="/assets/apps/swimlogplus/icon.png">
+      <span>SwimLog+</span>
+    </a>
+
+    <nav>
+      <a href="/en/apps/">Apps</a>
+      <a href="/en/support.html">Support</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/apps/swimlogplus/">日本語</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-box">
+
+      <div>
+        <h1>Swim smarter, not harder.</h1>
+
+        <p class="lead">
+          SwimLog+ helps you record, review, and improve your swimming training.
+          Track distance, stroke, notes, and form videos in one simple workflow.
+        </p>
+
+        <div class="actions">
+          <a href="https://apps.apple.com/jp/app/swimlogplus/id6760929042" target="_blank">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                 class="app-store-badge">
+          </a>
+
+          <a class="button" href="#screens">View Screens</a>
+          <a class="button" href="/en/contact.html">Contact</a>
+        </div>
+      </div>
+
+      <div>
+        <img src="/assets/apps/swimlogplus/hero.png">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Features</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Track Training</h3>
+        <p>Log distance, stroke, and session details easily.</p>
+      </div>
+
+      <div class="card">
+        <h3>Review Progress</h3>
+        <p>Look back on your sessions and identify patterns.</p>
+      </div>
+
+      <div class="card">
+        <h3>Form Check</h3>
+        <p>Store videos and notes to improve your technique.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="screens">
+  <div class="container">
+    <h2>Screens</h2>
+
+    <div class="grid">
+      <img src="/assets/apps/swimlogplus/screenshots/screenshot-01.png">
+      <img src="/assets/apps/swimlogplus/screenshots/screenshot-02.png">
+      <img src="/assets/apps/swimlogplus/screenshots/screenshot-03.png">
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    © Vital Intelligence Lab
+
+    <div class="footer-links">
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Use</a>
+      <a href="/en/contact.html">Contact</a>
+      <a href="/en/support.html">Support</a>
+    </div>
+
+    <p>Privacy Policy and Terms are provided in Japanese.</p>
+  </div>
+</footer>
+
+</body>
+</html>
