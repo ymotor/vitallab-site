@@ -1,1 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support | Vital Intelligence Lab</title>
+  <meta name="description" content="Support information for apps published by Vital Intelligence Lab." />
 
+  <link rel="alternate" hreflang="ja" href="https://vitalintlab.com/support.html" />
+  <link rel="alternate" hreflang="en" href="https://vitalintlab.com/en/support.html" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #07111d;
+      color: #eef4ff;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      background: rgba(7,17,29,0.75);
+      backdrop-filter: blur(16px);
+    }
+
+    .header-inner {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+    }
+
+    .brand img {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    nav a {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #c4cfdf;
+    }
+
+    .hero {
+      padding: 46px 0 28px;
+    }
+
+    .hero-box {
+      padding: 30px;
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      line-height: 1.1;
+      margin: 0 0 16px;
+    }
+
+    h2, h3 {
+      margin-top: 0;
+    }
+
+    p, li {
+      color: #c4cfdf;
+    }
+
+    .section {
+      padding: 36px 0 70px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      padding: 22px;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 18px;
+      margin-top: 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: #53d7ff;
+      color: #03111b;
+      font-weight: 700;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding: 28px 0;
+      color: #c4cfdf;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .header-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container header-inner">
+      <a href="/en/" class="brand">
+        <img src="/favicon.png" alt="Vital Intelligence Lab logo">
+        <span>Vital Intelligence Lab</span>
+      </a>
+
+      <nav>
+        <a href="/en/">Home</a>
+        <a href="/en/apps/">Apps</a>
+        <a href="/en/contact.html">Contact</a>
+        <a href="/support.html">日本語</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-box">
+          <h1>Support</h1>
+          <p>
+            Support information for apps published by Vital Intelligence Lab.
+            For questions, bug reports, or feedback, please use the contact form.
+          </p>
+          <a class="button" href="/en/contact.html">Contact Support</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>SwimLog+</h2>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Questions</h3>
+            <p>If you have questions about how to use SwimLog+, please contact us through the form.</p>
+          </div>
+
+          <div class="card">
+            <h3>Bug reports</h3>
+            <p>Please include your device model, OS version, and a short description of the issue.</p>
+          </div>
+
+          <div class="card">
+            <h3>Feedback</h3>
+            <p>Feature requests and improvement ideas are welcome.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Policy links</h2>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Privacy Policy</h3>
+            <p>The privacy policy is currently provided in Japanese.</p>
+            <a class="button" href="/privacy.html">View Privacy Policy</a>
+          </div>
+
+          <div class="card">
+            <h3>Terms of Use</h3>
+            <p>The terms of use are currently provided in Japanese.</p>
+            <a class="button" href="/terms.html">View Terms</a>
+          </div>
+
+          <div class="card">
+            <h3>Contact</h3>
+            <p>Use the contact form for support and general inquiries.</p>
+            <a class="button" href="/en/contact.html">Contact</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © Vital Intelligence Lab
+      <div class="footer-links">
+        <a href="/en/">Home</a>
+        <a href="/en/apps/">Apps</a>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Use</a>
+        <a href="/en/contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
