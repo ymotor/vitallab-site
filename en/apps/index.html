@@ -1,1 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apps | Vital Intelligence Lab</title>
+  <meta name="description" content="Apps published by Vital Intelligence Lab." />
 
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #07111d;
+      color: #eef4ff;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      background: rgba(7,17,29,0.75);
+      backdrop-filter: blur(16px);
+    }
+
+    .header-inner {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+    }
+
+    .brand img {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    nav a {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #c4cfdf;
+    }
+
+    .hero {
+      padding: 46px 0 28px;
+    }
+
+    .hero-box {
+      padding: 30px;
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      line-height: 1.1;
+      margin: 0 0 16px;
+    }
+
+    h2 {
+      margin: 0 0 18px;
+    }
+
+    p {
+      color: #c4cfdf;
+    }
+
+    .section {
+      padding: 36px 0 70px;
+    }
+
+    .apps-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+    }
+
+    .card {
+      padding: 22px;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .app-head {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      margin-bottom: 18px;
+    }
+
+    .app-icon {
+      width: 76px;
+      height: 76px;
+      border-radius: 22px;
+      object-fit: cover;
+    }
+
+    .tag {
+      display: inline-flex;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #c4cfdf;
+      margin-bottom: 12px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      font-weight: 700;
+    }
+
+    .button.primary {
+      background: #53d7ff;
+      color: #03111b;
+      border: none;
+    }
+
+    .app-store-badge {
+      height: 48px;
+      width: auto;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding: 28px 0;
+      color: #c4cfdf;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 900px) {
+      .apps-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .header-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .app-head {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container header-inner">
+      <a href="/en/" class="brand">
+        <img src="/favicon.png" alt="Vital Intelligence Lab logo">
+        <span>Vital Intelligence Lab</span>
+      </a>
+
+      <nav>
+        <a href="/en/">Home</a>
+        <a href="/en/apps/">Apps</a>
+        <a href="/en/contact.html">Contact</a>
+        <a href="/en/support.html">Support</a>
+        <a href="/apps/">日本語</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-box">
+          <h1>Apps</h1>
+          <p>
+            Apps published by Vital Intelligence Lab.
+            We build small, practical tools that support everyday habits and personal improvement.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Published Apps</h2>
+
+        <div class="apps-grid">
+          <article class="card">
+            <div class="app-head">
+              <img src="/assets/apps/swimlogplus/icon.png" alt="SwimLog+ icon" class="app-icon">
+
+              <div>
+                <span class="tag">iOS App</span>
+                <h3>SwimLog+</h3>
+                <p>
+                  SwimLog+ is an iOS app for recording, reviewing, analyzing,
+                  and checking swimming training and form.
+                </p>
+              </div>
+            </div>
+
+            <div class="actions">
+              <a class="button primary" href="/en/apps/swimlogplus/">View Details</a>
+
+              <a href="https://apps.apple.com/jp/app/swimlogplus/id6760929042" target="_blank" rel="noopener noreferrer">
+                <img
+                  src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                  alt="Download on the App Store"
+                  class="app-store-badge"
+                />
+              </a>
+            </div>
+          </article>
+
+          <article class="card">
+            <span class="tag">Coming Next</span>
+            <h3>More tools are planned</h3>
+            <p>
+              We plan to add more apps and small systems focused on health,
+              daily life, personal productivity, and practical research support.
+            </p>
+            <div class="actions">
+              <a class="button" href="/en/contact.html">Contact us</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © Vital Intelligence Lab
+      <div class="footer-links">
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Use</a>
+        <a href="/en/contact.html">Contact</a>
+        <a href="/en/support.html">Support</a>
+      </div>
+      <p>Privacy Policy and Terms of Use are currently provided in Japanese.</p>
+    </div>
+  </footer>
+</body>
+</html>
