@@ -1,1 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vital Intelligence Lab</title>
 
+  <meta
+    name="description"
+    content="Vital Intelligence Lab builds small but practical digital tools to improve everyday life through continuous development and real-world use."
+  />
+
+  <style>
+    :root {
+      --bg: #07111d;
+      --panel: rgba(255, 255, 255, 0.06);
+      --text: #eef4ff;
+      --muted: #c4cfdf;
+      --line: rgba(255, 255, 255, 0.12);
+      --accent: #53d7ff;
+      --accent-strong: #24c0f1;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+      --radius: 24px;
+      --container: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(83,215,255,0.16), transparent 28%),
+        radial-gradient(circle at top right, rgba(36,192,241,0.12), transparent 24%),
+        linear-gradient(180deg, #06111d 0%, #091423 45%, #0d1726 100%);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--container));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      backdrop-filter: blur(16px);
+      background: rgba(7,17,29,0.75);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .site-header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 76px;
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-logo {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+    }
+
+    .brand {
+      font-weight: 800;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 12px;
+      color: var(--muted);
+    }
+
+    .site-nav a {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+    }
+
+    .hero {
+      padding: 50px 0;
+    }
+
+    .hero-shell {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      padding: 30px;
+      border-radius: 30px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 18px;
+      max-width: 14ch;
+    }
+
+    .lead {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .button {
+      padding: 12px 18px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.05);
+      font-weight: 700;
+    }
+
+    .button.primary {
+      background: var(--accent);
+      color: black;
+      border: none;
+    }
+
+    .section {
+      padding: 60px 0;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 20px;
+    }
+
+    .card {
+      padding: 20px;
+      border-radius: 20px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 30px 0;
+      color: var(--muted);
+    }
+
+    @media(max-width:900px){
+      .hero-shell,
+      .card-grid{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="container site-header-inner">
+    <a href="/en/" class="brand-wrap">
+      <img src="/favicon.png" class="brand-logo">
+      <div class="brand">Vital Intelligence Lab</div>
+    </a>
+
+    <nav class="site-nav">
+      <a href="/en/apps/">Apps</a>
+      <a href="/en/contact.html">Contact</a>
+      <a href="/en/support.html">Support</a>
+      <a href="/">日本語</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-shell">
+
+      <div>
+        <h1>Small tools, meaningful improvements.</h1>
+
+        <p class="lead">
+          Vital Intelligence Lab is an independent R&D field focused on building
+          practical digital tools that support everyday life.  
+          We start small, release early, and continuously improve through real use.
+        </p>
+
+        <a class="button primary" href="/en/apps/">View Apps</a>
+      </div>
+
+      <div>
+        <div class="card">
+          <h3>Current</h3>
+          <p>SwimLog+ is now available.</p>
+        </div>
+
+        <div class="card" style="margin-top:15px;">
+          <h3>Focus</h3>
+          <p>Health, daily life, and practical digital tools.</p>
+        </div>
+
+        <div class="card" style="margin-top:15px;">
+          <h3>Next</h3>
+          <p>More apps will be added gradually.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>What we build</h2>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>Apps</h3>
+        <p>Simple, practical tools for daily use.</p>
+      </div>
+
+      <div class="card">
+        <h3>Systems</h3>
+        <p>Lightweight systems for small-scale needs.</p>
+      </div>
+
+      <div class="card">
+        <h3>R&D</h3>
+        <p>Turning small ideas into real implementations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    © Vital Intelligence Lab
+  </div>
+</footer>
+
+</body>
+</html>
