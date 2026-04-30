@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy | Vital Intelligence Lab</title>
+  <meta
+    name="description"
+    content="Vital Intelligence Lab のプライバシーポリシーです。公開中アプリおよび本サイトに関する個人情報の取扱いについて記載しています。"
+  />
+  <style>
+    :root {
+      --bg: #07111d;
+      --bg-soft: #0d1726;
+      --panel: rgba(255, 255, 255, 0.06);
+      --text: #eef4ff;
+      --muted: #c4cfdf;
+      --line: rgba(255, 255, 255, 0.12);
+      --accent: #53d7ff;
+      --accent-strong: #24c0f1;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+      --radius: 24px;
+      --container: 960px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(83, 215, 255, 0.16), transparent 28%),
+        radial-gradient(circle at top right, rgba(36, 192, 241, 0.12), transparent 24%),
+        linear-gradient(180deg, #06111d 0%, #091423 45%, #0d1726 100%);
+      color: var(--text);
+      line-height: 1.75;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--container));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(7, 17, 29, 0.72);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .site-header-inner {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .site-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .site-nav a {
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .site-nav a:hover,
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      padding: 44px 0 24px;
+    }
+
+    .hero-card,
+    .content-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 28px 26px;
+    }
+
+    .content-card {
+      padding: 28px 26px;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      color: var(--muted);
+      background: rgba(255,255,255,0.04);
+      font-size: 0.88rem;
+      margin-bottom: 18px;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.15;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      letter-spacing: -0.05em;
+      margin-bottom: 14px;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      margin-bottom: 14px;
+      letter-spacing: -0.02em;
+    }
+
+    p, li {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .lead {
+      font-size: 1.02rem;
+      max-width: 62ch;
+    }
+
+    .section {
+      padding: 18px 0;
+    }
+
+    .list {
+      margin: 12px 0 0;
+      padding-left: 20px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .small-note {
+      margin-top: 12px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0 38px;
+      background: rgba(5, 10, 18, 0.35);
+      margin-top: 36px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-copy {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    @media (max-width: 640px) {
+      .site-header-inner {
+        min-height: 68px;
+      }
+
+      .site-nav a {
+        padding: 9px 13px;
+      }
+
+      .hero-card,
+      .content-card {
+        padding: 20px 18px;
+      }
+
+      .hero {
+        padding-top: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header-inner">
+      <a href="/" class="brand">Vital Intelligence Lab</a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/apps/">Apps</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/en/support.html">English</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <p class="eyebrow">Privacy Policy</p>
+          <h1>プライバシーポリシー</h1>
+          <p class="lead">
+            Vital Intelligence Lab（以下、「当方」）は、本サイトおよび当方が提供するアプリ・サービスにおける
+            利用者情報の取扱いについて、以下のとおりプライバシーポリシーを定めます。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="content-card">
+          <h2>1. 適用範囲</h2>
+          <p>
+            本ポリシーは、Vital Intelligence Lab が運営する本サイトおよび公開中のアプリ・サービスに適用されます。
+            ただし、特定のアプリまたはサービスについて個別のプライバシーポリシーを定めた場合は、当該個別ポリシーが優先されます。
+          </p>
+        </div>
+
+        <div class="content-card">
+          <h2>2. 取得する情報</h2>
+          <p>当方は、以下の情報を取得することがあります。</p>
+          <ul class="list">
+            <li>お問い合わせフォーム等を通じて利用者が送信する氏名、メールアドレス、問い合わせ内容</li>
+            <li>アプリやサービスの利用に伴って発生する利用状況に関する情報</li>
+            <li>端末情報、OS情報、クラッシュ情報、アクセス情報等の技術的情報</li>
+          </ul>
+        </div>
+
+        <div class="content-card">
+          <h2>3. 利用目的</h2>
+          <p>取得した情報は、以下の目的のために利用します。</p>
+          <ul class="list">
+            <li>お問い合わせへの対応</li>
+            <li>サービスの提供、維持、改善</li>
+            <li>不具合の確認、修正、品質向上</li>
+            <li>利用状況の分析および機能改善の参考</li>
+            <li>不正利用の防止および安全性の確保</li>
+          </ul>
+        </div>
+
+        <div class="content-card">
+          <h2>4. 第三者提供</h2>
+          <p>
+            当方は、法令に基づく場合を除き、利用者本人の同意なく個人情報を第三者に提供しません。
+          </p>
+        </div>
+
+        <div class="content-card">
+          <h2>5. 外部サービスの利用</h2>
+          <p>
+            当方は、サービス運営や問い合わせ対応等のために外部サービスを利用する場合があります。
+            その場合、当該外部サービス提供者のプライバシーポリシーまたは利用条件が適用されることがあります。
+          </p>
+        </div>
+
+        <div class="content-card">
+          <h2>6. 安全管理</h2>
+          <p>
+            当方は、取得した情報の漏えい、滅失、毀損等を防止するため、合理的な範囲で安全管理措置を講じます。
+          </p>
+        </div>
+
+        <div class="content-card">
+          <h2>7. 開示・訂正・削除等</h2>
+          <p>
+            利用者本人から、自己の個人情報について開示、訂正、削除等の要請があった場合は、
+            法令に従い合理的な範囲で対応します。
+          </p>
+        </div>
+
+        <div class="content-card">
+          <h2>8. 改定</h2>
+          <p>
+            本ポリシーは、必要に応じて改定されることがあります。改定後の内容は、本ページに掲載した時点から有効とします。
+          </p>
+        </div>
+
+        <div class="content-card">
+          <h2>9. お問い合わせ窓口</h2>
+          <p>
+            本ポリシーに関するお問い合わせは、
+            <a href="/contact.html" style="color: var(--accent); font-weight: 700;">Contactページ</a>
+            よりご連絡ください。
+          </p>
+          <p class="small-note">最終更新日：2026-04-23</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+    <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-copy">© Vital Intelligence Lab</p>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/apps/">Apps</a>
+        <a href="/support.html">Support</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Use | Vital Intelligence Lab</title>
+  <meta
+    name="description"
+    content="Vital Intelligence Lab の利用規約です。本サイトおよび公開中アプリ・サービスの利用条件について記載しています。"
+  />
+  <style>
+    :root {
+      --bg: #07111d;
+      --bg-soft: #0d1726;
+      --panel: rgba(255, 255, 255, 0.06);
+      --text: #eef4ff;
+      --muted: #c4cfdf;
+      --line: rgba(255, 255, 255, 0.12);
+      --accent: #53d7ff;
+      --accent-strong: #24c0f1;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+      --radius: 24px;
+      --container: 960px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(83, 215, 255, 0.16), transparent 28%),
+        radial-gradient(circle at top right, rgba(36, 192, 241, 0.12), transparent 24%),
+        linear-gradient(180deg, #06111d 0%, #091423 45%, #0d1726 100%);
+      color: var(--text);
+      line-height: 1.75;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--container));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(7, 17, 29, 0.72);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .site-header-inner {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .site-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .site-nav a {
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .site-nav a:hover,
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      padding: 44px 0 24px;
+    }
+
+    .hero-card,
+    .content-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 28px 26px;
+    }
+
+    .content-card {
+      padding: 28px 26px;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      color: var(--muted);
+      background: rgba(255,255,255,0.04);
+      font-size: 0.88rem;
+      margin-bottom: 18px;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.15;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      letter-spacing: -0.05em;
+      margin-bottom: 14px;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      margin-bottom: 14px;
+      letter-spacing: -0.02em;
+    }
+
+    p, li {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .lead {
+      font-size: 1.02rem;
+      max-width: 62ch;
+    }
+
+    .section {
+      padding: 18px 0;
+    }
+
+    .list {
+      margin: 12px 0 0;
+      padding-left: 20px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .small-note {
+      margin-top: 12px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0 38px;
+      background: rgba(5, 10, 18, 0.35);
+      margin-top: 36px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-copy {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    @media (max-width: 640px) {
+      .site-header-inner {
+        min-height: 68px;
+      }
+
+      .site-nav a {
+        padding: 9px 13px;
+      }
+
+      .hero-card,
+      .content-card {
+        padding: 20px 18px;
+      }
+
+      .hero {
+        padding-top: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header-inner">
+      <a href="/" class="brand">Vital Intelligence Lab</a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/apps/">Apps</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/support.html">Support</a>
+        <a href="/en/">English</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <p class="eyebrow">Terms of Use</p>
+          <h1>利用規約</h1>
+          <p class="lead">
+            本規約は、Vital Intelligence Lab（以下、「当方」）が提供する本サイトおよび公開中のアプリ・サービスの
+            利用条件を定めるものです。利用者は、本サイトまたは当方のアプリ・サービスを利用することにより、
+            本規約に同意したものとみなされます。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="content-card">
+          <h2>1. 適用範囲</h2>
+          <p>
+            本規約は、Vital Intelligence Lab が運営する本サイトおよび公開中のアプリ・サービスに適用されます。
+            ただし、特定のアプリまたはサービスについて個別の利用規約を定めた場合は、当該個別規約が優先されます。
+          </p>
+        </div>
+
+        <div class="content-card">
+          <h2>2. 利用条件</h2>
+          <p>
+            利用者は、法令、公序良俗および本規約に従って、本サイトおよびアプリ・サービスを利用するものとします。
+          </p>
+        </div>
+
+        <div class="content-card">
+          <h2>3. 禁止事項</h2>
+          <p>利用者は、以下の行為を行ってはなりません。</p>
+          <ul class="list">
+            <li>法令または公序良俗に違反する行為</li>
+            <li>本サイトまたはアプリ・サービスの運営を妨害する行為</li>
+            <li>不正アクセス、リバースエンジニアリング、不正利用を目的とした行為</li>
+            <li>第三者または当方の権利、利益、信用を侵害する行為</li>
+            <li>虚偽の情報を送信または登録する行為</li>
+            <li>その他、当方が不適切と判断する行為</li>
+          </ul>
+        </div>
+
+        <div class="content-card">
+          <h2>4. サービス内容の変更・停止</h2>
+          <p>
+            当方は、利用者に事前に通知することなく、本サイトまたはアプリ・サービスの内容を変更し、
+            または提供を中断・終了することがあります。
+          </p>
+        </div>
+
+        <div class="content-card">
+          <h2>5. 知的財産権</h2>
+          <p>
+            本サイトおよびアプリ・サービスに含まれるテキスト、画像、ロゴ、デザイン、プログラムその他一切の情報に関する
+            知的財産権は、当方または正当な権利者に帰属します。
+          </p>
+        </div>
+
+        <div class="content-card">
+          <h2>6. 免責事項</h2>
+          <ul class="list">
+            <li>当方は、本サイトまたはアプリ・サービスの内容について、正確性、完全性、有用性、継続性等を保証するものではありません。</li>
+            <li>当方は、本サイトまたはアプリ・サービスの利用または利用不能によって利用者に生じた損害について、当方に故意または重過失がある場合を除き、責任を負いません。</li>
+            <li>当方は、外部サービスや第三者サービスの利用に起因して生じた損害について責任を負いません。</li>
+          </ul>
+        </div>
+
+        <div class="content-card">
+          <h2>7. 利用者の責任</h2>
+          <p>
+            利用者は、自己の責任において本サイトおよびアプリ・サービスを利用するものとし、
+            利用に関連して第三者との間で紛争が生じた場合は、自らの責任と費用で解決するものとします。
+          </p>
+        </div>
+
+        <div class="content-card">
+          <h2>8. 規約の変更</h2>
+          <p>
+            当方は、必要に応じて本規約を変更することがあります。変更後の規約は、本ページに掲載した時点から効力を生じます。
+          </p>
+        </div>
+
+        <div class="content-card">
+          <h2>9. 準拠法・管轄</h2>
+          <p>
+            本規約の解釈には日本法を準拠法とし、本サイトまたはアプリ・サービスに関して紛争が生じた場合は、
+            当方の所在地を管轄する裁判所を第一審の専属的合意管轄とします。
+          </p>
+        </div>
+
+        <div class="content-card">
+          <h2>10. お問い合わせ</h2>
+          <p>
+            本規約に関するお問い合わせは、
+            <a href="/contact.html" style="color: var(--accent); font-weight: 700;">Contactページ</a>
+            よりご連絡ください。
+          </p>
+          <p class="small-note">最終更新日：2026-04-23</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-copy">© Vital Intelligence Lab</p>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/apps/">Apps</a>
+        <a href="/support.html">Support</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
