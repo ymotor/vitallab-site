@@ -3,159 +3,223 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Apps | Vital Intelligence Lab</title>
-  <meta name="description" content="Apps published by Vital Intelligence Lab." />
+  <meta
+    name="description"
+    content="Apps published by Vital Intelligence Lab, including SwimLog+ and EVLog+."
+  />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Apps | Vital Intelligence Lab" />
+  <meta property="og:description" content="Apps published by Vital Intelligence Lab." />
+  <meta property="og:url" content="https://vitalintlab.com/en/apps/" />
+  <meta property="og:image" content="https://vitalintlab.com/assets/img/vil/ogp-en.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Apps | Vital Intelligence Lab" />
+  <meta name="twitter:description" content="Apps published by Vital Intelligence Lab." />
+  <meta name="twitter:image" content="https://vitalintlab.com/assets/img/vil/ogp-en.png" />
+
+  <link rel="alternate" hreflang="ja" href="https://vitalintlab.com/apps/" />
+  <link rel="alternate" hreflang="en" href="https://vitalintlab.com/en/apps/" />
+  <link rel="alternate" hreflang="x-default" href="https://vitalintlab.com/apps/" />
 
   <style>
+    :root {
+      --bg: #07111d;
+      --panel: rgba(255, 255, 255, 0.06);
+      --text: #eef4ff;
+      --muted: #c4cfdf;
+      --line: rgba(255, 255, 255, 0.12);
+      --accent: #53d7ff;
+      --accent-strong: #24c0f1;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+      --radius: 24px;
+      --container: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #07111d;
-      color: #eef4ff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(83, 215, 255, 0.16), transparent 28%),
+        radial-gradient(circle at top right, rgba(36, 192, 241, 0.12), transparent 24%),
+        linear-gradient(180deg, #06111d 0%, #091423 45%, #0d1726 100%);
+      color: var(--text);
       line-height: 1.7;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
     .container {
-      width: min(1120px, calc(100% - 32px));
+      width: min(calc(100% - 32px), var(--container));
       margin: 0 auto;
     }
 
-    header {
-      border-bottom: 1px solid rgba(255,255,255,0.12);
-      background: rgba(7,17,29,0.75);
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
       backdrop-filter: blur(16px);
+      background: rgba(7, 17, 29, 0.76);
+      border-bottom: 1px solid var(--line);
     }
 
-    .header-inner {
+    .site-header-inner {
       min-height: 76px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       gap: 20px;
     }
 
-    .brand {
+    .brand-wrap {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
+    }
+
+    .brand-logo {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      object-fit: cover;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .brand {
+      font-size: 1.08rem;
       font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
     }
 
-    .brand img {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
+    .brand-sub {
+      color: var(--muted);
+      font-size: 0.86rem;
+      margin-top: 2px;
     }
 
-    nav {
+    .site-nav {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
+      color: var(--muted);
+      font-size: 0.95rem;
     }
 
-    nav a {
-      padding: 10px 14px;
+    .site-nav a {
+      padding: 10px 16px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.12);
-      color: #c4cfdf;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      color: var(--muted);
+    }
+
+    .site-nav a:hover,
+    .site-nav a.active,
+    .footer-links a:hover,
+    .text-link:hover {
+      color: var(--accent);
+      border-color: rgba(83, 215, 255, 0.35);
     }
 
     .hero {
-      padding: 46px 0 28px;
+      padding: 44px 0 30px;
     }
 
-    .hero-box {
-      padding: 30px;
-      border-radius: 28px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.06);
-    }
-
-    h1 {
-      font-size: clamp(2.4rem, 5vw, 4rem);
-      line-height: 1.1;
-      margin: 0 0 16px;
-    }
-
-    h2 {
-      margin: 0 0 18px;
-    }
-
-    p {
-      color: #c4cfdf;
-    }
-
-    .section {
-      padding: 36px 0 70px;
-    }
-
-    .apps-grid {
+    .hero-shell {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 18px;
+      grid-template-columns: minmax(0, 1.04fr) minmax(360px, 0.96fr);
+      gap: 26px;
+      padding: 34px 28px;
+      border-radius: 32px;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at top left, rgba(83, 215, 255, 0.12), transparent 30%),
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      box-shadow: var(--shadow);
     }
 
-    .card {
-      padding: 22px;
-      border-radius: 24px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.06);
-    }
-
-    .app-head {
-      display: flex;
-      gap: 18px;
-      align-items: flex-start;
+    .eyebrow {
+      display: inline-flex;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      color: var(--muted);
+      background: rgba(255,255,255,0.04);
+      font-size: 0.88rem;
       margin-bottom: 18px;
     }
 
-    .app-icon {
-      width: 76px;
-      height: 76px;
-      border-radius: 22px;
-      object-fit: cover;
+    h1, h2, h3 {
+      line-height: 1.15;
+      margin: 0;
     }
 
-    .tag {
-      display: inline-flex;
-      padding: 6px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.12);
-      color: #c4cfdf;
-      margin-bottom: 12px;
+    h1 {
+      font-size: clamp(2.45rem, 4.6vw, 4.35rem);
+      letter-spacing: -0.05em;
+      max-width: 12.5ch;
+      margin-bottom: 18px;
     }
 
-    .actions {
+    h2 {
+      font-size: clamp(1.75rem, 3vw, 2.35rem);
+      margin-bottom: 18px;
+      letter-spacing: -0.02em;
+    }
+
+    h3 {
+      font-size: 1.14rem;
+      margin-bottom: 10px;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 1.06rem;
+      max-width: 62ch;
+      margin: 0 0 22px;
+    }
+
+    .actions,
+    .card-actions {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
       gap: 12px;
-      margin-top: 20px;
+      align-items: center;
     }
+
+    .actions { margin-bottom: 16px; }
+    .card-actions { margin-top: 18px; }
 
     .button {
       display: inline-flex;
-      min-height: 48px;
       align-items: center;
       justify-content: center;
+      min-height: 50px;
       padding: 0 18px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
       font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.08);
     }
 
     .button.primary {
-      background: #53d7ff;
+      background: linear-gradient(180deg, var(--accent), var(--accent-strong));
       color: #03111b;
       border: none;
     }
@@ -163,68 +227,284 @@
     .app-store-badge {
       height: 48px;
       width: auto;
+      display: block;
     }
 
-    footer {
-      border-top: 1px solid rgba(255,255,255,0.12);
-      padding: 28px 0;
-      color: #c4cfdf;
+    .hero-card {
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.03);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+      min-height: 360px;
+    }
+
+    .mini-card {
+      padding: 18px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .mini-card p,
+    .section-text,
+    .card p,
+    .footer-copy {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .mini-stat-grid,
+    .apps-grid,
+    .support-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .mini-stat-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .mini-stat {
+      padding: 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.05);
+      text-align: center;
+    }
+
+    .mini-stat strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    .mini-stat span {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .section {
+      padding: 24px 0 70px;
+    }
+
+    .apps-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .support-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .app-card-inner {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .app-head {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .app-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 20px;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .app-tag {
+      display: inline-flex;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      font-size: 0.84rem;
+      margin-bottom: 12px;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .text-link {
+      display: inline-flex;
+      color: var(--accent);
+      font-weight: 700;
+      margin-top: 14px;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0 38px;
+      background: rgba(5, 10, 18, 0.35);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
     .footer-links {
       display: flex;
       flex-wrap: wrap;
       gap: 16px;
-      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.94rem;
     }
 
-    @media (max-width: 900px) {
-      .apps-grid {
+    @media (max-width: 980px) {
+      .hero-shell,
+      .apps-grid,
+      .support-grid,
+      .mini-stat-grid {
         grid-template-columns: 1fr;
       }
 
-      .header-inner {
-        align-items: flex-start;
+      .hero-card {
+        min-height: auto;
+      }
+
+      .app-head {
         flex-direction: column;
-        padding: 14px 0;
       }
     }
 
     @media (max-width: 640px) {
-      .app-head {
+      .site-header-inner {
+        min-height: auto;
+        padding: 14px 0;
+        align-items: flex-start;
         flex-direction: column;
+      }
+
+      .site-nav a {
+        padding: 9px 13px;
+      }
+
+      .hero-shell,
+      .card {
+        padding: 18px;
+      }
+
+      h1 {
+        max-width: 10.5ch;
+      }
+
+      .hero {
+        padding-top: 24px;
+      }
+
+      .section {
+        padding: 16px 0 54px;
+      }
+
+      .app-icon {
+        width: 64px;
+        height: 64px;
       }
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="container header-inner">
-      <a href="/en/" class="brand">
-        <img src="/favicon.png" alt="Vital Intelligence Lab logo">
-        <span>Vital Intelligence Lab</span>
+  <header class="site-header">
+    <div class="container site-header-inner">
+      <a href="/en/" class="brand-wrap">
+        <img src="/favicon.png" alt="Vital Intelligence Lab logo" class="brand-logo" />
+        <div>
+          <div class="brand">Vital Intelligence Lab</div>
+          <div class="brand-sub">VIL / vitalintlab.com</div>
+        </div>
       </a>
 
-    <nav class="site-nav" aria-label="Primary">
-      <a href="/en/">Home</a>
-      <a href="/en/apps/">Apps</a>
-      <a href="/en/contact.html">Contact</a>
-      <a href="/en/support.html">Support</a>
-      <a href="/">日本語</a>
-    </nav>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="/en/">Home</a>
+        <a href="/en/apps/" class="active">Apps</a>
+        <a href="/en/support.html">Support</a>
+        <a href="/en/contact.html">Contact</a>
+        <a href="/apps/">日本語</a>
+      </nav>
     </div>
   </header>
 
   <main>
     <section class="hero">
       <div class="container">
-        <div class="hero-box">
-          <h1>Apps</h1>
-          <p>
-            Apps published by Vital Intelligence Lab.
-            We build small, practical tools that support everyday habits and personal improvement.
-          </p>
+        <div class="hero-shell">
+          <div>
+            <p class="eyebrow">Apps by Vital Intelligence Lab</p>
+            <h1>Small tools, meaningful improvements.</h1>
+
+            <p class="lead">
+              Apps published by Vital Intelligence Lab.
+              We build small, practical tools that support everyday habits,
+              personal improvement, and daily life.
+            </p>
+
+            <div class="actions">
+              <a class="button primary" href="/en/apps/swimlogplus/">View SwimLog+</a>
+              <a class="button" href="/en/apps/evlogplus/">View EVLog+</a>
+              <a class="button" href="/en/contact.html">Contact</a>
+            </div>
+          </div>
+
+          <div class="hero-card">
+            <div class="mini-card">
+              <h3>Now available</h3>
+              <p>
+                SwimLog+ and EVLog+ are now available on the App Store.
+              </p>
+            </div>
+
+            <div class="mini-stat-grid">
+              <div class="mini-stat">
+                <strong>2</strong>
+                <span>Live apps</span>
+              </div>
+              <div class="mini-stat">
+                <strong>iOS</strong>
+                <span>Platform</span>
+              </div>
+              <div class="mini-stat">
+                <strong>More</strong>
+                <span>Coming next</span>
+              </div>
+            </div>
+
+            <div class="mini-card">
+              <h3>Next</h3>
+              <p>
+                We plan to add more small practical tools in areas such as health,
+                daily life, EV lifestyle, and research support.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -234,59 +514,118 @@
         <h2>Published Apps</h2>
 
         <div class="apps-grid">
-          <article class="card">
-            <div class="app-head">
-              <img src="/assets/apps/swimlogplus/icon.png" alt="SwimLog+ icon" class="app-icon">
+          <article class="card app-card">
+            <div class="app-card-inner">
+              <div class="app-head">
+                <img src="/assets/apps/swimlogplus/icon.png" alt="SwimLog+ icon" class="app-icon" />
 
-              <div>
-                <span class="tag">iOS App</span>
-                <h3>SwimLog+</h3>
-                <p>
-                  SwimLog+ is an iOS app for recording, reviewing, analyzing,
-                  and checking swimming training and form.
-                </p>
+                <div>
+                  <span class="app-tag">iOS App</span>
+                  <h3>SwimLog+</h3>
+                  <p class="section-text">
+                    SwimLog+ is an iOS app for recording, reviewing,
+                    analyzing, and checking swimming training and form.
+                  </p>
+                </div>
               </div>
-            </div>
 
-            <div class="actions">
-              <a class="button primary" href="/en/apps/swimlogplus/">View Details</a>
+              <div class="meta-row">
+                <span>Platform: iOS</span>
+                <span>Category: Swim / Training</span>
+                <span>Status: Live</span>
+              </div>
 
-              <a href="https://apps.apple.com/jp/app/swimlogplus/id6760929042" target="_blank" rel="noopener noreferrer">
-                <img
-                  src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-                  alt="Download on the App Store"
-                  class="app-store-badge"
-                />
-              </a>
+              <div class="card-actions">
+                <a class="button primary" href="/en/apps/swimlogplus/">View Details</a>
+
+                <a href="https://apps.apple.com/jp/app/swimlogplus/id6760929042" target="_blank" rel="noopener noreferrer">
+                  <img
+                    src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                    alt="Download on the App Store"
+                    class="app-store-badge"
+                  />
+                </a>
+              </div>
             </div>
           </article>
 
-          <article class="card">
-            <span class="tag">Coming Next</span>
-            <h3>More tools are planned</h3>
-            <p>
-              We plan to add more apps and small systems focused on health,
-              daily life, personal productivity, and practical research support.
-            </p>
-            <div class="actions">
-              <a class="button" href="/en/contact.html">Contact us</a>
+          <article class="card app-card">
+            <div class="app-card-inner">
+              <div class="app-head">
+                <img src="/assets/apps/evlogplus/icon.png" alt="EVLog+ icon" class="app-icon" />
+
+                <div>
+                  <span class="app-tag">iOS App</span>
+                  <h3>EVLog+</h3>
+                  <p class="section-text">
+                    EVLog+ helps you easily record EV driving, efficiency,
+                    charging, and costs so you can look back on your EV life.
+                  </p>
+                </div>
+              </div>
+
+              <div class="meta-row">
+                <span>Platform: iOS</span>
+                <span>Category: EV / Charging / Cost</span>
+                <span>Status: Live</span>
+              </div>
+
+              <div class="card-actions">
+                <a class="button primary" href="/en/apps/evlogplus/">View Details</a>
+
+                <a href="https://apps.apple.com/app/evlogplus/id6776500083" target="_blank" rel="noopener noreferrer">
+                  <img
+                    src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                    alt="Download on the App Store"
+                    class="app-store-badge"
+                  />
+                </a>
+              </div>
             </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Support & Policy</h2>
+
+        <div class="support-grid">
+          <article class="card">
+            <h3>Support</h3>
+            <p>Support information, questions, and bug reports are available here.</p>
+            <a class="text-link" href="/en/support.html">Support page</a>
+          </article>
+
+          <article class="card">
+            <h3>Privacy</h3>
+            <p>Privacy policy information is available here.</p>
+            <a class="text-link" href="/en/privacy.html">Privacy policy</a>
+          </article>
+
+          <article class="card">
+            <h3>Terms</h3>
+            <p>Terms of use and service information are available here.</p>
+            <a class="text-link" href="/en/terms.html">Terms of use</a>
           </article>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container">
-      © Vital Intelligence Lab
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-copy">© Vital Intelligence Lab</p>
+
       <div class="footer-links">
-        <a href="/privacy.html">Privacy Policy</a>
-        <a href="/terms.html">Terms of Use</a>
-        <a href="/en/contact.html">Contact</a>
+        <a href="/en/">Home</a>
+        <a href="/en/apps/">Apps</a>
         <a href="/en/support.html">Support</a>
+        <a href="/en/privacy.html">Privacy</a>
+        <a href="/en/terms.html">Terms</a>
+        <a href="/en/contact.html">Contact</a>
       </div>
-      <p>Privacy Policy and Terms of Use are currently provided in Japanese.</p>
     </div>
   </footer>
 </body>
