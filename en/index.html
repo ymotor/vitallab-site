@@ -40,7 +40,6 @@
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -54,15 +53,8 @@
       line-height: 1.7;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
     .container {
       width: min(calc(100% - 32px), var(--container));
@@ -203,13 +195,8 @@
       align-items: center;
     }
 
-    .actions {
-      margin-bottom: 16px;
-    }
-
-    .card-actions {
-      margin-top: 18px;
-    }
+    .actions { margin-bottom: 16px; }
+    .card-actions { margin-top: 18px; }
 
     .button {
       display: inline-flex;
@@ -250,9 +237,7 @@
       color: var(--muted);
     }
 
-    .hero-note strong {
-      color: var(--text);
-    }
+    .hero-note strong { color: var(--text); }
 
     .hero-card {
       border-radius: 28px;
@@ -406,13 +391,8 @@
         grid-template-columns: 1fr;
       }
 
-      .hero-card {
-        min-height: auto;
-      }
-
-      .featured-app {
-        flex-direction: column;
-      }
+      .hero-card { min-height: auto; }
+      .featured-app { flex-direction: column; }
     }
 
     @media (max-width: 640px) {
@@ -423,31 +403,17 @@
         flex-direction: column;
       }
 
-      .site-nav a {
-        padding: 9px 13px;
-      }
+      .site-nav a { padding: 9px 13px; }
 
       .hero-shell,
       .card {
         padding: 18px;
       }
 
-      h1 {
-        max-width: 10.5ch;
-      }
-
-      .hero {
-        padding-top: 24px;
-      }
-
-      .section {
-        padding: 16px 0 54px;
-      }
-
-      .app-icon {
-        width: 64px;
-        height: 64px;
-      }
+      h1 { max-width: 10.5ch; }
+      .hero { padding-top: 24px; }
+      .section { padding: 16px 0 54px; }
+      .app-icon { width: 64px; height: 64px; }
     }
   </style>
 </head>
@@ -495,7 +461,7 @@
             <div class="hero-note">
               <strong>Approach:</strong>
               We build small, practical products and improve them step by step.
-              SwimLog+ is available now, and EVLog+ is preparing for App Store release.
+              SwimLog+ and EVLog+ are now available on the App Store.
             </div>
           </div>
 
@@ -508,7 +474,7 @@
             <div class="mini-stat-grid">
               <div class="mini-stat">
                 <strong>2</strong>
-                <span>Apps</span>
+                <span>Live apps</span>
               </div>
               <div class="mini-stat">
                 <strong>Ongoing</strong>
@@ -516,14 +482,14 @@
               </div>
               <div class="mini-stat">
                 <strong>More</strong>
-                <span>Coming Next</span>
+                <span>Coming next</span>
               </div>
             </div>
 
             <div class="mini-card">
               <h3>Current Focus</h3>
               <p>
-                SwimLog+ is available now. EVLog+ is preparing for App Store release.
+                SwimLog+ and EVLog+ are now available.
                 We are building small practical tools for health, daily life, and EV lifestyle.
               </p>
             </div>
@@ -562,11 +528,7 @@
         <div class="card-grid">
           <article class="card">
             <div class="featured-app">
-              <img
-                src="/assets/apps/swimlogplus/icon.png"
-                alt="SwimLog+ icon"
-                class="app-icon"
-              />
+              <img src="/assets/apps/swimlogplus/icon.png" alt="SwimLog+ icon" class="app-icon" />
 
               <div>
                 <span class="app-tag">iOS App</span>
@@ -584,11 +546,7 @@
 
                 <div class="card-actions">
                   <a class="button primary" href="/en/apps/swimlogplus/">View Details</a>
-                  <a
-                    href="https://apps.apple.com/jp/app/swimlogplus/id6760929042"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <a href="https://apps.apple.com/jp/app/swimlogplus/id6760929042" target="_blank" rel="noopener noreferrer">
                     <img
                       src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
                       alt="Download on the App Store"
@@ -602,14 +560,10 @@
 
           <article class="card">
             <div class="featured-app">
-              <img
-                src="/assets/apps/evlogplus/icon.png"
-                alt="EVLog+ icon"
-                class="app-icon"
-              />
+              <img src="/assets/apps/evlogplus/icon.png" alt="EVLog+ icon" class="app-icon" />
 
               <div>
-                <span class="app-tag">iOS App / Coming Soon</span>
+                <span class="app-tag">iOS App</span>
                 <h3>EVLog+</h3>
                 <p class="section-text">
                   EVLog+ helps you easily record EV driving, efficiency,
@@ -619,12 +573,18 @@
                 <div class="meta-row">
                   <span>Platform: iOS</span>
                   <span>Category: EV / Charging / Cost</span>
-                  <span>Status: Preparing</span>
+                  <span>Status: Live</span>
                 </div>
 
                 <div class="card-actions">
                   <a class="button primary" href="/en/apps/evlogplus/">View Details</a>
-                  <a class="button" href="/en/contact.html">Coming Soon</a>
+                  <a href="https://apps.apple.com/app/evlogplus/id6776500083" target="_blank" rel="noopener noreferrer">
+                    <img
+                      src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                      alt="Download on the App Store"
+                      class="app-store-badge"
+                    />
+                  </a>
                 </div>
               </div>
             </div>
@@ -681,235 +641,5 @@
       </div>
     </div>
   </footer>
-</body>
-</html>      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(83,215,255,0.16), transparent 28%),
-        radial-gradient(circle at top right, rgba(36,192,241,0.12), transparent 24%),
-        linear-gradient(180deg, #06111d 0%, #091423 45%, #0d1726 100%);
-      color: var(--text);
-      line-height: 1.7;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      width: min(calc(100% - 32px), var(--container));
-      margin: 0 auto;
-    }
-
-    .site-header {
-      backdrop-filter: blur(16px);
-      background: rgba(7,17,29,0.75);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .site-header-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      min-height: 76px;
-    }
-
-    .brand-wrap {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .brand-logo {
-      width: 46px;
-      height: 46px;
-      border-radius: 12px;
-    }
-
-    .brand {
-      font-weight: 800;
-    }
-
-    .site-nav {
-      display: flex;
-      gap: 12px;
-      color: var(--muted);
-    }
-
-    .site-nav a {
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-    }
-
-    .hero {
-      padding: 50px 0;
-    }
-
-    .hero-shell {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-      padding: 30px;
-      border-radius: 30px;
-      border: 1px solid var(--line);
-      background: var(--panel);
-    }
-
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 18px;
-      max-width: 14ch;
-    }
-
-    .lead {
-      color: var(--muted);
-      margin-bottom: 20px;
-    }
-
-    .button {
-      padding: 12px 18px;
-      border-radius: 12px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.05);
-      font-weight: 700;
-    }
-
-    .button.primary {
-      background: var(--accent);
-      color: black;
-      border: none;
-    }
-
-    .section {
-      padding: 60px 0;
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 20px;
-    }
-
-    .card {
-      padding: 20px;
-      border-radius: 20px;
-      background: var(--panel);
-      border: 1px solid var(--line);
-    }
-
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 30px 0;
-      color: var(--muted);
-    }
-
-    @media(max-width:900px){
-      .hero-shell,
-      .card-grid{
-        grid-template-columns:1fr;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-<header class="site-header">
-  <div class="container site-header-inner">
-    <a href="/en/" class="brand-wrap">
-      <img src="/favicon.png" class="brand-logo">
-      <div class="brand">Vital Intelligence Lab</div>
-    </a>
-
-    <nav class="site-nav" aria-label="Primary">
-      <a href="/en/">Home</a>
-      <a href="/en/apps/">Apps</a>
-      <a href="/en/contact.html">Contact</a>
-      <a href="/en/support.html">Support</a>
-      <a href="/">日本語</a>
-    </nav>
-
-  </div>
-</header>
-
-<main>
-
-<section class="hero">
-  <div class="container">
-    <div class="hero-shell">
-
-      <div>
-        <h1>Small tools, meaningful improvements.</h1>
-
-        <p class="lead">
-          Vital Intelligence Lab is an independent R&D field focused on building
-          practical digital tools that support everyday life.  
-          We start small, release early, and continuously improve through real use.
-        </p>
-
-        <a class="button primary" href="/en/apps/">View Apps</a>
-      </div>
-
-      <div>
-        <div class="card">
-          <h3>Current</h3>
-          <p>SwimLog+ is now available.</p>
-        </div>
-
-        <div class="card" style="margin-top:15px;">
-          <h3>Focus</h3>
-          <p>Health, daily life, and practical digital tools.</p>
-        </div>
-
-        <div class="card" style="margin-top:15px;">
-          <h3>Next</h3>
-          <p>More apps will be added gradually.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <h2>What we build</h2>
-
-    <div class="card-grid">
-      <div class="card">
-        <h3>Apps</h3>
-        <p>Simple, practical tools for daily use.</p>
-      </div>
-
-      <div class="card">
-        <h3>Systems</h3>
-        <p>Lightweight systems for small-scale needs.</p>
-      </div>
-
-      <div class="card">
-        <h3>R&D</h3>
-        <p>Turning small ideas into real implementations.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-</main>
-
-  <footer>
-    <div class="container">
-      © Vital Intelligence Lab
-      <div class="footer-links">
-        <a href="/en/apps/">Apps</a>
-        <a href="/en/support.html">Support</a>
-        <a href="/privacy.html">Privacy Policy</a>
-        <a href="/terms.html">Terms of Use</a>
-      </div>
-      <p>Privacy Policy and Terms of Use are currently provided in Japanese.</p>
-    </div>
-  </footer>
-
 </body>
 </html>
