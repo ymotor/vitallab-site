@@ -40,7 +40,6 @@
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -54,15 +53,8 @@
       line-height: 1.7;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
     .container {
       width: min(calc(100% - 32px), var(--container));
@@ -203,13 +195,8 @@
       align-items: center;
     }
 
-    .actions {
-      margin-bottom: 16px;
-    }
-
-    .card-actions {
-      margin-top: 18px;
-    }
+    .actions { margin-bottom: 16px; }
+    .card-actions { margin-top: 18px; }
 
     .button {
       display: inline-flex;
@@ -250,9 +237,7 @@
       color: var(--muted);
     }
 
-    .hero-note strong {
-      color: var(--text);
-    }
+    .hero-note strong { color: var(--text); }
 
     .hero-card {
       border-radius: 28px;
@@ -406,13 +391,8 @@
         grid-template-columns: 1fr;
       }
 
-      .hero-card {
-        min-height: auto;
-      }
-
-      .featured-app {
-        flex-direction: column;
-      }
+      .hero-card { min-height: auto; }
+      .featured-app { flex-direction: column; }
     }
 
     @media (max-width: 640px) {
@@ -423,31 +403,17 @@
         flex-direction: column;
       }
 
-      .site-nav a {
-        padding: 9px 13px;
-      }
+      .site-nav a { padding: 9px 13px; }
 
       .hero-shell,
       .card {
         padding: 18px;
       }
 
-      h1 {
-        max-width: 10.5ch;
-      }
-
-      .hero {
-        padding-top: 24px;
-      }
-
-      .section {
-        padding: 16px 0 54px;
-      }
-
-      .app-icon {
-        width: 64px;
-        height: 64px;
-      }
+      h1 { max-width: 10.5ch; }
+      .hero { padding-top: 24px; }
+      .section { padding: 16px 0 54px; }
+      .app-icon { width: 64px; height: 64px; }
     }
   </style>
 </head>
@@ -480,6 +446,7 @@
           <div>
             <p class="eyebrow">Vital Intelligence Lab</p>
             <h1>小さな実装から、日常を少し良くする。</h1>
+
             <p class="lead">
               Vital Intelligence Lab は、小さな習慣のサポートを通じて生活の質を高めることを目指し、
               健康・生活・経済に役立つアプリや仕組みを形にしていく研究フィールドです。
@@ -494,7 +461,7 @@
             <div class="hero-note">
               <strong>方針:</strong>
               まずは小さく公開し、実際に使える形へ改善していきます。
-              SwimLog+ を起点に、EVLog+ など VIL 配下で新しいプロダクトを育てていきます。
+              SwimLog+ と EVLog+ を公開中。今後も VIL 配下で新しいプロダクトを育てていきます。
             </div>
           </div>
 
@@ -507,7 +474,7 @@
             <div class="mini-stat-grid">
               <div class="mini-stat">
                 <strong>2</strong>
-                <span>公開中・準備中</span>
+                <span>公開中</span>
               </div>
               <div class="mini-stat">
                 <strong>Ongoing</strong>
@@ -522,8 +489,7 @@
             <div class="mini-card">
               <h3>Current Focus</h3>
               <p>
-                現在は SwimLog+ を公開中。
-                EVLog+ は App Store 公開に向けて準備中です。
+                現在は SwimLog+ と EVLog+ を公開中です。
                 健康・生活・EVライフを支える小さな実用アプリを展開しています。
               </p>
             </div>
@@ -562,11 +528,7 @@
         <div class="card-grid">
           <article class="card">
             <div class="featured-app">
-              <img
-                src="/assets/apps/swimlogplus/icon.png"
-                alt="SwimLog+ icon"
-                class="app-icon"
-              />
+              <img src="/assets/apps/swimlogplus/icon.png" alt="SwimLog+ icon" class="app-icon" />
 
               <div>
                 <span class="app-tag">iOS App</span>
@@ -584,11 +546,7 @@
 
                 <div class="card-actions">
                   <a class="button primary" href="/apps/swimlogplus/">詳細を見る</a>
-                  <a
-                    href="https://apps.apple.com/jp/app/swimlogplus/id6760929042"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <a href="https://apps.apple.com/jp/app/swimlogplus/id6760929042" target="_blank" rel="noopener noreferrer">
                     <img
                       src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
                       alt="Download on the App Store"
@@ -602,14 +560,10 @@
 
           <article class="card">
             <div class="featured-app">
-              <img
-                src="/assets/apps/evlogplus/icon.png"
-                alt="EVLog+ icon"
-                class="app-icon"
-              />
+              <img src="/assets/apps/evlogplus/icon.png" alt="EVLog+ icon" class="app-icon" />
 
               <div>
-                <span class="app-tag">iOS App </span>
+                <span class="app-tag">iOS App</span>
                 <h3>EVLog+</h3>
                 <p class="section-text">
                   EVの走行・電費・充電・コストを簡単に記録し、
@@ -624,18 +578,13 @@
 
                 <div class="card-actions">
                   <a class="button primary" href="/apps/evlogplus/">詳細を見る</a>
-                  <a
-                    href="https://apps.apple.com/app/evlogplus/id6776500083"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <a href="https://apps.apple.com/app/evlogplus/id6776500083" target="_blank" rel="noopener noreferrer">
                     <img
                       src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
                       alt="Download on the App Store"
                       class="app-store-badge"
                     />
                   </a>
-                  
                 </div>
               </div>
             </div>
